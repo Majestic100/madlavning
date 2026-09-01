@@ -513,3 +513,38 @@ body[data-cooking="true"] .cooking-status { display: block; }
   a { color: inherit; text-decoration: none; }
   .trin-liste li { break-inside: avoid; }
 }
+
+/* ---------- Instagram-sektion ---------- */
+
+.ig-net {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(.6rem, 1.5vw, 1.1rem);
+  list-style: none; margin: 0; padding: 0;
+}
+@media (max-width: 640px) { .ig-net { grid-template-columns: repeat(2, 1fr); } }
+
+.ig-kort {
+  position: relative; display: block;
+  border-radius: var(--kant); overflow: hidden;
+  aspect-ratio: 1; background: var(--creme-dyb);
+}
+.ig-kort img { width: 100%; height: 100%; object-fit: cover; transition: transform 450ms cubic-bezier(.4,0,.2,1); }
+.ig-kort:hover img { transform: scale(1.05); }
+
+.ig-laag {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+  padding: 1rem; text-align: center;
+  background: rgba(79,45,36,.55);
+  color: #fff; font-size: .85rem; font-weight: 600; line-height: 1.4;
+  opacity: 0; transition: opacity var(--overgang);
+}
+.ig-kort:hover .ig-laag, .ig-kort:focus-visible .ig-laag { opacity: 1; }
+.ig-laag svg { width: 24px; height: 24px; }
+
+@media (hover: none) {
+  /* På touch-skærme vises en diskret badge i stedet for hover-laget */
+  .ig-laag { opacity: 1; background: none; justify-content: flex-end; align-items: flex-end; }
+  .ig-laag span { display: none; }
+  .ig-laag svg { filter: drop-shadow(0 1px 4px rgba(79,45,36,.6)); }
+}
