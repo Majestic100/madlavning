@@ -22,12 +22,6 @@ keywords: [gulerodskage, flødeostecreme, cream cheese frosting, kage med valnø
 storage: "Holder 3 dage på køl. Tag den ud en halv time før servering."
 freezable: true
 seasonal: true
-nutrition:
-  calories: 380
-  protein: 5
-  carbohydrates: 38
-  fat: 23
-  fiber: 2
 ingredients:
   - group: "Kagen"
     items:

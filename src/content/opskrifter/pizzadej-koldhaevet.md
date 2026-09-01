@@ -21,12 +21,6 @@ keywords: [pizzadej, koldhævet pizzadej, hjemmelavet pizza, napolitansk pizza, 
 storage: "Dejkuglerne holder 3 døgn på køl og bliver kun bedre."
 freezable: true
 seasonal: true
-nutrition:
-  calories: 490
-  protein: 16
-  carbohydrates: 98
-  fat: 3
-  fiber: 4
 ingredients:
   - group: "Dej (4 kugler à ca. 250 g)"
     items:

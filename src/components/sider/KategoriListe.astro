@@ -3,7 +3,6 @@
 import Layout from "../../layouts/Layout.astro";
 import Ikon from "../Ikon.astro";
 import OpskriftKort from "../OpskriftKort.astro";
-import NyhedsbrevBlok from "../NyhedsbrevBlok.astro";
 import type { CollectionEntry } from "astro:content";
 import { KATEGORIER, naboKategorier, DIAET_LABELS, type Kategori } from "../../lib/kategorier";
 import { KATEGORITEKSTER } from "../../data/kategoritekster";
@@ -152,9 +151,6 @@ if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
       </>
     )}
 
-    <div class="sektion">
-      <NyhedsbrevBlok />
-    </div>
   </div>
 
   {erOpskrifter && (

@@ -21,12 +21,6 @@ occasion: [gaester]
 keywords: [panna cotta, pannacotta, hindbærsauce, italiensk dessert, glutenfri dessert]
 storage: "Holder 3 dage på køl med film over."
 freezable: false
-nutrition:
-  calories: 350
-  protein: 4
-  carbohydrates: 22
-  fat: 28
-  fiber: 2
 ingredients:
   - group: "Panna cotta"
     items:

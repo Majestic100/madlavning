@@ -20,12 +20,6 @@ occasion: [hverdag, foedselsdag]
 keywords: [brownies, brownie opskrift, chokoladekage, mørk chokolade]
 storage: "Holder 4 dage i en lufttæt dåse og er faktisk bedst på dag to."
 freezable: true
-nutrition:
-  calories: 260
-  protein: 4
-  carbohydrates: 27
-  fat: 16
-  fiber: 2
 ingredients:
   - group: null
     items:

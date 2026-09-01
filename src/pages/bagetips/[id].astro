@@ -3,7 +3,6 @@
 import { getCollection, render } from "astro:content";
 import { Image, getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import NyhedsbrevBlok from "../../components/NyhedsbrevBlok.astro";
 import OpskriftKort from "../../components/OpskriftKort.astro";
 import Ikon from "../../components/Ikon.astro";
 import { breadcrumbJsonLd } from "../../lib/jsonld";
@@ -82,7 +81,6 @@ const jsonld = [
         <Content />
       </div>
 
-      <NyhedsbrevBlok />
     </div>
 
     {andre.length > 0 && (

@@ -353,10 +353,6 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 .meta-boks { border: 1px solid var(--linje); border-radius: var(--kant); padding: 1.2rem 1.4rem; }
 .meta-boks h3 { font-family: var(--sans); font-size: .74rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--tekst-svag); margin: 0 0 .7rem; }
 .meta-boks p { margin: 0; font-size: .94rem; }
-.naering-liste { list-style: none; margin: 0; padding: 0; font-size: .94rem; }
-.naering-liste li { display: flex; justify-content: space-between; padding: .3rem 0; border-bottom: 1px dashed var(--linje-blod); }
-.naering-liste li:last-child { border-bottom: 0; }
-.naering-liste strong { font-weight: 620; }
 
 /* Video */
 .video-ramme { position: relative; aspect-ratio: 16 / 9; border-radius: var(--kant); overflow: hidden; background: var(--espresso); box-shadow: var(--skygge); margin: 2.4rem 0; }
@@ -449,28 +445,6 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 mark { background: #F6E7D8; color: inherit; padding: 0 .12em; border-radius: 2px; }
 .soege-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
 
-/* ---------- Nyhedsbrev ---------- */
-
-.baand {
-  background: var(--espresso); color: #F6EFE9; border-radius: var(--kant);
-  padding: clamp(1.9rem, 5vw, 3.25rem);
-  display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 2rem; align-items: center;
-}
-.baand h2 { color: #fff; margin-bottom: .4em; }
-.baand p { color: rgba(246,239,233,.78); margin: 0; }
-.baand .oejenbryn { color: #C9B5A5; }
-.baand form { display: flex; gap: .6rem; flex-wrap: wrap; }
-.baand input[type="email"] {
-  flex: 1 1 220px; font: inherit; padding: .82rem 1.2rem;
-  border-radius: 999px; border: 1px solid rgba(255,255,255,.22);
-  background: rgba(255,255,255,.08); color: #fff;
-}
-.baand input::placeholder { color: rgba(246,239,233,.5); }
-.baand .knap-primaer { background: var(--creme-dyb); color: var(--espresso); }
-.baand .knap-primaer:hover { background: #fff; color: var(--espresso); }
-.baand small { display: block; margin-top: .75rem; font-size: .78rem; color: rgba(246,239,233,.8); }
-@media (max-width: 780px) { .baand { grid-template-columns: 1fr; } }
-
 /* ---------- Footer ---------- */
 
 .site-footer { background: var(--papir); border-top: 1px solid var(--linje); margin-top: clamp(3rem, 6vw, 4.5rem); padding: clamp(2.25rem, 5vw, 3.5rem) 0 1.9rem; }
@@ -505,7 +479,7 @@ body[data-cooking="true"] .cooking-status { display: block; }
 @media print {
   body { background: #fff; font-size: 11pt; }
   .site-header, .site-footer, .handlinger, .brodkrumme, .byline,
-  .baand, .video-ramme, .insta-link, .forfatter-boks, .relaterede,
+  .video-ramme, .insta-link, .forfatter-boks, .relaterede,
   .portions-vaelger, .o-intro, .o-hero, .cooking-status, .o-manchet { display: none !important; }
   .o-kort { border: 0; padding: 0; margin: 0; }
   .o-fakta { gap: .6rem 1.4rem; }

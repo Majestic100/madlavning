@@ -20,12 +20,6 @@ occasion: [gaester, hverdag]
 keywords: [ostestænger, butterdejssnack, snacks til gæster, ostesnack]
 storage: "Bedst lune. Holder til dagen efter i en dåse. Giv dem 3 minutter i ovnen."
 freezable: true
-nutrition:
-  calories: 120
-  protein: 4
-  carbohydrates: 8
-  fat: 8
-  fiber: 0
 ingredients:
   - group: null
     items:

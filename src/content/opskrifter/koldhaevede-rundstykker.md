@@ -20,12 +20,6 @@ occasion: [hverdag, weekend]
 keywords: [rundstykker, morgenbrød, koldhævning, gærdej uden æltning]
 storage: "Bedst samme dag. Lun dem 4 minutter ved 180 °C dagen efter."
 freezable: true
-nutrition:
-  calories: 220
-  protein: 7
-  carbohydrates: 45
-  fat: 1
-  fiber: 2
 ingredients:
   - group: "Dej"
     items:

@@ -5,7 +5,6 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Ikon from "../components/Ikon.astro";
 import OpskriftKort from "../components/OpskriftKort.astro";
-import NyhedsbrevBlok from "../components/NyhedsbrevBlok.astro";
 import InstagramSektion from "../components/InstagramSektion.astro";
 import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../lib/tid.mjs";
 import { forfatter } from "../data/forfattere";
@@ -105,13 +104,10 @@ for (const o of alle) {
     </div>
   </section>
 
-  <!-- 5: Følg med (Instagram + nyhedsbrev) -->
+  <!-- 5: Instagram -->
   <section class="sektion">
     <div class="wrap">
       <InstagramSektion />
-      <div style="margin-top: clamp(2.5rem, 5vw, 4rem)">
-        <NyhedsbrevBlok />
-      </div>
     </div>
   </section>
 
