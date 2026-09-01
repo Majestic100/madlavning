@@ -18,8 +18,8 @@ export const FORFATTERE: Record<string, Forfatter> = {
     rolle: "Bager og skriver alt her på siden",
     bio: "Jeg bager, fejler, retter til og skriver det ned, så du ikke behøver begå de samme fejl. Alle opskrifter er testet i mit eget køkken og skrevet i gram.",
     portraet,
-    // TODO: Sæt Merves rigtige profiler ind her:
-    instagram: "https://www.instagram.com/",
+    instagram: "https://www.instagram.com/merveholck/",
+    // TODO: Sæt Merves rigtige YouTube-kanal ind her:
     youtube: "https://www.youtube.com/",
     get sameAs() {
       return [this.instagram, this.youtube];
