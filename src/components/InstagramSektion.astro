@@ -1,0 +1,42 @@
+---
+/**
+ * Kurateret Instagram-sektion: opslag som kort, der linker til Instagram.
+ * Ingen embeds og ingen tredjepartsscripts, jf. spec §1 ("Link i stedet").
+ * Opslagene vedligeholdes i src/data/instagram.ts.
+ */
+import { Image } from "astro:assets";
+import Ikon from "./Ikon.astro";
+import { INSTAGRAM_OPSLAG } from "../data/instagram";
+import { forfatter } from "../data/forfattere";
+
+const merve = forfatter("merve");
+const opslag = INSTAGRAM_OPSLAG.slice(0, 4);
+---
+<div class="ig-sektion">
+  <div class="sektion-hoved">
+    <div>
+      <p class="oejenbryn">Instagram</p>
+      <h2>Med i køkkenet, mellem opskrifterne</h2>
+      <p>Derinde lægger jeg fremgangsmåder, mislykkede forsøg og færdige resultater op, tit før opskriften lander her på siden.</p>
+    </div>
+    <a class="knap knap-linje" href={merve.instagram} rel="me noopener" target="_blank">
+      <Ikon navn="instagram" /> Følg med
+    </a>
+  </div>
+
+  <ul class="ig-net">
+    {opslag.map((o) => (
+      <li>
+        <a class="ig-kort" href={o.link} rel="noopener" target="_blank" aria-label={`Se opslaget på Instagram: ${o.tekst}`}>
+          <Image src={o.billede} alt={o.alt} widths={[320, 480, 640]}
+                 sizes="(max-width: 640px) 46vw, 280px" width={640} height={640}
+                 fit="cover" loading="lazy" decoding="async" />
+          <span class="ig-laag">
+            <Ikon navn="instagram" />
+            <span>{o.tekst}</span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
