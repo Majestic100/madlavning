@@ -1,0 +1,40 @@
+---
+/** Søgeside: klientside-indeks, søger i titel, ingredienser og kategorier (spec §5). */
+import Layout from "../layouts/Layout.astro";
+import { sti } from "../lib/urls";
+
+const populaere = ["kanel", "chokolade", "gær", "pizza", "uden æltning", "dessert til gæster"];
+---
+<Layout titel="Søg" beskrivelse="Søg i alle opskrifter på titel, ingrediens eller kategori — fx kanel, chokolade eller pizza." aktiv="soeg">
+  <div class="side-top">
+    <div class="wrap-laes">
+      <p class="oejenbryn">Søg</p>
+      <h1>Hvad har du lyst til?</h1>
+      <div class="intro">
+        <p>Søg på opskrift, ingrediens eller kategori. Søgningen leder også i ingredienslisterne — prøv fx “hvad kan jeg lave med dadler”.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap-laes" style="padding-bottom:3rem">
+    <form class="soege-hoved" role="search" data-soegeform data-indeks={sti("/soegeindeks.json")}>
+      <label class="sr-only" for="soeg-input">Søgeord</label>
+      <input class="soege-felt" type="search" id="soeg-input" name="q"
+             placeholder="Søg efter opskrift eller ingrediens …" autocomplete="off" />
+      <button class="knap knap-primaer" type="submit">Søg</button>
+    </form>
+
+    <p class="soege-status" data-soegestatus>Indlæser opskrifter …</p>
+
+    <div class="soege-chips" data-soegechips>
+      <span class="filter-label">Prøv fx</span>
+      {populaere.map((p) => <button class="filter-chip" type="button" data-soegeord={p}>{p}</button>)}
+    </div>
+
+    <div data-soegeresultater style="margin-top:1.5rem"></div>
+  </div>
+
+  <script>
+    import "../scripts/soeg.ts";
+  </script>
+</Layout>

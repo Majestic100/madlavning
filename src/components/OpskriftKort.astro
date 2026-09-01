@@ -1,0 +1,56 @@
+---
+/** Opskriftskort (spec §4): billede, titel, samlet tid — ikke mere. + kategori-badge. */
+import { Image } from "astro:assets";
+import Ikon from "./Ikon.astro";
+import { kategoriAfSlug } from "../lib/kategorier";
+import { formatMinutter, totalTid, aktivTid, tidsInterval } from "../lib/tid.mjs";
+import { opskriftSti, kategoriSti, bagetipSti } from "../lib/urls";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"opskrifter"> | CollectionEntry<"bagetips">;
+  stor?: boolean;
+  doven?: boolean;
+  visKategori?: boolean;
+  visResume?: boolean;
+}
+const { post, stor = false, doven = true, visKategori = true, visResume = false } = Astro.props;
+
+const erOpskrift = post.collection === "opskrifter";
+const d: any = post.data;
+const url = erOpskrift ? opskriftSti(post.id) : bagetipSti(post.id);
+const kat = erOpskrift ? kategoriAfSlug(d.category) : kategoriAfSlug("bagetips");
+
+/** Filterdata til klientside-filtrering på kategorisider. */
+const filterData = erOpskrift
+  ? { "data-tid": tidsInterval(aktivTid(d)).id, "data-diaet": d.diet.join(" ") }
+  : {};
+---
+<li class:list={["kort", { "kort-stor": stor }]} {...filterData}>
+  <div class="kort-billede">
+    <Image
+      src={d.image.src}
+      alt={d.image.alt}
+      widths={stor ? [420, 640, 900, 1200] : [320, 480, 640]}
+      sizes={stor ? "(max-width: 640px) 92vw, 60vw" : "(max-width: 640px) 92vw, 300px"}
+      width={stor ? 1200 : 640}
+      height={stor ? 900 : 480}
+      fit="cover"
+      loading={doven ? "lazy" : "eager"}
+      decoding="async"
+    />
+    {visKategori && <a class="kort-kat" href={kategoriSti(kat.slug)}>{kat.navn}</a>}
+  </div>
+  <h3><a href={url}>{d.title}</a></h3>
+  {visResume && <p class="kort-resume">{d.excerpt}</p>}
+  <p class="kort-meta">
+    {erOpskrift ? (
+      <>
+        <span><Ikon navn="ur" />{formatMinutter(totalTid(d))}</span>
+        <span><Ikon navn="niveau" />{{ nem: "Nem", mellem: "Mellem", avanceret: "Avanceret" }[d.difficulty as string]}</span>
+      </>
+    ) : (
+      <span><Ikon navn="ur" />{d.readingTime} min læsning</span>
+    )}
+  </p>
+</li>

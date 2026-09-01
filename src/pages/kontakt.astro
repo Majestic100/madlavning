@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { breadcrumbJsonLd } from "../lib/jsonld";
+import { forfatter } from "../data/forfattere";
+import { sti } from "../lib/urls";
+
+const merve = forfatter("merve");
+const jsonld = [breadcrumbJsonLd([{ navn: "Forside", url: sti("/") }, { navn: "Kontakt", url: null }], Astro.site!.href)];
+---
+<Layout titel="Kontakt & samarbejde" beskrivelse="Skriv til Merve — spørgsmål til opskrifter, idéer til samarbejder eller brug af indhold fra siden." jsonld={jsonld}>
+  <div class="side-top">
+    <div class="wrap-laes">
+      <p class="oejenbryn">Kontakt</p>
+      <h1>Skriv til mig</h1>
+      <div class="intro"><p>Spørgsmål til en opskrift, en idé til et samarbejde — eller bare en hilsen.</p></div>
+    </div>
+  </div>
+
+  <div class="wrap-laes o-intro" style="padding-bottom:3rem">
+    <h2>Spørgsmål til en opskrift</h2>
+    <p>
+      Er dejen ikke hævet? Faldt kagen sammen? Skriv endelig — det er tit noget, jeg selv har
+      prøvet, og så kan jeg som regel gætte, hvad der skete. Fortæl mig, hvilken opskrift det
+      handler om, og hvad du gjorde.
+    </p>
+
+    <h2>Samarbejder</h2>
+    <p>
+      Jeg samarbejder gerne med brands, jeg selv bruger i køkkenet. Alt betalt indhold bliver
+      tydeligt markeret som reklame, og jeg anbefaler kun ting, jeg står inde for. Skriv med,
+      hvad I har i tankerne, jeres tidsramme, og hvor indholdet skal bruges — så vender jeg
+      tilbage med et bud.
+    </p>
+
+    <h2>Brug af opskrifter og billeder</h2>
+    <p>
+      Du må gerne dele en opskrift videre, hvis du linker tilbage hertil og skriver, hvor den
+      kommer fra. Billeder må ikke bruges kommercielt uden aftale.
+    </p>
+
+    <hr />
+    <p>
+      Den hurtigste vej til mig er <a href={merve.instagram} rel="me noopener">Instagram</a>.
+      <!-- TODO: Indsæt Merves kontakt-e-mail her, når den er klar. -->
+    </p>
+  </div>
+</Layout>

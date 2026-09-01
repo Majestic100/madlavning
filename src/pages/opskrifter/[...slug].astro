@@ -1,0 +1,103 @@
+---
+/**
+ * Alt under /opskrifter/ (spec §7-URL-struktur):
+ *   /opskrifter/               → alle opskrifter (side 1)
+ *   /opskrifter/side/2/        → alle opskrifter (side 2+)
+ *   /opskrifter/kager/         → kategoriside
+ *   /opskrifter/kager/side/2/  → kategoriside (side 2+)
+ *   /opskrifter/kanelsnurrer/  → opskriftsside
+ */
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import OpskriftSide from "../../components/sider/OpskriftSide.astro";
+import KategoriListe from "../../components/sider/KategoriListe.astro";
+import { KATEGORIER, type Kategori } from "../../lib/kategorier";
+
+export const PR_SIDE = 12;
+
+export async function getStaticPaths() {
+  const alle = (await getCollection("opskrifter")).sort(
+    (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+  );
+
+  const reserverede = new Set([...KATEGORIER.map((k) => k.slug), "side"]);
+  for (const o of alle) {
+    if (reserverede.has(o.id)) {
+      throw new Error(`Opskrift-slug "${o.id}" kolliderer med en kategori-URL. Omdøb filen.`);
+    }
+  }
+
+  type Sti = { params: { slug: string | undefined }; props: Record<string, unknown> };
+  const stier: Sti[] = alle.map((post) => ({
+    params: { slug: post.id },
+    props: { visning: "opskrift", post },
+  }));
+
+  const listeStier = (posts: typeof alle, kategori: Kategori | null, base: string) => {
+    const antalSider = Math.max(1, Math.ceil(posts.length / PR_SIDE));
+    for (let side = 1; side <= antalSider; side++) {
+      const prefix = kategori ? kategori.slug : "";
+      const slug =
+        side === 1
+          ? prefix || undefined
+          : [prefix, "side", String(side)].filter(Boolean).join("/");
+      stier.push({
+        params: { slug },
+        props: {
+          visning: "liste",
+          kategori,
+          posts: posts.slice((side - 1) * PR_SIDE, side * PR_SIDE),
+          side,
+          antalSider,
+          basePath: base,
+        },
+      });
+    }
+  };
+
+  listeStier(alle, null, "/opskrifter/");
+  for (const kat of KATEGORIER.filter((k) => !k.erArtikler)) {
+    listeStier(alle.filter((o) => o.data.category === kat.slug), kat, `/opskrifter/${kat.slug}/`);
+  }
+
+  return stier;
+}
+
+type Props =
+  | { visning: "opskrift"; post: CollectionEntry<"opskrifter"> }
+  | {
+      visning: "liste";
+      kategori: Kategori | null;
+      posts: CollectionEntry<"opskrifter">[];
+      side: number;
+      antalSider: number;
+      basePath: string;
+    };
+
+const props = Astro.props as Props;
+import { KATEGORITEKSTER } from "../../data/kategoritekster";
+import { sti } from "../../lib/urls";
+
+const listeMeta =
+  props.visning === "liste"
+    ? {
+        titel: props.kategori ? props.kategori.navn : "Alle opskrifter",
+        beskrivelse: props.kategori
+          ? `${props.kategori.tagline}. ${KATEGORITEKSTER[props.kategori.slug].intro[0]}`.slice(0, 155)
+          : "Alle Merves opskrifter samlet ét sted: bagværk, kager, desserter, snacks og pizza — gennemtestede og skrevet i gram.",
+      }
+    : null;
+---
+{props.visning === "opskrift" ? (
+  <OpskriftSide post={props.post} />
+) : (
+  <KategoriListe
+    kategori={props.kategori}
+    titel={listeMeta!.titel}
+    beskrivelse={listeMeta!.beskrivelse}
+    posts={props.posts}
+    side={props.side}
+    antalSider={props.antalSider}
+    basePath={sti(props.basePath)}
+  />
+)}

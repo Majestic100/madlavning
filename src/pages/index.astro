@@ -1,0 +1,114 @@
+---
+/** Forside — maks 5 sektioner (spec §6). */
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import Ikon from "../components/Ikon.astro";
+import OpskriftKort from "../components/OpskriftKort.astro";
+import NyhedsbrevBlok from "../components/NyhedsbrevBlok.astro";
+import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../lib/tid.mjs";
+import { forfatter } from "../data/forfattere";
+import { sti, kategoriSti } from "../lib/urls";
+
+const merve = forfatter("merve");
+const alle = (await getCollection("opskrifter")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+
+/* Sæsonens opskrifter styres manuelt med `seasonal: true` i frontmatter (spec §6). */
+const saeson = alle.filter((o) => o.data.seasonal).slice(0, 4);
+const nyeste = alle.filter((o) => !saeson.includes(o)).slice(0, 8);
+
+const tidTal = new Map(TIDS_INTERVALLER.map((i) => [i.id, 0]));
+for (const o of alle) {
+  const i = tidsInterval(aktivTid(o.data));
+  tidTal.set(i.id, (tidTal.get(i.id) ?? 0) + 1);
+}
+---
+<Layout aktiv="forside">
+
+  <!-- 1: Hero med Merve -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="oejenbryn">Bagværk · Kager · Pizza</p>
+        <h1>Opskrifter der virker — også første gang</h1>
+        <p class="hero-manchet">
+          Jeg hedder Merve. Jeg bager, fejler, retter til og skriver det ned — i gram, med
+          ærlige tider og de tips, der gør forskellen. Alt her er testet i mit eget køkken.
+        </p>
+        <div class="hero-cta">
+          <a class="knap knap-primaer" href={sti("/opskrifter/")}>Find en opskrift <Ikon navn="pil" /></a>
+          <a class="knap knap-linje" href={kategoriSti("bagetips")}>Læs bagetips</a>
+        </div>
+      </div>
+      <div class="hero-billede">
+        <Image src={merve.portraet} alt={`Portræt af ${merve.navn}`} widths={[420, 640, 920]}
+               sizes="(max-width: 840px) 94vw, 460px" width={920} height={920} fit="cover"
+               loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 2: Sæsonens opskrifter -->
+  {saeson.length > 0 && (
+    <section class="sektion sektion-flade">
+      <div class="wrap">
+        <div class="sektion-hoved">
+          <div>
+            <p class="oejenbryn">Lige nu</p>
+            <h2>Sæsonens opskrifter</h2>
+          </div>
+        </div>
+        <ul class="kort-net">
+          {saeson.map((o, i) => <OpskriftKort post={o} stor={i === 0} doven={false} />)}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <!-- 3: Nyeste opskrifter -->
+  <section class="sektion">
+    <div class="wrap">
+      <div class="sektion-hoved">
+        <div>
+          <p class="oejenbryn">Lige ud af ovnen</p>
+          <h2>Nyeste opskrifter</h2>
+        </div>
+        <a class="se-alle" href={sti("/opskrifter/")}>Se alle <Ikon navn="pil" /></a>
+      </div>
+      <ul class="kort-net">
+        {nyeste.map((o) => <OpskriftKort post={o} />)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4: Tidsbaserede indgange -->
+  <section class="sektion sektion-flade">
+    <div class="wrap">
+      <div class="sektion-hoved">
+        <div>
+          <p class="oejenbryn">Hvor lang tid har du?</p>
+          <h2>Vælg efter aktiv tid</h2>
+          <p>Tiden, du reelt står i køkkenet — hævetid og køletid passer sig selv.</p>
+        </div>
+      </div>
+      <div class="tids-net">
+        {TIDS_INTERVALLER.filter((i) => (tidTal.get(i.id) ?? 0) > 0).map((i) => (
+          <a class="tids-flise" href={`${sti("/opskrifter/")}?tid=${i.id}`}>
+            <strong>{i.label}</strong>
+            <span>{tidTal.get(i.id)} {tidTal.get(i.id) === 1 ? "opskrift" : "opskrifter"}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: Nyhedsbrev -->
+  <section class="sektion">
+    <div class="wrap">
+      <NyhedsbrevBlok />
+    </div>
+  </section>
+
+</Layout>

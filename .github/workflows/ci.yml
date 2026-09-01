@@ -1,0 +1,32 @@
+# Kvalitetsgate på pull requests: tests + build + Lighthouse (spec §7).
+# PR'en fejler, hvis Performance < 90, Accessibility < 95 eller SEO < 100.
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  kvalitet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installér afhængigheder
+        run: npm ci
+
+      - name: Kør unit-tests (mængder og tidsformatering)
+        run: npm test
+
+      - name: Byg sitet
+        run: npx astro build
+        env:
+          SITE_URL: "https://ci.example"
+          BASE_PATH: "/"
+
+      - name: Lighthouse-gate
+        run: npx --yes @lhci/cli@0.15.x autorun

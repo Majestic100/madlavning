@@ -1,0 +1,25 @@
+---
+/** 404 med søgefelt og populære indgange (spec §7). */
+import Layout from "../layouts/Layout.astro";
+import { KATEGORIER } from "../lib/kategorier";
+import { sti, kategoriSti } from "../lib/urls";
+---
+<Layout titel="Siden findes ikke" beskrivelse="Siden findes ikke — søg i stedet, eller gå til en af kategorierne.">
+  <div class="wrap-laes" style="padding:5rem 0;text-align:center">
+    <p class="oejenbryn">404</p>
+    <h1>Den side er faldet ud af bogen</h1>
+    <p style="color:var(--tekst-daemp);font-size:1.1rem;max-width:44ch;margin-inline:auto">
+      Måske er linket gammelt, eller også har jeg flyttet rundt. Prøv at søge — eller start i en kategori.
+    </p>
+
+    <form action={sti("/soeg/")} method="get" role="search" class="soege-hoved" style="max-width:480px;margin:2rem auto 1.5rem">
+      <label class="sr-only" for="soeg-404">Søg</label>
+      <input class="soege-felt" type="search" id="soeg-404" name="q" placeholder="Søg efter en opskrift …" />
+      <button class="knap knap-primaer" type="submit">Søg</button>
+    </form>
+
+    <nav class="filter-raekke" style="justify-content:center" aria-label="Kategorier">
+      {KATEGORIER.map((k) => <a class="filter-chip" href={kategoriSti(k.slug)}>{k.navn}</a>)}
+    </nav>
+  </div>
+</Layout>
