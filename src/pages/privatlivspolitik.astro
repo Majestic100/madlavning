@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { sti } from "../lib/urls";
+---
+<Layout titel="Privatlivspolitik" beskrivelse="Privatlivspolitik for Merves madblog — hvilke oplysninger siden behandler, og hvad der ikke bliver gemt.">
+  <div class="side-top">
+    <div class="wrap-laes">
+      <p class="oejenbryn">Juridisk</p>
+      <h1>Privatlivspolitik</h1>
+      <div class="intro"><p>Hvilke oplysninger siden her behandler — og hvad der ikke bliver gemt.</p></div>
+    </div>
+  </div>
+
+  <div class="wrap-laes o-intro" style="padding-bottom:3rem">
+    <p><em>Senest opdateret: september 2026. Tilpas denne tekst, når nyhedsbrev, statistik eller kommentarer kobles på siden.</em></p>
+
+    <h2>Dataansvarlig</h2>
+    <p>Merve Holck er dataansvarlig for behandlingen af personoplysninger på denne hjemmeside. Du kan kontakte mig via <a href={sti("/kontakt/")}>kontaktsiden</a>.</p>
+
+    <h2>Hvad siden gemmer</h2>
+    <p>
+      Siden er bygget som en statisk hjemmeside og sætter <strong>ikke cookies</strong> af sig selv.
+      Der er ingen reklamesporing og ingen profilering. Afkrydsning af ingredienser gemmes kun i din
+      egen browser (sessionStorage) og sendes ingen steder hen.
+    </p>
+    <p>
+      <strong>Videoer</strong> indlæses først fra YouTube, når du selv trykker afspil — og via
+      youtube-nocookie.com, som ikke sætter sporings-cookies før afspilning.
+    </p>
+
+    <h2>Nyhedsbrev</h2>
+    <p>
+      Tilmelder du dig nyhedsbrevet, gemmes din e-mailadresse hos den udbyder, der udsender brevene.
+      Adressen bruges udelukkende til nyhedsbrevet, tilmeldingen bekræftes med dobbelt opt-in, og du
+      kan afmelde dig med linket nederst i enhver mail.
+    </p>
+
+    <h2>Dine rettigheder</h2>
+    <p>
+      Du har ret til indsigt i, rettelse af og sletning af de oplysninger, jeg måtte have om dig.
+      Skriv til mig, så ordner jeg det. Er du utilfreds med behandlingen, kan du klage til
+      <a href="https://www.datatilsynet.dk" rel="noopener">Datatilsynet</a>.
+    </p>
+  </div>
+</Layout>

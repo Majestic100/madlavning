@@ -1,0 +1,50 @@
+---
+import Ikon from "./Ikon.astro";
+import Logo from "./Logo.astro";
+import { KATEGORIER } from "../lib/kategorier";
+import { kategoriSti, sti } from "../lib/urls";
+import { FORFATTERE } from "../data/forfattere";
+import { SITE } from "../data/site";
+
+const merve = FORFATTERE.merve;
+const aar = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-net">
+      <div class="footer-intro">
+        <a class="logo" href={sti("/")} aria-label="Merve — forside"><Logo /></a>
+        <p>{SITE.slogan}</p>
+        <div class="sociale">
+          <a href={merve.instagram} aria-label="Instagram" rel="me noopener"><Ikon navn="instagram" /></a>
+          <a href={merve.youtube} aria-label="YouTube" rel="me noopener"><Ikon navn="youtube" /></a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-titel">Kategorier</p>
+        <ul>
+          {KATEGORIER.map((k) => (
+            <li><a href={kategoriSti(k.slug)}>{k.navn}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-titel">Genveje</p>
+        <ul>
+          <li><a href={sti("/opskrifter/")}>Alle opskrifter</a></li>
+          <li><a href={sti("/soeg/")}>Søg</a></li>
+          <li><a href={sti("/om/")}>Om Merve</a></li>
+          <li><a href={sti("/kontakt/")}>Kontakt &amp; samarbejde</a></li>
+          <li><a href={sti("/feed.xml")}>RSS-feed</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bund">
+      <span>© {aar} {merve.navn}. Alle opskrifter og billeder er mine egne.</span>
+      <a href={sti("/privatlivspolitik/")}>Privatlivspolitik</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+{
+  "name": "merve-madlavning",
+  "version": "1.0.0",
+  "description": "Merves madblog — bagværk, kager, desserter, snacks, pizza og bagetips",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "node --test \"tests/**/*.test.mjs\"",
+    "billeder": "node scripts/lav-pladsholderbilleder.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.0",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource/grand-hotel": "^5.3.0",
+    "astro": "^7.2.10",
+    "sharp": "^0.35.4"
+  }
+}

@@ -1,0 +1,165 @@
+---
+/** Kategori- og oversigtssider (spec §4): intro, filtre, grid, paginering, SEO-blokke, FAQ, nabolinks. */
+import Layout from "../../layouts/Layout.astro";
+import Ikon from "../Ikon.astro";
+import OpskriftKort from "../OpskriftKort.astro";
+import NyhedsbrevBlok from "../NyhedsbrevBlok.astro";
+import type { CollectionEntry } from "astro:content";
+import { KATEGORIER, naboKategorier, DIAET_LABELS, type Kategori } from "../../lib/kategorier";
+import { KATEGORITEKSTER } from "../../data/kategoritekster";
+import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../../lib/tid.mjs";
+import { breadcrumbJsonLd, faqJsonLd } from "../../lib/jsonld";
+import { sti, kategoriSti } from "../../lib/urls";
+
+type Post = CollectionEntry<"opskrifter"> | CollectionEntry<"bagetips">;
+
+interface Props {
+  /** null = "Alle opskrifter" */
+  kategori: Kategori | null;
+  titel: string;
+  beskrivelse: string;
+  posts: Post[];
+  side: number;
+  antalSider: number;
+  /** basePath uden sidenummer, fx "/opskrifter/kager/" */
+  basePath: string;
+}
+const { kategori, titel, beskrivelse, posts, side, antalSider, basePath } = Astro.props;
+
+const tekst = kategori ? KATEGORITEKSTER[kategori.slug] : null;
+const erOpskrifter = !kategori?.erArtikler;
+
+/* Filtertællere (kun opskrifter) */
+const opskrifter = posts.filter((p): p is CollectionEntry<"opskrifter"> => p.collection === "opskrifter");
+const tidTal = new Map(TIDS_INTERVALLER.map((i) => [i.id, 0]));
+const diaetTal = new Map(Object.keys(DIAET_LABELS).map((d) => [d, 0]));
+for (const o of opskrifter) {
+  const i = tidsInterval(aktivTid(o.data));
+  tidTal.set(i.id, (tidTal.get(i.id) ?? 0) + 1);
+  for (const di of o.data.diet) diaetTal.set(di, (diaetTal.get(di) ?? 0) + 1);
+}
+
+const sideSti = (n: number) => (n === 1 ? basePath : `${basePath}side/${n}/`);
+
+const jsonld: object[] = [
+  breadcrumbJsonLd(
+    [
+      { navn: "Forside", url: sti("/") },
+      ...(kategori
+        ? [{ navn: "Opskrifter", url: sti("/opskrifter/") }, { navn: kategori.navn, url: null }]
+        : [{ navn: "Opskrifter", url: null }]),
+    ],
+    Astro.site!.href,
+  ),
+];
+if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
+---
+<Layout
+  titel={side > 1 ? `${titel} — side ${side}` : titel}
+  beskrivelse={beskrivelse}
+  aktiv={kategori?.slug ?? "opskrifter"}
+  jsonld={jsonld}
+>
+  <div class="side-top">
+    <div class="wrap">
+      <p class="oejenbryn">{kategori ? (kategori.erArtikler ? "Guides" : "Kategori") : `${posts.length} opskrifter`}</p>
+      <h1>{titel}</h1>
+      <div class="intro">
+        {tekst
+          ? tekst.intro.map((afsnit) => <p>{afsnit}</p>)
+          : <p>Hele samlingen på ét sted — nyeste først. Brug filtrene, eller <a href={sti("/soeg/")}>søg</a>, hvis du leder efter en bestemt ingrediens.</p>}
+      </div>
+
+      <nav class="filter-raekke" aria-label="Kategorier">
+        <span class="filter-label">Kategori</span>
+        <a class="filter-chip" href={sti("/opskrifter/")} aria-current={!kategori ? "page" : undefined}>Alle</a>
+        {KATEGORIER.map((k) => (
+          <a class="filter-chip" href={kategoriSti(k.slug)} aria-current={kategori?.slug === k.slug ? "page" : undefined}>{k.navn}</a>
+        ))}
+      </nav>
+
+      {erOpskrifter && opskrifter.length > 1 && (
+        <div class="filter-raekke" data-filtre>
+          <span class="filter-label">Aktiv tid</span>
+          {TIDS_INTERVALLER.filter((i) => (tidTal.get(i.id) ?? 0) > 0).map((i) => (
+            <button class="filter-chip" type="button" data-filter-tid={i.id} aria-pressed="false">
+              {i.label} ({tidTal.get(i.id)})
+            </button>
+          ))}
+          {[...diaetTal].filter(([, n]) => n > 0).length > 0 && <span class="filter-label" style="margin-left:.75rem">Diæt</span>}
+          {[...diaetTal].filter(([, n]) => n > 0).map(([di, n]) => (
+            <button class="filter-chip" type="button" data-filter-diaet={di} aria-pressed="false">
+              {DIAET_LABELS[di]} ({n})
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h2 class="sr-only">{kategori ? `Alle ${kategori.navn.toLowerCase()}` : "Opskrifterne"}</h2>
+    {posts.length > 0 ? (
+      <ul class="kort-net" data-kort-net>
+        {posts.map((p, i) => <OpskriftKort post={p} doven={i > 2} visKategori={!kategori} visResume={!!kategori?.erArtikler} />)}
+      </ul>
+    ) : (
+      <p class="tom-besked">Der er ikke lagt noget op her endnu. Kig forbi igen om lidt.</p>
+    )}
+    <p class="tom-besked" data-filter-tom hidden>Ingen opskrifter matcher de valgte filtre.</p>
+
+    {antalSider > 1 && (
+      <nav class="paginering" aria-label="Sider">
+        {side > 1 && <a href={sideSti(side - 1)} aria-label="Forrige side">‹</a>}
+        {Array.from({ length: antalSider }, (_, i) => i + 1).map((n) =>
+          n === side ? <span aria-current="page">{n}</span> : <a href={sideSti(n)}>{n}</a>,
+        )}
+        {side < antalSider && <a href={sideSti(side + 1)} aria-label="Næste side">›</a>}
+      </nav>
+    )}
+
+    {tekst && side === 1 && (
+      <>
+        <div class="seo-blokke">
+          {tekst.blokke.map((b) => (
+            <section>
+              <h2>{b.overskrift}</h2>
+              <p>{b.tekst}</p>
+            </section>
+          ))}
+        </div>
+
+        {tekst.faq.length > 0 && (
+          <section class="faq" aria-label="Ofte stillede spørgsmål">
+            <h2>Ofte stillede spørgsmål</h2>
+            {tekst.faq.map((f) => (
+              <details>
+                <summary>{f.spoergsmaal}</summary>
+                <p>{f.svar}</p>
+              </details>
+            ))}
+          </section>
+        )}
+
+        {kategori && (
+          <nav class="naboer" aria-label="Se også">
+            <span class="filter-label">Se også</span>
+            {naboKategorier(kategori.slug).map((n) => (
+              <a class="filter-chip" href={kategoriSti(n.slug)}>{n.navn} →</a>
+            ))}
+          </nav>
+        )}
+      </>
+    )}
+
+    <div class="sektion">
+      <NyhedsbrevBlok />
+    </div>
+  </div>
+
+  {erOpskrifter && (
+    <script>
+      import "../../scripts/kategori.ts";
+    </script>
+  )}
+</Layout>

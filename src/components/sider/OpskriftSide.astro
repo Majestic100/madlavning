@@ -1,0 +1,287 @@
+---
+/** Opskriftssiden, øverst til nederst jf. spec §3. */
+import { Image } from "astro:assets";
+import { render, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Ikon from "../Ikon.astro";
+import OpskriftKort from "../OpskriftKort.astro";
+import NyhedsbrevBlok from "../NyhedsbrevBlok.astro";
+import { kategoriAfSlug, DIAET_LABELS } from "../../lib/kategorier";
+import { formatMinutter, totalTid } from "../../lib/tid.mjs";
+import { formatAmount } from "../../lib/maengder.mjs";
+import { recipeJsonLd, breadcrumbJsonLd } from "../../lib/jsonld";
+import { forfatter } from "../../data/forfattere";
+import { sti, opskriftSti, kategoriSti } from "../../lib/urls";
+import { getImage } from "astro:assets";
+
+interface Props { post: CollectionEntry<"opskrifter"> }
+const { post } = Astro.props;
+const d = post.data;
+const { Content } = await render(post);
+
+const kat = kategoriAfSlug(d.category);
+const skribent = forfatter(d.author);
+const SVAERHED = { nem: "Nem", mellem: "Mellem", avanceret: "Avanceret" } as const;
+
+const datoFormat = new Intl.DateTimeFormat("da-DK", { day: "numeric", month: "long", year: "numeric" });
+
+/* Hero + OG-billede */
+const ogBillede = await getImage({ src: d.image.src, width: 1200, height: 630, fit: "cover", format: "jpg" });
+
+/* Relaterede: manuel liste, fallback på delt kategori, fyldt op med nyeste (spec §3 pkt. 13) */
+const alle = (await getCollection("opskrifter")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+const valgte = new Set<string>([post.id]);
+const relaterede: CollectionEntry<"opskrifter">[] = [];
+const tilfoej = (o?: CollectionEntry<"opskrifter">) => {
+  if (o && !valgte.has(o.id) && relaterede.length < 4) { valgte.add(o.id); relaterede.push(o); }
+};
+d.related.forEach((id) => tilfoej(alle.find((o) => o.id === id)));
+alle.filter((o) => o.data.category === d.category).forEach(tilfoej);
+alle.forEach(tilfoej);
+
+/* JSON-LD (spec §7) */
+const jsonld = [
+  await recipeJsonLd({
+    data: d,
+    url: opskriftSti(post.id),
+    siteUrl: Astro.site!.href,
+    forfatter: skribent,
+    kategoriNavn: kat.navn,
+  }),
+  breadcrumbJsonLd(
+    [
+      { navn: "Forside", url: sti("/") },
+      { navn: "Opskrifter", url: sti("/opskrifter/") },
+      { navn: kat.navn, url: kategoriSti(kat.slug) },
+      { navn: d.title, url: null },
+    ],
+    Astro.site!.href,
+  ),
+];
+---
+<Layout
+  titel={d.seoTitle ?? d.title}
+  beskrivelse={d.metaDescription}
+  ogBillede={ogBillede.src}
+  ogType="article"
+  aktiv={kat.slug}
+  jsonld={jsonld}
+>
+  <article class="o-side">
+    <div class="wrap-laes">
+
+      <nav class="brodkrumme" aria-label="Sti">
+        <ol>
+          <li><a href={sti("/")}>Forside</a></li>
+          <li><a href={kategoriSti(kat.slug)}>{kat.navn}</a></li>
+          <li aria-current="page">{d.title}</li>
+        </ol>
+      </nav>
+
+      <header class="o-hoved">
+        <h1>{d.title}</h1>
+        <p class="o-manchet">{d.excerpt}</p>
+
+        <div class="byline">
+          <Image src={skribent.portraet} alt={`Portræt af ${skribent.navn}`} width={92} height={92} fit="cover" loading="eager" />
+          <div>
+            <strong>{skribent.navn}</strong>
+            <small>
+              <time datetime={d.publishedAt.toISOString().slice(0, 10)}>{datoFormat.format(d.publishedAt)}</time>
+              {d.updatedAt && <> · Opdateret <time datetime={d.updatedAt.toISOString().slice(0, 10)}>{datoFormat.format(d.updatedAt)}</time></>}
+            </small>
+          </div>
+        </div>
+      </header>
+
+      <figure class="o-hero">
+        <Image
+          src={d.image.src}
+          alt={d.image.alt}
+          widths={[480, 720, 1000, 1440]}
+          sizes="(max-width: 760px) 94vw, 720px"
+          width={1440}
+          height={1080}
+          fit="cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        {d.image.credit && <figcaption>Foto: {d.image.credit}</figcaption>}
+      </figure>
+
+      <div class="handlinger">
+        <a class="knap knap-primaer" href="#opskrift"><Ikon navn="ned" /> Gå til opskrift</a>
+        <button class="knap knap-linje" type="button" onclick="window.print()"><Ikon navn="print" /> Print</button>
+        <button class="knap knap-linje" type="button" data-del-knap><Ikon navn="del" /> Del</button>
+        <button class="knap knap-linje" type="button" data-cooking-knap aria-pressed="false"
+                title="Holder skærmen tændt, mens du laver mad">
+          <Ikon navn="flamme" /> Cooking mode
+        </button>
+      </div>
+
+      <div class="o-intro">
+        <Content />
+      </div>
+
+      <section class="o-kort" id="opskrift" data-portioner={d.scalable ? d.servings : 0} aria-label="Opskrift">
+        <div class="o-kort-hoved">
+          <h2>Opskrift</h2>
+          {d.scalable && (
+            <div class="portions-vaelger" data-portionsvaelger>
+              <button type="button" data-trin="-1" aria-label="Færre portioner">&minus;</button>
+              <output aria-live="polite"><span data-antal>{d.servings}</span> {d.servingsUnit}</output>
+              <button type="button" data-trin="1" aria-label="Flere portioner">+</button>
+            </div>
+          )}
+        </div>
+
+        <p class="cooking-status">Cooking mode er slået til — skærmen forbliver tændt.</p>
+
+        <div class="o-fakta">
+          <div class="fakta"><Ikon navn="ur" /><span><span class="fakta-navn">Forberedelse</span><span class="fakta-vaerdi">{formatMinutter(d.prepTime)}</span></span></div>
+          {d.cookTime > 0 && <div class="fakta"><Ikon navn="flamme" /><span><span class="fakta-navn">I ovn/på blus</span><span class="fakta-vaerdi">{formatMinutter(d.cookTime)}</span></span></div>}
+          {d.waitTime > 0 && <div class="fakta"><Ikon navn="ur" /><span><span class="fakta-navn">Hviler/hæver</span><span class="fakta-vaerdi">{formatMinutter(d.waitTime)}</span></span></div>}
+          <div class="fakta"><Ikon navn="ur" /><span><span class="fakta-navn">Samlet</span><span class="fakta-vaerdi">{formatMinutter(totalTid(d))}</span></span></div>
+          <div class="fakta"><Ikon navn="portion" /><span><span class="fakta-navn">Giver</span><span class="fakta-vaerdi">{d.servings} {d.servingsUnit}</span></span></div>
+          <div class="fakta"><Ikon navn="niveau" /><span><span class="fakta-navn">Sværhedsgrad</span><span class="fakta-vaerdi">{SVAERHED[d.difficulty]}</span></span></div>
+        </div>
+
+        <div class="o-sektion">
+          <h3>Ingredienser</h3>
+          {d.ingredients.map((gruppe) => (
+            <div class="i-gruppe">
+              {gruppe.group && <h4>{gruppe.group}</h4>}
+              <ul class="i-liste">
+                {gruppe.items.map((i) => (
+                  <li>
+                    <label>
+                      <input type="checkbox" />
+                      {i.amount != null && (
+                        <span><span data-amount={i.amount} data-unit={i.unit ?? undefined}>{formatAmount(i.amount, i.unit)}</span>{i.unit ? ` ${i.unit}` : ""}</span>
+                      )}
+                      <span>{i.name}{i.note && <span class="i-note"> — {i.note}</span>}</span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div class="o-sektion">
+          <h3>Sådan gør du</h3>
+          {d.instructions.map((gruppe) => (
+            <div class="i-gruppe">
+              {gruppe.group && <h4>{gruppe.group}</h4>}
+              <ol class="trin-liste">
+                {gruppe.steps.map((trin) => (
+                  <li title="Klik for at markere trinnet som gjort">{trin.text}</li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </div>
+
+        {d.tips.length > 0 && (
+          <aside class="tips-boks">
+            <h3><Ikon navn="paere" /> Merves tips</h3>
+            <ul>{d.tips.map((t) => <li>{t}</li>)}</ul>
+          </aside>
+        )}
+
+        <div class="o-meta-net">
+          {d.nutrition && (
+            <div class="meta-boks">
+              <h3>Næringsindhold pr. {d.servingsUnit === "stk" ? "styk" : "portion"}</h3>
+              <ul class="naering-liste">
+                <li><span>Energi</span><strong>{d.nutrition.calories} kcal</strong></li>
+                <li><span>Protein</span><strong>{d.nutrition.protein} g</strong></li>
+                <li><span>Kulhydrat</span><strong>{d.nutrition.carbohydrates} g</strong></li>
+                <li><span>Fedt</span><strong>{d.nutrition.fat} g</strong></li>
+                {d.nutrition.fiber != null && <li><span>Fibre</span><strong>{d.nutrition.fiber} g</strong></li>}
+              </ul>
+            </div>
+          )}
+          {(d.storage || d.freezable) && (
+            <div class="meta-boks">
+              <h3>Opbevaring</h3>
+              {d.storage && <p><Ikon navn="boks" style="width:15px;height:15px;display:inline;vertical-align:-2px" /> {d.storage}</p>}
+              <p style={d.storage ? "margin-top:.5rem" : ""}>
+                <Ikon navn="frost" style="width:15px;height:15px;display:inline;vertical-align:-2px" />
+                {d.freezable ? " Egner sig til frost." : " Egner sig ikke til frost."}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {d.diet.length > 0 && (
+          <p style="margin:1.6rem 0 0;font-size:.85rem;color:var(--tekst-svag)">
+            {d.diet.map((di) => DIAET_LABELS[di]).join(" · ")}
+          </p>
+        )}
+      </section>
+
+      {d.video && (
+        <section class="video-blok">
+          <h2>Se fremgangsmåden</h2>
+          <div class="video-ramme">
+            <button
+              class="video-plakat"
+              type="button"
+              data-youtube={d.video}
+              style={`background-image:url('https://i.ytimg.com/vi/${d.video}/hqdefault.jpg')`}
+              aria-label={`Afspil video: ${d.title}`}
+            >
+              <span class="afspil"><Ikon navn="afspil" /></span>
+            </button>
+          </div>
+        </section>
+      )}
+
+      {d.instagram && (
+        <a class="insta-link" href={d.instagram} target="_blank" rel="noopener">
+          <Ikon navn="instagram" />
+          <span>
+            <strong>Se fremgangsmåden på Instagram</strong>
+            <small>Åbner i et nyt vindue</small>
+          </span>
+          <span class="pil"><Ikon navn="pil" /></span>
+        </a>
+      )}
+
+      <NyhedsbrevBlok />
+
+      <div class="forfatter-boks">
+        <Image src={skribent.portraet} alt={`Portræt af ${skribent.navn}`} width={184} height={184} fit="cover" loading="lazy" />
+        <div>
+          <h3>{skribent.navn}</h3>
+          <p>{skribent.bio}</p>
+          <a href={skribent.instagram} rel="me noopener">Følg med på Instagram →</a>
+        </div>
+      </div>
+
+    </div>
+
+    {relaterede.length > 0 && (
+      <section class="sektion sektion-flade relaterede">
+        <div class="wrap">
+          <div class="sektion-hoved">
+            <h2>Du vil måske også kunne lide</h2>
+            <a class="se-alle" href={kategoriSti(kat.slug)}>Alle {kat.navn.toLowerCase()} <Ikon navn="pil" /></a>
+          </div>
+          <ul class="kort-net">
+            {relaterede.map((o) => <OpskriftKort post={o} />)}
+          </ul>
+        </div>
+      </section>
+    )}
+  </article>
+
+  <script>
+    import "../../scripts/opskrift.ts";
+  </script>
+</Layout>

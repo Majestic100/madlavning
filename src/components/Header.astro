@@ -1,0 +1,43 @@
+---
+import Ikon from "./Ikon.astro";
+import Logo from "./Logo.astro";
+import { KATEGORIER } from "../lib/kategorier";
+import { kategoriSti, sti } from "../lib/urls";
+
+interface Props { aktiv?: string }
+const { aktiv } = Astro.props;
+---
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a class="logo" href={sti("/")} aria-label="Merve — forside"><Logo /></a>
+
+    <nav class="hoved-nav" id="hoved-nav" aria-label="Hovedmenu">
+      <ul>
+        {KATEGORIER.map((k) => (
+          <li>
+            <a href={kategoriSti(k.slug)} aria-current={aktiv === k.slug ? "page" : undefined}>{k.navn}</a>
+          </li>
+        ))}
+        <li><a href={sti("/om/")} aria-current={aktiv === "om" ? "page" : undefined}>Om Merve</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-vaerktoej">
+      <button class="ikon-knap" id="soege-knap" type="button" aria-label="Søg efter opskrifter"
+              aria-expanded="false" aria-controls="soege-panel"><Ikon navn="lup" /></button>
+      <button class="ikon-knap menu-knap" id="menu-knap" type="button" aria-label="Åbn menu"
+              aria-expanded="false" aria-controls="hoved-nav"><Ikon navn="menu" /></button>
+    </div>
+  </div>
+
+  <div class="soege-panel" id="soege-panel" data-aaben="false">
+    <div class="wrap">
+      <form action={sti("/soeg/")} method="get" role="search">
+        <label class="sr-only" for="header-soeg">Søg efter opskrifter</label>
+        <input class="soege-felt" type="search" id="header-soeg" name="q"
+               placeholder="Søg efter opskrift, ingrediens eller kategori …" autocomplete="off" />
+        <button class="knap knap-primaer" type="submit">Søg</button>
+      </form>
+    </div>
+  </div>
+</header>

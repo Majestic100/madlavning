@@ -1,0 +1,74 @@
+---
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
+import "@fontsource/grand-hotel";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../data/site";
+import { sti } from "../lib/urls";
+import ogStandard from "../assets/img/og-standard.jpg";
+import { getImage } from "astro:assets";
+
+interface Props {
+  titel?: string;
+  beskrivelse?: string;
+  /** Absolut eller site-relativ URL til delebillede. Uden = standardbilledet. */
+  ogBillede?: string;
+  ogType?: "website" | "article";
+  aktiv?: string;
+  jsonld?: object[];
+}
+
+const {
+  titel,
+  beskrivelse = SITE.beskrivelse,
+  ogBillede,
+  ogType = "website",
+  aktiv,
+  jsonld = [],
+} = Astro.props;
+
+const fuldTitel = titel ? `${titel} · ${SITE.navn}` : SITE.titel;
+const kanonisk = new URL(Astro.url.pathname, Astro.site).href;
+const standardOg = await getImage({ src: ogStandard, width: 1200, height: 630, fit: "cover", format: "jpg" });
+const ogUrl = new URL(ogBillede ?? standardOg.src, Astro.site).href;
+---
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fuldTitel}</title>
+    <meta name="description" content={beskrivelse} />
+    <link rel="canonical" href={kanonisk} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.navn} />
+    <meta property="og:locale" content="da_DK" />
+    <meta property="og:title" content={titel ?? SITE.titel} />
+    <meta property="og:description" content={beskrivelse} />
+    <meta property="og:url" content={kanonisk} />
+    <meta property="og:image" content={ogUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href={sti("/favicon.svg")} type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.navn} href={sti("/feed.xml")} />
+    <meta name="generator" content={Astro.generator} />
+
+    {jsonld.map((blok) => (
+      <script type="application/ld+json" set:html={JSON.stringify(blok)} />
+    ))}
+  </head>
+  <body>
+    <a class="spring-til" href="#indhold">Spring til indhold</a>
+    <Header aktiv={aktiv} />
+    <main id="indhold">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import "../scripts/site.ts";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+---
+/** Artikelside for bagetips — enklere end opskriftssiden, med Article JSON-LD. */
+import { getCollection, render } from "astro:content";
+import { Image, getImage } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import NyhedsbrevBlok from "../../components/NyhedsbrevBlok.astro";
+import OpskriftKort from "../../components/OpskriftKort.astro";
+import Ikon from "../../components/Ikon.astro";
+import { breadcrumbJsonLd } from "../../lib/jsonld";
+import { forfatter } from "../../data/forfattere";
+import { sti, kategoriSti } from "../../lib/urls";
+
+export async function getStaticPaths() {
+  const tips = await getCollection("bagetips");
+  return tips.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const d = post.data;
+const { Content } = await render(post);
+const skribent = forfatter(d.author);
+const datoFormat = new Intl.DateTimeFormat("da-DK", { day: "numeric", month: "long", year: "numeric" });
+const ogBillede = await getImage({ src: d.image.src, width: 1200, height: 630, fit: "cover", format: "jpg" });
+
+const andre = (await getCollection("bagetips"))
+  .filter((t) => t.id !== post.id)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
+
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: d.title,
+    description: d.metaDescription,
+    image: [new URL(ogBillede.src, Astro.site).href],
+    author: { "@type": "Person", name: skribent.navn, url: new URL(sti("/om/"), Astro.site).href },
+    datePublished: d.publishedAt.toISOString().slice(0, 10),
+    inLanguage: "da-DK",
+    keywords: d.keywords.join(", "),
+  },
+  breadcrumbJsonLd(
+    [
+      { navn: "Forside", url: sti("/") },
+      { navn: "Bagetips", url: sti("/bagetips/") },
+      { navn: d.title, url: null },
+    ],
+    Astro.site!.href,
+  ),
+];
+---
+<Layout titel={d.seoTitle ?? d.title} beskrivelse={d.metaDescription} ogBillede={ogBillede.src} ogType="article" aktiv="bagetips" jsonld={jsonld}>
+  <article class="o-side">
+    <div class="wrap-laes">
+      <nav class="brodkrumme" aria-label="Sti">
+        <ol>
+          <li><a href={sti("/")}>Forside</a></li>
+          <li><a href={sti("/bagetips/")}>Bagetips</a></li>
+          <li aria-current="page">{d.title}</li>
+        </ol>
+      </nav>
+
+      <header class="o-hoved">
+        <p class="oejenbryn">Bagetip · {d.readingTime} min læsning</p>
+        <h1>{d.title}</h1>
+        <div class="byline">
+          <Image src={skribent.portraet} alt={`Portræt af ${skribent.navn}`} width={92} height={92} fit="cover" loading="eager" />
+          <div>
+            <strong>{skribent.navn}</strong>
+            <small><time datetime={d.publishedAt.toISOString().slice(0, 10)}>{datoFormat.format(d.publishedAt)}</time></small>
+          </div>
+        </div>
+      </header>
+
+      <figure class="o-hero">
+        <Image src={d.image.src} alt={d.image.alt} widths={[480, 720, 1000, 1440]}
+               sizes="(max-width: 760px) 94vw, 720px" width={1440} height={1080} fit="cover"
+               loading="eager" fetchpriority="high" decoding="async" />
+      </figure>
+
+      <div class="o-intro">
+        <Content />
+      </div>
+
+      <NyhedsbrevBlok />
+    </div>
+
+    {andre.length > 0 && (
+      <section class="sektion sektion-flade">
+        <div class="wrap">
+          <div class="sektion-hoved">
+            <h2>Flere bagetips</h2>
+            <a class="se-alle" href={kategoriSti("bagetips")}>Alle bagetips <Ikon navn="pil" /></a>
+          </div>
+          <ul class="kort-net">
+            {andre.map((t) => <OpskriftKort post={t} visKategori={false} visResume={true} />)}
+          </ul>
+        </div>
+      </section>
+    )}
+  </article>
+</Layout>

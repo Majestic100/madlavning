@@ -1,0 +1,71 @@
+---
+/** Om-siden — en rigtig side med historie (spec §8) + Person JSON-LD (E-E-A-T, spec §7). */
+import { Image, getImage } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import NyhedsbrevBlok from "../components/NyhedsbrevBlok.astro";
+import { personJsonLd, breadcrumbJsonLd } from "../lib/jsonld";
+import { forfatter } from "../data/forfattere";
+import { sti } from "../lib/urls";
+
+const merve = forfatter("merve");
+const portraet = await getImage({ src: merve.portraet, width: 920, height: 920, fit: "cover", format: "jpg" });
+const jsonld = [
+  personJsonLd(merve, Astro.site!.href, portraet.src),
+  breadcrumbJsonLd([{ navn: "Forside", url: sti("/") }, { navn: "Om Merve", url: null }], Astro.site!.href),
+];
+---
+<Layout titel="Om Merve" beskrivelse="Mød Merve Holck — kvinden bag opskrifterne. Hvorfor alt er i gram, hvordan opskrifterne testes, og hvad du kan forvente af siden." aktiv="om" jsonld={jsonld}>
+  <div class="side-top">
+    <div class="wrap-laes">
+      <p class="oejenbryn">Om</p>
+      <h1>Hej, jeg hedder Merve</h1>
+      <div class="intro">
+        <p>Jeg bager, fejler, retter til og skriver det ned — så du ikke behøver begå de samme fejl.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap-laes o-intro" style="padding-bottom:1rem">
+    <figure class="o-hero" style="max-width:380px">
+      <Image src={merve.portraet} alt={`Portræt af ${merve.navn}`} widths={[380, 760]}
+             sizes="(max-width: 480px) 94vw, 380px" width={760} height={760} fit="cover" loading="eager" />
+    </figure>
+
+    <p>
+      Det startede med en gærdej, der ikke ville hæve. Jeg blev irriteret, læste alt hvad jeg
+      kunne finde, og bagte den igen. Og igen. Et par år senere har jeg et køkken, der næsten
+      altid dufter af noget, og en stak notesbøger med opskrifter, jeg selv stoler på.
+    </p>
+    <p>Det er dem, der ligger her.</p>
+
+    <h2>Sådan skriver jeg opskrifter</h2>
+    <p>
+      <strong>Gram frem for deciliter.</strong> En deciliter mel kan veje fra 55 til 75 gram,
+      alt efter hvor hårdt du pakker den. Det er forskellen på en luftig og en tør kage.
+      Derfor vejer jeg alt — også væsker.
+    </p>
+    <p>
+      <strong>Tiderne er vejledende, tegnene er ikke.</strong> Der står altid, hvad du skal
+      kigge efter: gyldenbrun kant, dej der slipper skålen, tandstik med fugtige krummer.
+      Din ovn og min ovn er sjældent enige — <a href={sti("/bagetips/din-ovn-lyver/")}>din lyver sikkert også</a>.
+    </p>
+    <p>
+      <strong>Jeg skriver også, hvad der kan gå galt.</strong> Hver opskrift har en tips-boks,
+      og den handler som regel om den fejl, jeg selv begik første gang.
+    </p>
+
+    <h2>Hvad du finder her</h2>
+    <p>
+      Bagværk og gærdej fylder mest, men der er også kager til fødselsdage, desserter der kan
+      laves dagen før, snacks til fredagsaftener — og en pizzadej, jeg har brugt urimeligt
+      lang tid på at få rigtig. Alt sammen gratis, uden reklamer, der hopper rundt, og uden
+      at gemme næringsindhold bag en betalingsmur.
+    </p>
+    <p>
+      Har du et spørgsmål til en opskrift, eller er noget gået galt undervejs? <a href={sti("/kontakt/")}>Skriv til mig</a> —
+      jeg svarer på det hele. Du finder mig også på <a href={merve.instagram} rel="me noopener">Instagram</a>.
+    </p>
+  </div>
+
+  <div class="wrap-laes" style="padding-bottom:2rem"><NyhedsbrevBlok /></div>
+</Layout>

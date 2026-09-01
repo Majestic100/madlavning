@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import KategoriListe from "../../components/sider/KategoriListe.astro";
+import { kategoriAfSlug } from "../../lib/kategorier";
+import { sti } from "../../lib/urls";
+
+const tips = (await getCollection("bagetips")).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
+);
+---
+<KategoriListe
+  kategori={kategoriAfSlug("bagetips")}
+  titel="Bagetips"
+  beskrivelse="Teknikken bag opskrifterne: gær, ælting, ovntemperatur og de fejl, du ikke behøver begå. Korte guides skrevet til melede fingre."
+  posts={tips}
+  side={1}
+  antalSider={1}
+  basePath={sti("/bagetips/")}
+/>
