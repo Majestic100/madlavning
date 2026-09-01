@@ -16,7 +16,7 @@ export const FORFATTERE: Record<string, Forfatter> = {
     id: "merve",
     navn: "Merve Holck",
     rolle: "Bager og skriver alt her på siden",
-    bio: "Jeg bager, fejler, retter til og skriver det ned — så du ikke behøver begå de samme fejl. Alle opskrifter er testet i mit eget køkken og skrevet i gram.",
+    bio: "Jeg bager, fejler, retter til og skriver det ned, så du ikke behøver begå de samme fejl. Alle opskrifter er testet i mit eget køkken og skrevet i gram.",
     portraet,
     // TODO: Sæt Merves rigtige profiler ind her:
     instagram: "https://www.instagram.com/",

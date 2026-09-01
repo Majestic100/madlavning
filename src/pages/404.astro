@@ -4,12 +4,12 @@ import Layout from "../layouts/Layout.astro";
 import { KATEGORIER } from "../lib/kategorier";
 import { sti, kategoriSti } from "../lib/urls";
 ---
-<Layout titel="Siden findes ikke" beskrivelse="Siden findes ikke — søg i stedet, eller gå til en af kategorierne.">
+<Layout titel="Siden findes ikke" beskrivelse="Siden findes ikke. Søg i stedet, eller gå til en af kategorierne.">
   <div class="wrap-laes" style="padding:5rem 0;text-align:center">
     <p class="oejenbryn">404</p>
     <h1>Den side er faldet ud af bogen</h1>
     <p style="color:var(--tekst-daemp);font-size:1.1rem;max-width:44ch;margin-inline:auto">
-      Måske er linket gammelt, eller også har jeg flyttet rundt. Prøv at søge — eller start i en kategori.
+      Måske er linket gammelt, eller også har jeg flyttet rundt. Prøv at søge, eller start i en kategori.
     </p>
 
     <form action={sti("/soeg/")} method="get" role="search" class="soege-hoved" style="max-width:480px;margin:2rem auto 1.5rem">

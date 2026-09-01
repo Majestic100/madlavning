@@ -6,7 +6,7 @@ import { SITE } from "../data/site";
   <div>
     <p class="oejenbryn">Nyhedsbrev</p>
     <h2>En ny opskrift hver lørdag</h2>
-    <p>{SITE.nyhedsbrevLoefte} Jeg skriver også, hvad der gik galt undervejs — det er tit dér, man lærer mest.</p>
+    <p>{SITE.nyhedsbrevLoefte} Jeg skriver også, hvad der gik galt undervejs. Det er tit dér, man lærer mest.</p>
   </div>
   <div>
     <form method="post" action={SITE.nyhedsbrevAction || undefined} data-nyhedsbrev data-klar={SITE.nyhedsbrevAction ? "ja" : "nej"}>
@@ -14,6 +14,6 @@ import { SITE } from "../data/site";
       <input type="email" id="nb-email" name="email" placeholder="din@mail.dk" required autocomplete="email" />
       <button class="knap knap-primaer" type="submit">Tilmeld mig</button>
     </form>
-    <small>Dobbelt opt-in — du bekræfter tilmeldingen i din indbakke og kan afmelde med ét klik.</small>
+    <small>Du bekræfter tilmeldingen i din indbakke og kan afmelde med ét klik.</small>
   </div>
 </div>

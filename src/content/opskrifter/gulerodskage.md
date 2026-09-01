@@ -1,8 +1,8 @@
 ---
 title: "Gulerodskage med flødeostecreme"
-seoTitle: "Gulerodskage med flødeostecreme — svampet og krydret"
-metaDescription: "Svampet gulerodskage med kanel, valnødder og en flødeostecreme, der ikke bliver for sød. Nem røremetode, bages i bradepande — skrevet i gram."
-excerpt: "Svampet, krydret og med en flødeostecreme, der balancerer i stedet for at overdøve. Kagen, jeg bliver bedt om at tage med."
+seoTitle: "Gulerodskage med flødeostecreme, svampet og krydret"
+metaDescription: "Svampet gulerodskage med kanel, valnødder og en flødeostecreme, der ikke bliver for sød. Nem røremetode, bages i bradepande og skrevet i gram."
+excerpt: "Svampet, krydret og med en flødeostecreme, der balancerer i stedet for at overdøve sødmen. Det er kagen, jeg bliver bedt om at tage med."
 publishedAt: 2026-07-14
 author: merve
 image:
@@ -19,7 +19,7 @@ diet: [vegetarisk]
 season: [efteraar, vinter]
 occasion: [foedselsdag, gaester]
 keywords: [gulerodskage, flødeostecreme, cream cheese frosting, kage med valnødder]
-storage: "Holder 3 dage på køl — tag den ud en halv time før servering."
+storage: "Holder 3 dage på køl. Tag den ud en halv time før servering."
 freezable: true
 seasonal: true
 nutrition:
@@ -55,24 +55,24 @@ instructions:
     steps:
       - text: "Forvarm ovnen til 175 °C, og beklæd en lille bradepande (cirka 20 × 30 cm) med bagepapir."
       - text: "Pisk æg, sukker og farin let og luftigt i et par minutter. Pisk olien i."
-      - text: "Bland mel, bagepulver, natron, krydderier og salt, og vend det i æggemassen — kun til dejen er samlet."
+      - text: "Bland mel, bagepulver, natron, krydderier og salt, og vend det i æggemassen, kun til dejen er samlet."
       - text: "Vend revne gulerødder og valnødder i."
-      - text: "Hæld dejen i formen, og bag i 35–40 minutter, til en tandstik kommer ud tør. Lad kagen køle HELT af."
+      - text: "Hæld dejen i formen, og bag i 35-40 minutter, til en tandstik kommer ud tør. Lad kagen køle HELT af."
   - group: "Cremen"
     steps:
-      - text: "Pisk blødt smør, flormelis og vaniljesukker helt lyst og luftigt — det tager 3–4 minutter og er forskellen på creme og smørklump."
-      - text: "Tilsæt den kolde flødeost, og pisk KORT — kun til cremen er ensartet. Overpisker du, bliver den tynd."
+      - text: "Pisk blødt smør, flormelis og vaniljesukker helt lyst og luftigt. Det tager 3-4 minutter og er forskellen på creme og smørklump."
+      - text: "Tilsæt den kolde flødeost, og pisk KORT, kun til cremen er ensartet. Overpisker du, bliver den tynd."
       - text: "Smag til med citronskal. Bred cremen over den kolde kage, og drys eventuelt med hakkede valnødder."
 tips:
   - "Riv gulerødderne fint. Groftrevne gulerødder synker og gør kagen tung i bunden."
-  - "Cremen skiller ikke, hvis smørret er blødt og flødeosten kold — det er kombinationen, der virker."
+  - "Cremen skiller ikke, når smørret er blødt og flødeosten kold. Det er kombinationen, der virker."
   - "Kagen smager bedst dagen efter, når krydderierne har sat sig. Perfekt at bage i forvejen."
 related: [chokoladebrownies, kanelsnurrer]
 ---
 
-Det her er kagen, jeg bliver bedt om at tage med. Ikke den fineste i min mappe, ikke den
-sværeste — bare den, folk husker.
+Det her er kagen, jeg bliver bedt om at tage med. Den er hverken den fineste eller den
+sværeste i min mappe, men det er den, folk husker.
 
-Hemmeligheden er der ikke rigtig nogen af. Det er en klassisk gulerodskage, hvor tingene
-bare er gjort ordentligt: fintrevne gulerødder så kagen bliver saftig uden at blive tung,
+Der er ikke rigtig nogen hemmelighed. Det er en klassisk gulerodskage, hvor tingene bare
+er gjort ordentligt: fintrevne gulerødder, så kagen bliver saftig uden at blive tung,
 brun farin for karamelnoten, og en flødeostecreme med nok syre til at holde sødmen i skak.

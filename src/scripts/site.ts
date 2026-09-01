@@ -40,6 +40,6 @@ document.querySelectorAll<HTMLFormElement>("[data-nyhedsbrev]").forEach((form) =
     e.preventDefault();
     form.innerHTML =
       '<p style="margin:0;color:#F6EFE9">Tilmeldingen er ikke koblet på et nyhedsbrevssystem endnu. ' +
-      "Indsæt jeres formular-URL i <code>src/data/site.ts</code> (nyhedsbrevAction) — se README.</p>";
+      "Indsæt jeres formular-URL i <code>src/data/site.ts</code> (nyhedsbrevAction). Se README.</p>";
   });
 });

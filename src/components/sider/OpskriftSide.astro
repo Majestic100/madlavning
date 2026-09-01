@@ -139,7 +139,7 @@ const jsonld = [
           )}
         </div>
 
-        <p class="cooking-status">Cooking mode er slået til — skærmen forbliver tændt.</p>
+        <p class="cooking-status">Cooking mode er slået til, og skærmen forbliver tændt.</p>
 
         <div class="o-fakta">
           <div class="fakta"><Ikon navn="ur" /><span><span class="fakta-navn">Forberedelse</span><span class="fakta-vaerdi">{formatMinutter(d.prepTime)}</span></span></div>
@@ -163,7 +163,7 @@ const jsonld = [
                       {i.amount != null && (
                         <span><span data-amount={i.amount} data-unit={i.unit ?? undefined}>{formatAmount(i.amount, i.unit)}</span>{i.unit ? ` ${i.unit}` : ""}</span>
                       )}
-                      <span>{i.name}{i.note && <span class="i-note"> — {i.note}</span>}</span>
+                      <span>{i.name}{i.note && <span class="i-note">, {i.note}</span>}</span>
                     </label>
                   </li>
                 ))}
