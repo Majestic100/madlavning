@@ -1,4 +1,4 @@
-/* Global adfærd: menu, søgepanel, nyhedsbrev-fallback. Siden virker uden JS. */
+/* Global adfærd: menu og søgepanel. Siden virker uden JS. */
 
 const $ = <T extends HTMLElement>(s: string, r: ParentNode = document) => r.querySelector<T>(s);
 
@@ -33,13 +33,3 @@ if (soegeKnap && soegePanel) {
   });
 }
 
-/* Nyhedsbrev: uden konfigureret ESP forklarer formularen sig selv i stedet for at sende ingenting */
-document.querySelectorAll<HTMLFormElement>("[data-nyhedsbrev]").forEach((form) => {
-  if (form.dataset.klar === "ja") return;
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    form.innerHTML =
-      '<p style="margin:0;color:#F6EFE9">Tilmeldingen er ikke koblet på et nyhedsbrevssystem endnu. ' +
-      "Indsæt jeres formular-URL i <code>src/data/site.ts</code> (nyhedsbrevAction). Se README.</p>";
-  });
-});

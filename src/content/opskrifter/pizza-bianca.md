@@ -20,12 +20,6 @@ occasion: [weekend, gaester]
 keywords: [pizza bianca, hvid pizza, kartoffelpizza, pizza uden tomat]
 storage: "Spises med det samme. Kartoflerne bliver kedelige på andendagen."
 freezable: false
-nutrition:
-  calories: 640
-  protein: 24
-  carbohydrates: 92
-  fat: 20
-  fiber: 5
 ingredients:
   - group: "Pizza"
     items:

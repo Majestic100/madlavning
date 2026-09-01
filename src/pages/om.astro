@@ -2,7 +2,6 @@
 /** Om-siden — en rigtig side med historie (spec §8) + Person JSON-LD (E-E-A-T, spec §7). */
 import { Image, getImage } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import NyhedsbrevBlok from "../components/NyhedsbrevBlok.astro";
 import { personJsonLd, breadcrumbJsonLd } from "../lib/jsonld";
 import { forfatter } from "../data/forfattere";
 import { sti } from "../lib/urls";
@@ -67,5 +66,4 @@ const jsonld = [
     </p>
   </div>
 
-  <div class="wrap-laes" style="padding-bottom:2rem"><NyhedsbrevBlok /></div>
 </Layout>

@@ -4,8 +4,7 @@ Statisk madblog bygget med [Astro](https://astro.build): opskrifter på bagværk
 desserter, snacks og pizza plus bagetips-guides. Udgives automatisk via GitHub Pages.
 
 **Designet efter `madsite-spec.md`-principperne:** hurtig, ren opskriftsside uden
-reklamestøj, alt indhold gratis (inkl. næringsindhold), personligt brand synligt på
-hver side, og fuld Recipe/BreadcrumbList/FAQ JSON-LD til Google.
+reklamestøj, alt indhold gratis, personligt brand synligt på hver side, og fuld Recipe/BreadcrumbList/FAQ JSON-LD til Google.
 
 ## Kom i gang lokalt
 
@@ -66,7 +65,6 @@ keywords: [citronmåne, marcipan]
 storage: "Holder 3 dage i lufttæt dåse."
 freezable: true
 seasonal: false        # true = vises i "Sæsonens opskrifter" på forsiden
-nutrition: null        # eller calories/protein/carbohydrates/fat pr. portion
 ingredients:
   - group: "Dej"       # group kan være null, hvis der kun er én gruppe
     items:
@@ -106,8 +104,6 @@ og gør siden langsommere. Nyt opslag på siden:
 
 ## Ting, der venter på dig (TODO)
 
-- **Nyhedsbrev:** Opret en konto hos fx MailerLite eller Mailchimp, og indsæt formularens
-  action-URL i `src/data/site.ts` (`nyhedsbrevAction`). Indtil da forklarer formularen sig selv.
 - **Sociale profiler:** Indsæt de rigtige Instagram/YouTube-links i `src/data/forfattere.ts`.
 - **Logo:** Det midlertidige SVG-ordmærke ligger i `src/components/Logo.astro`. Læg det
   rigtige logo (gerne SVG eller PNG med gennemsigtig baggrund) i `src/assets/img/` og

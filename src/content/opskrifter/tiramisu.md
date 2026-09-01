@@ -20,12 +20,6 @@ occasion: [gaester, weekend]
 keywords: [tiramisu, italiensk dessert, mascarpone, espresso, dessert til gæster]
 storage: "Skal stå mindst 6 timer på køl og holder 2 dage."
 freezable: false
-nutrition:
-  calories: 420
-  protein: 9
-  carbohydrates: 34
-  fat: 27
-  fiber: 1
 ingredients:
   - group: "Creme"
     items:

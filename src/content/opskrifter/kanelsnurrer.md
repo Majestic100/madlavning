@@ -22,12 +22,6 @@ keywords: [kanelsnurrer, kanelboller, kardemomme, gærdej, koldhævet dej, morge
 storage: "Holder sig bedst samme dag. Frys i stedet for at gemme på køl."
 freezable: true
 seasonal: true
-nutrition:
-  calories: 330
-  protein: 6
-  carbohydrates: 42
-  fat: 15
-  fiber: 2
 ingredients:
   - group: "Dej"
     items:

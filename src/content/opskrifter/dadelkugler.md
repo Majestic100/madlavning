@@ -20,12 +20,6 @@ occasion: [hverdag]
 keywords: [dadelkugler, sund snack, energikugler, snack uden sukker, vegansk snack]
 storage: "Holder en uge i en lufttæt boks på køl."
 freezable: true
-nutrition:
-  calories: 90
-  protein: 2
-  carbohydrates: 12
-  fat: 4
-  fiber: 2
 ingredients:
   - group: "Kugler"
     items:

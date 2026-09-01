@@ -106,19 +106,6 @@ export async function recipeJsonLd({ data, url, siteUrl, forfatter, kategoriNavn
         text: s.text,
       })),
     ),
-    ...(data.nutrition
-      ? {
-          nutrition: {
-            "@type": "NutritionInformation",
-            calories: `${data.nutrition.calories} kalorier`,
-            proteinContent: `${data.nutrition.protein} g`,
-            carbohydrateContent: `${data.nutrition.carbohydrates} g`,
-            fatContent: `${data.nutrition.fat} g`,
-            ...(data.nutrition.fiber != null ? { fiberContent: `${data.nutrition.fiber} g` } : {}),
-            servingSize: "1 portion",
-          },
-        }
-      : {}),
     ...(data.video
       ? {
           video: {

@@ -84,17 +84,6 @@ const opskrifter = defineCollection({
       instructions: z.array(trinGruppe).min(1),
       tips: z.array(z.string()).default([]),
 
-      nutrition: z
-        .object({
-          calories: z.number(),
-          protein: z.number(),
-          carbohydrates: z.number(),
-          fat: z.number(),
-          fiber: z.number().optional(),
-        })
-        .nullable()
-        .default(null),
-
       related: z.array(z.string()).default([]),
       seasonal: z.boolean().default(false), // vises i "lige nu"-sektionen på forsiden (styres manuelt)
     }),

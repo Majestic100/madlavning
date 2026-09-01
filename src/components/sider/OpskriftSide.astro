@@ -6,7 +6,6 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Ikon from "../Ikon.astro";
 import OpskriftKort from "../OpskriftKort.astro";
-import NyhedsbrevBlok from "../NyhedsbrevBlok.astro";
 import { kategoriAfSlug, DIAET_LABELS } from "../../lib/kategorier";
 import { formatMinutter, totalTid } from "../../lib/tid.mjs";
 import { formatAmount } from "../../lib/maengder.mjs";
@@ -193,20 +192,8 @@ const jsonld = [
           </aside>
         )}
 
-        <div class="o-meta-net">
-          {d.nutrition && (
-            <div class="meta-boks">
-              <h3>Næringsindhold pr. {d.servingsUnit === "stk" ? "styk" : "portion"}</h3>
-              <ul class="naering-liste">
-                <li><span>Energi</span><strong>{d.nutrition.calories} kcal</strong></li>
-                <li><span>Protein</span><strong>{d.nutrition.protein} g</strong></li>
-                <li><span>Kulhydrat</span><strong>{d.nutrition.carbohydrates} g</strong></li>
-                <li><span>Fedt</span><strong>{d.nutrition.fat} g</strong></li>
-                {d.nutrition.fiber != null && <li><span>Fibre</span><strong>{d.nutrition.fiber} g</strong></li>}
-              </ul>
-            </div>
-          )}
-          {(d.storage || d.freezable) && (
+        {(d.storage || d.freezable) && (
+          <div class="o-meta-net">
             <div class="meta-boks">
               <h3>Opbevaring</h3>
               {d.storage && <p><Ikon navn="boks" style="width:15px;height:15px;display:inline;vertical-align:-2px" /> {d.storage}</p>}
@@ -215,8 +202,8 @@ const jsonld = [
                 {d.freezable ? " Egner sig til frost." : " Egner sig ikke til frost."}
               </p>
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {d.diet.length > 0 && (
           <p style="margin:1.6rem 0 0;font-size:.85rem;color:var(--tekst-svag)">
@@ -252,8 +239,6 @@ const jsonld = [
           <span class="pil"><Ikon navn="pil" /></span>
         </a>
       )}
-
-      <NyhedsbrevBlok />
 
       <div class="forfatter-boks">
         <Image src={skribent.portraet} alt={`Portræt af ${skribent.navn}`} width={184} height={184} fit="cover" loading="lazy" />
