@@ -1,8 +1,8 @@
 ---
 title: "Pizza bianca med kartoffel og rosmarin"
-seoTitle: "Pizza bianca — hvid pizza med kartoffel og rosmarin"
-metaDescription: "Hvid pizza uden tomatsauce: tynde kartoffelskiver, mozzarella, rosmarin og olivenolie. Den undervurderede klassiker, der overrasker alle."
-excerpt: "Ingen tomatsauce — bare tynde kartofler, to oste, rosmarin og god olie. Lyder forkert, smager rigtigt. Den pizza, gæster taler om bagefter."
+seoTitle: "Pizza bianca: hvid pizza med kartoffel og rosmarin"
+metaDescription: "Hvid pizza uden tomatsauce: tynde kartoffelskiver, mozzarella, rosmarin og olivenolie. En undervurderet romersk klassiker."
+excerpt: "Ingen tomatsauce, bare tynde kartofler, to slags ost, rosmarin og god olie. Mere stille end en rød pizza, og tit den, der forsvinder først."
 publishedAt: 2026-08-15
 author: merve
 image:
@@ -18,7 +18,7 @@ category: pizza
 diet: [vegetarisk]
 occasion: [weekend, gaester]
 keywords: [pizza bianca, hvid pizza, kartoffelpizza, pizza uden tomat]
-storage: "Spises med det samme — kartoflerne bliver kedelige på andendagen."
+storage: "Spises med det samme. Kartoflerne bliver kedelige på andendagen."
 freezable: false
 nutrition:
   calories: 640
@@ -39,24 +39,23 @@ ingredients:
       - { amount: null, unit: null, name: "friskkværnet peber" }
 instructions:
   - steps:
-      - text: "Skær kartoflerne i papirtynde skiver — brug et mandolinjern eller en osteskærer. De skal være så tynde, at du kan se igennem dem."
+      - text: "Skær kartoflerne i papirtynde skiver med et mandolinjern eller en osteskærer. De skal være så tynde, at du kan se igennem dem."
       - text: "Læg skiverne i koldt vand i 10 minutter, og dup dem HELT tørre i et viskestykke. Våde kartofler damper pizzaen i stedet for at riste."
       - text: "Varm ovnen op på højeste temperatur med bagestål eller -sten i mindst 45 minutter."
       - text: "Stræk en dejkugle ud til cirka 28 cm. Pensl bunden med olivenolie."
       - text: "Fordel kartoffelskiverne, så de overlapper som tagsten. Drys med parmesan, mozzarella og rosmarinnåle."
       - text: "Dryp med olie, og drys med flagesalt og peber."
-      - text: "Bag 6–8 minutter, til kartoffelkanterne er gyldne og osten bobler. Afslut med et par friske rosmarinnåle."
+      - text: "Bag 6-8 minutter, til kartoffelkanterne er gyldne og osten bobler. Afslut med et par friske rosmarinnåle."
 tips:
-  - "Tyndere kartofler er vigtigere end alt andet i denne opskrift. For tykke skiver = rå kartoffel på færdig pizza."
-  - "Dræn mozzarellaen grundigt — læg den på køkkenrulle en halv time før. Hvid pizza har ingen tomatsauce at gemme fugt i."
+  - "Tynde kartofler er det vigtigste i denne opskrift. For tykke skiver giver rå kartoffel på en færdig pizza."
+  - "Dræn mozzarellaen grundigt ved at lægge den på køkkenrulle en halv time før. En hvid pizza har ingen tomatsauce at gemme fugt i."
   - "En håndfuld tyndtskåret rødløg mellem kartoflerne er ikke klassisk, men det er godt."
 related: [pizzadej-koldhaevet, fokaccia]
 ---
 
-Første gang jeg serverede pizza uden tomatsauce, blev der kigget skeptisk rundt om bordet.
-Kartofler? På pizza? På *brød*?
+Første gang jeg serverede pizza uden tomatsauce, blev der kigget skeptisk rundt om
+bordet. Kartofler på pizza lød forkert for de fleste. Skepsissen holdt cirka ét stykke.
 
-Ja. Og der gik cirka ét stykke, før skepsissen forsvandt. Pizza bianca er en romersk
-klassiker af en grund: uden tomatens syre og sødme er der plads til det stille samspil
-mellem sprød kartoffel, salt ost og rosmarin. Det er den pizza, folk nævner, når de
-kommer igen.
+Pizza bianca er en romersk klassiker af en grund: Uden tomatens syre og sødme er der
+plads til samspillet mellem sprød kartoffel, salt ost og rosmarin. Den er mere stille
+end en rød pizza, og alligevel er det tit den, der forsvinder først fra bordet.

@@ -34,7 +34,7 @@ if (form && input && status && resultater) {
   const tegn = (fund: Post[], ord: string[]) => {
     if (!fund.length) {
       resultater.innerHTML =
-        '<p class="tom-besked">Ingen opskrifter matchede. Prøv et bredere søgeord — fx “chokolade” i stedet for “mørk chokolade 70&nbsp;%”.</p>';
+        '<p class="tom-besked">Ingen opskrifter matchede. Prøv et bredere søgeord, fx "chokolade" i stedet for "mørk chokolade 70&nbsp;%".</p>';
       return;
     }
     resultater.innerHTML =

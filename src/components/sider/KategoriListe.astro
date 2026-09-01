@@ -55,7 +55,7 @@ const jsonld: object[] = [
 if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
 ---
 <Layout
-  titel={side > 1 ? `${titel} — side ${side}` : titel}
+  titel={side > 1 ? `${titel}, side ${side}` : titel}
   beskrivelse={beskrivelse}
   aktiv={kategori?.slug ?? "opskrifter"}
   jsonld={jsonld}
@@ -67,7 +67,7 @@ if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
       <div class="intro">
         {tekst
           ? tekst.intro.map((afsnit) => <p>{afsnit}</p>)
-          : <p>Hele samlingen på ét sted — nyeste først. Brug filtrene, eller <a href={sti("/soeg/")}>søg</a>, hvis du leder efter en bestemt ingrediens.</p>}
+          : <p>Hele samlingen på ét sted med nyeste først. Brug filtrene, eller <a href={sti("/soeg/")}>søg</a>, hvis du leder efter en bestemt ingrediens.</p>}
       </div>
 
       <nav class="filter-raekke" aria-label="Kategorier">
