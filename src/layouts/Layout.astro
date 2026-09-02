@@ -53,6 +53,12 @@ const ogUrl = new URL(ogBillede ?? standardOg.src, Astro.site).href;
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href={sti("/favicon.svg")} type="image/svg+xml" />
+    <link rel="icon" href={sti("/favicon-32.png")} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={sti("/apple-touch-icon.png")} sizes="180x180" />
+    <link rel="manifest" href={sti("/site.webmanifest")} />
+    <meta name="theme-color" content="#FBF7F3" />
+    <meta name="apple-mobile-web-app-title" content="Merve" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <link rel="alternate" type="application/rss+xml" title={SITE.navn} href={sti("/feed.xml")} />
     <meta name="generator" content={Astro.generator} />
 

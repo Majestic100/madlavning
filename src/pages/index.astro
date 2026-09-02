@@ -9,6 +9,7 @@ import InstagramSektion from "../components/InstagramSektion.astro";
 import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../lib/tid.mjs";
 import { forfatter } from "../data/forfattere";
 import { sti, kategoriSti } from "../lib/urls";
+import { SITE } from "../data/site";
 
 const merve = forfatter("merve");
 const alle = (await getCollection("opskrifter")).sort(
@@ -19,13 +20,26 @@ const alle = (await getCollection("opskrifter")).sort(
 const saeson = alle.filter((o) => o.data.seasonal).slice(0, 4);
 const nyeste = alle.filter((o) => !saeson.includes(o)).slice(0, 8);
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE.navn,
+  url: Astro.site!.href,
+  inLanguage: "da-DK",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: new URL(sti("/soeg/"), Astro.site).href + "?q={search_term_string}" },
+    "query-input": "required name=search_term_string",
+  },
+};
+
 const tidTal = new Map(TIDS_INTERVALLER.map((i) => [i.id, 0]));
 for (const o of alle) {
   const i = tidsInterval(aktivTid(o.data));
   tidTal.set(i.id, (tidTal.get(i.id) ?? 0) + 1);
 }
 ---
-<Layout aktiv="forside">
+<Layout aktiv="forside" jsonld={[websiteJsonLd]}>
 
   <!-- 1: Hero med Merve -->
   <section class="hero">

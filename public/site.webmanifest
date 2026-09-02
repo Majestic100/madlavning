@@ -1,0 +1,14 @@
+{
+  "name": "Merve – opskrifter",
+  "short_name": "Merve",
+  "description": "Opskrifter på bagværk, kager, desserter, snacks og pizza.",
+  "lang": "da",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#FBF7F3",
+  "theme_color": "#FBF7F3",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

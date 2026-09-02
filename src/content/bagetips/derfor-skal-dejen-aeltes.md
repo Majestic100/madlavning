@@ -1,6 +1,6 @@
 ---
 title: "Derfor skal dejen æltes, og hvornår du kan lade være"
-seoTitle: "Ælting af dej: hvorfor, hvor længe og hvornår du kan springe over"
+seoTitle: "Ælting af dej: hvorfor, hvor længe og hvornår ikke"
 metaDescription: "Hvad ælting egentlig gør ved din dej, hvordan du ser, hvornår den er færdig, og hvorfor koldhævede deje slet ikke behøver æltning."
 excerpt: "Ælting handler om glutenudvikling. Her er, hvad der sker inde i dejen, og hvorfor tid kan gøre arbejdet for dig."
 publishedAt: 2026-08-20

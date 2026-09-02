@@ -82,6 +82,17 @@ if (cookingKnap) {
   }
 }
 
+/* ---------- Flydende "Til opskriften" på mobil ---------- */
+const flyd = document.querySelector<HTMLAnchorElement>("[data-flyd]");
+if (flyd && kort && matchMedia("(max-width: 760px)").matches) {
+  const opdater = () => {
+    const r = kort.getBoundingClientRect();
+    flyd.hidden = !(window.scrollY > 240 && r.top > window.innerHeight);
+  };
+  window.addEventListener("scroll", opdater, { passive: true });
+  opdater();
+}
+
 /* ---------- Del ---------- */
 const delKnap = document.querySelector<HTMLButtonElement>("[data-del-knap]");
 if (delKnap) {
