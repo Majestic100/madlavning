@@ -1,6 +1,6 @@
 ---
 title: "Din ovn lyver, og sådan bager du udenom"
-seoTitle: "Ovntemperatur: derfor lyver din ovn, og hvad du gør ved det"
+seoTitle: "Ovntemperatur: derfor lyver din ovn"
 metaDescription: "De fleste ovne rammer 20-40 grader forbi det, displayet viser. Et ovntermometer afslører afvigelsen, og tegnene i dejen klarer resten."
 excerpt: "De fleste ovne rammer 20-40 grader ved siden af displayet. Et ovntermometer til en halvtredser afslører løgnen, og dine kager bliver bedre af det."
 publishedAt: 2026-07-30

@@ -46,6 +46,7 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: rgba(159,115,84,.18);
 }
 
 img, svg, video, iframe { max-width: 100%; display: block; }
@@ -299,7 +300,7 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
   padding: .28rem; font-size: .88rem;
 }
 .portions-vaelger button {
-  width: 38px; height: 38px; border-radius: 50%; border: 0;
+  width: 44px; height: 44px; border-radius: 50%; border: 0;
   background: var(--papir); color: var(--espresso);
   font-size: 1.15rem; line-height: 1; cursor: pointer; display: grid; place-items: center;
   transition: background var(--overgang), color var(--overgang);
@@ -319,8 +320,8 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 .i-liste { list-style: none; margin: 0; padding: 0; }
 .i-liste li { border-bottom: 1px dashed var(--linje); }
 .i-liste li:last-child { border-bottom: 0; }
-.i-liste label { display: flex; gap: .7rem; align-items: baseline; padding: .55rem 0; cursor: pointer; font-size: .98rem; }
-.i-liste input { flex-shrink: 0; accent-color: var(--karamel); width: 1.05em; height: 1.05em; margin: 0; transform: translateY(.15em); }
+.i-liste label { display: flex; gap: .8rem; align-items: baseline; padding: .7rem 0; cursor: pointer; font-size: .98rem; }
+.i-liste input { flex-shrink: 0; accent-color: var(--karamel); width: 1.3em; height: 1.3em; margin: 0; transform: translateY(.2em); }
 .i-liste input:checked ~ span { text-decoration: line-through; color: var(--tekst-svag); }
 .i-note { color: var(--tekst-svag); }
 
@@ -337,6 +338,33 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 .trin-liste li:last-child { padding-bottom: 0; }
 .trin-liste li[data-gjort="true"] { color: var(--tekst-svag); }
 .trin-liste li[data-gjort="true"]::before { background: var(--karamel); color: #fff; }
+
+/* Flydende genvej til opskriften på mobil, vises kun mens kortet er under skærmkanten */
+.flyd-opskrift {
+  position: fixed; left: 50%; bottom: calc(1rem + env(safe-area-inset-bottom)); z-index: 90;
+  transform: translateX(-50%);
+  display: inline-flex; align-items: center; gap: .5rem;
+  min-height: 48px; padding: .75rem 1.3rem; border-radius: 999px;
+  background: var(--espresso); color: #fff; font-weight: 600; font-size: .95rem;
+  text-decoration: none; box-shadow: var(--skygge-loft); white-space: nowrap;
+}
+.flyd-opskrift[hidden] { display: none; }
+.flyd-opskrift svg { width: 18px; height: 18px; }
+@media (min-width: 761px) { .flyd-opskrift { display: none; } }
+
+/* Mobil: opskriftskortet i fuld bredde, fakta og handlinger i to kolonner */
+@media (max-width: 560px) {
+  .handlinger { display: grid; grid-template-columns: 1fr 1fr; }
+  .handlinger .knap { width: 100%; padding-inline: .5rem; }
+  .o-fakta { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; }
+  .o-fakta .knap { grid-column: 1 / -1; }
+  .o-kort {
+    margin-inline: calc((100vw - 100%) / -2);
+    border-radius: 0; border-left: 0; border-right: 0;
+    padding-inline: 1.25rem;
+  }
+  .trin-liste li { padding-left: 2.7rem; }
+}
 
 .tips-boks { background: var(--creme-dyb); border-radius: var(--kant); padding: 1.4rem 1.6rem; margin-top: 2rem; }
 .tips-boks h3 {
@@ -521,4 +549,15 @@ body[data-cooking="true"] .cooking-status { display: block; }
   .ig-laag { opacity: 1; background: none; justify-content: flex-end; align-items: flex-end; }
   .ig-laag span { display: none; }
   .ig-laag svg { filter: drop-shadow(0 1px 4px rgba(79,45,36,.6)); }
+}
+
+/* Mobil: filterrækker ruller vandret i stedet for at stable sig i højden */
+@media (max-width: 640px) {
+  .filter-raekke {
+    flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start;
+    margin-inline: -1.25rem; padding-inline: 1.25rem; padding-bottom: .25rem;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .filter-raekke::-webkit-scrollbar { display: none; }
+  .filter-raekke > * { flex-shrink: 0; scroll-snap-align: start; }
 }

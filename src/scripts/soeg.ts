@@ -7,11 +7,11 @@ interface Post {
 
 const form = document.querySelector<HTMLFormElement>("[data-soegeform]");
 const input = document.querySelector<HTMLInputElement>("#soeg-input");
-const status = document.querySelector<HTMLElement>("[data-soegestatus]");
+const statusEl = document.querySelector<HTMLElement>("[data-soegestatus]");
 const resultater = document.querySelector<HTMLElement>("[data-soegeresultater]");
 const chips = document.querySelector<HTMLElement>("[data-soegechips]");
 
-if (form && input && status && resultater) {
+if (form && input && statusEl && resultater) {
   let data: Post[] = [];
 
   const normaliser = (s: string) =>
@@ -59,7 +59,7 @@ if (form && input && status && resultater) {
   const soeg = (raa: string) => {
     const q = raa.trim();
     if (!q) {
-      status.textContent = `Skriv et søgeord for at lede i ${data.length} opskrifter og guides.`;
+      statusEl.textContent = `Skriv et søgeord for at lede i ${data.length} opskrifter og guides.`;
       resultater.innerHTML = "";
       return;
     }
@@ -90,7 +90,7 @@ if (form && input && status && resultater) {
       .sort((a, b) => b.point - a.point)
       .map((r) => r.p);
 
-    status.textContent = fund.length
+    statusEl.textContent = fund.length
       ? `${fund.length} ${fund.length === 1 ? "resultat" : "resultater"} for “${q}”.`
       : `Ingen resultater for “${q}”.`;
     tegn(fund, ord);
@@ -101,7 +101,7 @@ if (form && input && status && resultater) {
       const svar = await fetch(form.dataset.indeks!);
       data = await svar.json();
     } catch {
-      status.textContent = "Kunne ikke indlæse søgeindekset. Prøv at genindlæse siden.";
+      statusEl.textContent = "Kunne ikke indlæse søgeindekset. Prøv at genindlæse siden.";
       return;
     }
 
@@ -110,7 +110,7 @@ if (form && input && status && resultater) {
       input.value = fraUrl;
       soeg(fraUrl);
     } else {
-      status.textContent = `Skriv et søgeord for at lede i ${data.length} opskrifter og guides.`;
+      statusEl.textContent = `Skriv et søgeord for at lede i ${data.length} opskrifter og guides.`;
     }
 
     let timer: ReturnType<typeof setTimeout>;

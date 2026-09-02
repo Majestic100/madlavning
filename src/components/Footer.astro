@@ -17,7 +17,7 @@ const aar = new Date().getFullYear();
         <p>{SITE.slogan}</p>
         <div class="sociale">
           <a href={merve.instagram} aria-label="Instagram" rel="me noopener"><Ikon navn="instagram" /></a>
-          <a href={merve.youtube} aria-label="YouTube" rel="me noopener"><Ikon navn="youtube" /></a>
+          {merve.youtube && <a href={merve.youtube} aria-label="YouTube" rel="me noopener"><Ikon navn="youtube" /></a>}
         </div>
       </div>
 

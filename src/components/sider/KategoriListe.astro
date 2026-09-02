@@ -1,7 +1,6 @@
 ---
 /** Kategori- og oversigtssider (spec §4): intro, filtre, grid, paginering, SEO-blokke, FAQ, nabolinks. */
 import Layout from "../../layouts/Layout.astro";
-import Ikon from "../Ikon.astro";
 import OpskriftKort from "../OpskriftKort.astro";
 import type { CollectionEntry } from "astro:content";
 import { KATEGORIER, naboKategorier, DIAET_LABELS, type Kategori } from "../../lib/kategorier";
@@ -22,8 +21,11 @@ interface Props {
   antalSider: number;
   /** basePath uden sidenummer, fx "/opskrifter/kager/" */
   basePath: string;
+  /** Valgfri længere titel til <title>; H1 bruger stadig `titel` */
+  seoTitel?: string;
 }
-const { kategori, titel, beskrivelse, posts, side, antalSider, basePath } = Astro.props;
+const { kategori, titel, beskrivelse, posts, side, antalSider, basePath, seoTitel } = Astro.props;
+const browserTitel = seoTitel ?? (kategori ? `${kategori.navn}: ${kategori.tagline.toLowerCase()}` : titel);
 
 const tekst = kategori ? KATEGORITEKSTER[kategori.slug] : null;
 const erOpskrifter = !kategori?.erArtikler;
@@ -54,7 +56,7 @@ const jsonld: object[] = [
 if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
 ---
 <Layout
-  titel={side > 1 ? `${titel}, side ${side}` : titel}
+  titel={side > 1 ? `${browserTitel}, side ${side}` : browserTitel}
   beskrivelse={beskrivelse}
   aktiv={kategori?.slug ?? "opskrifter"}
   jsonld={jsonld}

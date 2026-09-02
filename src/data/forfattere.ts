@@ -19,10 +19,10 @@ export const FORFATTERE: Record<string, Forfatter> = {
     bio: "Jeg bager, fejler, retter til og skriver det ned, så du ikke behøver begå de samme fejl. Alle opskrifter er testet i mit eget køkken og skrevet i gram.",
     portraet,
     instagram: "https://www.instagram.com/merveholck/",
-    // TODO: Sæt Merves rigtige YouTube-kanal ind her:
-    youtube: "https://www.youtube.com/",
+    // Tom streng = intet YouTube-ikon på siden. Indsæt kanalens URL, når den findes.
+    youtube: "",
     get sameAs() {
-      return [this.instagram, this.youtube];
+      return [this.instagram, this.youtube].filter(Boolean);
     },
   },
 };

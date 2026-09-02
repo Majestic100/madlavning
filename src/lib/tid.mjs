@@ -42,5 +42,6 @@ export const TIDS_INTERVALLER = [
 
 /** Hvilket interval falder en aktiv tid i? (Stinna-navigationen, spec §1) */
 export function tidsInterval(aktivMinutter) {
-  return TIDS_INTERVALLER.find((i) => aktivMinutter > i.min - 1 && aktivMinutter <= i.max) ?? TIDS_INTERVALLER.at(-1);
+  const fundet = TIDS_INTERVALLER.find((i) => aktivMinutter > i.min - 1 && aktivMinutter <= i.max);
+  return fundet ?? /** @type {(typeof TIDS_INTERVALLER)[number]} */ (TIDS_INTERVALLER[TIDS_INTERVALLER.length - 1]);
 }
