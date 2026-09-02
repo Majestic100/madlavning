@@ -105,9 +105,6 @@ og gør siden langsommere. Nyt opslag på siden:
 ## Ting, der venter på dig (TODO)
 
 - **Sociale profiler:** Indsæt de rigtige Instagram/YouTube-links i `src/data/forfattere.ts`.
-- **Logo:** Det midlertidige SVG-ordmærke ligger i `src/components/Logo.astro`. Læg det
-  rigtige logo (gerne SVG eller PNG med gennemsigtig baggrund) i `src/assets/img/` og
-  skift komponenten til at vise det.
 - **Portræt:** Erstat `src/assets/img/merve-portraet.jpg` med et rigtigt foto (kvadratisk,
   min. 1200 px) — det bruges i heroen, bylines og forfatterboksen.
 - **Fotos:** Erstat pladsholderbillederne i `src/assets/opskrifter/` med rigtige fotos
