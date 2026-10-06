@@ -34,10 +34,9 @@ Smagen kommer langsomt. Læsser du gær i dejen, er den hævet på en time, men 
 aldrig fået en chance.
 
 Vejen til brød, der smager af noget, er derfor altid den samme: Skru ned for gæren, og
-skru op for tiden. Mine [koldhævede rundstykker](/opskrifter/koldhaevede-rundstykker/)
-bruger 5 gram frisk gær til 600 gram mel. Min [pizzadej](/opskrifter/pizzadej-koldhaevet/)
-bruger 3. Natten i køleskabet gør resten, for kulden bremser gærens luftproduktion, mens
-smagsudviklingen fortsætter.
+skru op for tiden. Min [48-timers pizzadej](/opskrifter/pizzadej/) bruger kun 2 gram
+tørgær til 910 gram mel. To døgn i køleskabet gør resten, for kulden bremser gærens
+luftproduktion, mens smagsudviklingen fortsætter.
 
 ## Det, der slår gæren ihjel
 

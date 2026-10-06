@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import { readdirSync } from "node:fs";
 
 // Deploy-mål styres af workflowet:
 //  - Uden eget domæne (GitHub Pages projekt-side): SITE_URL=https://<bruger>.github.io  BASE_PATH=/madlavning
@@ -26,7 +27,26 @@ function rehypeBasePrefix() {
   };
 }
 
+/**
+ * Videresendelse fra den gamle Webnode-side (merveholck.dk), så links og
+ * Google-placeringer virker, når domænet peger hertil. Opskrifterne har
+ * samme slug som før, så /l/<slug>/ sendes til /opskrifter/<slug>/.
+ */
+const B = BASE.replace(/\/$/, ""); // Astro præfikser ikke selv målet med base
+const GAMLE_ADRESSER = {
+  "/blog-opskrifter": `${B}/opskrifter/`,
+  "/om-mig": `${B}/om/`,
+  "/l/snurrer-med-smoer": `${B}/opskrifter/bagvaerk/`,
+  ...Object.fromEntries(
+    readdirSync(new URL("./src/content/opskrifter", import.meta.url))
+      .filter((f) => f.endsWith(".md"))
+      .map((f) => f.replace(/\.md$/, ""))
+      .map((slug) => [`/l/${slug}`, `${B}/opskrifter/${slug}/`]),
+  ),
+};
+
 export default defineConfig({
+  redirects: GAMLE_ADRESSER,
   site: SITE,
   base: BASE,
   trailingSlash: "ignore",

@@ -18,12 +18,18 @@ export const DIAETER = ["vegetarisk", "vegansk", "glutenfri"] as const;
 export const SAESONER = ["foraar", "sommer", "efteraar", "vinter"] as const;
 export const ANLEDNINGER = ["hverdag", "gaester", "foedselsdag", "jul", "paaske", "weekend"] as const;
 
-const ingrediens = z.object({
-  amount: z.number().positive().nullable().default(null), // null = "efter smag" (fx flagesalt)
-  unit: z.enum(ENHEDER).nullable().default(null),
-  name: z.string().min(1),
-  note: z.string().nullable().default(null),
-});
+const ingrediens = z
+  .object({
+    amount: z.number().positive().nullable().default(null), // null = "efter smag" (fx flagesalt)
+    /** Øvre grænse for intervaller som "550-575 g mel". Skaleres sammen med amount. */
+    amountMax: z.number().positive().nullable().default(null),
+    unit: z.enum(ENHEDER).nullable().default(null),
+    name: z.string().min(1),
+    note: z.string().nullable().default(null),
+  })
+  .refine((i) => i.amountMax == null || (i.amount != null && i.amountMax > i.amount), {
+    message: "amountMax kræver amount og skal være større end amount",
+  });
 
 const ingrediensGruppe = z.object({
   group: z.string().nullable().default(null),

@@ -1,80 +1,63 @@
 ---
-title: "Kanelsnurrer med kardemomme"
-seoTitle: "Kanelsnurrer med kardemomme, koldhævede og trådede"
-metaDescription: "Bløde, trådede kanelsnurrer med kardemommeremonce. Dejen koldhæver natten over, så du kan bage dem friske til morgenkaffen. Skrevet i gram."
-excerpt: "Bløde, trådede kanelsnurrer med fyldig kardemommeremonce. Koldhævet natten over, så du kan bage dem til morgenkaffen."
-publishedAt: 2026-08-24
+title: "De blødeste kanelsnurrer"
+metaDescription: "Der er bare noget helt særligt ved duften af nybagte kanelsnurrer."
+excerpt: "Der er bare noget helt særligt ved duften af nybagte kanelsnurrer. Den varme kanel, det smeltede smør og den bløde gærdej skaber en kombination, som er svær at modstå."
+publishedAt: 2026-07-30
 author: merve
 image:
   src: ../../assets/opskrifter/kanelsnurrer.jpg
-  alt: "Nybagte kanelsnurrer med perlesukker på bagepapir, set ovenfra"
-prepTime: 40
-cookTime: 14
-waitTime: 810
-servings: 12
+  alt: "Nybagte kanelsnurrer med synlige lag af kanelremonce på bagepapir"
+prepTime: 45
+cookTime: 11
+waitTime: 140
+servings: 15
 servingsUnit: "stk"
 difficulty: mellem
 category: bagvaerk
 diet: [vegetarisk]
 season: [efteraar, vinter]
 occasion: [weekend, gaester]
-keywords: [kanelsnurrer, kanelboller, kardemomme, gærdej, koldhævet dej, morgenbrød]
-storage: "Holder sig bedst samme dag. Frys i stedet for at gemme på køl."
+keywords: ["kanelsnurrer", "bløde kanelsnurrer", "remonce", "gærdej", "kardemomme"]
+storage: "Kan fryses, så du altid har en kanelsnurre klar."
 freezable: true
-seasonal: true
 ingredients:
   - group: "Dej"
     items:
-      - { amount: 250, unit: "g", name: "sødmælk", note: "lun" }
-      - { amount: 15, unit: "g", name: "frisk gær" }
-      - { amount: 1, unit: "stk", name: "æg", note: "str. M" }
-      - { amount: 60, unit: "g", name: "sukker" }
-      - { amount: 8, unit: "g", name: "fint salt" }
-      - { amount: 5, unit: "g", name: "stødt kardemomme" }
-      - { amount: 480, unit: "g", name: "hvedemel" }
-      - { amount: 90, unit: "g", name: "smør", note: "blødt" }
+      - { amount: 550, unit: "g", name: "hvedemel", note: "måske lidt mere/mindre, mel er forskelligt" }
+      - { amount: 25, unit: "g", name: "gær" }
+      - { amount: 140, unit: "g", name: "smør" }
+      - { amount: 1, unit: "stk", name: "æg", note: "og 1 ekstra til pensling" }
+      - { amount: 1, unit: "tsk", name: "salt" }
+      - { amount: 110, unit: "g", name: "sukker" }
+      - { amount: 3, unit: "dl", name: "sødmælk" }
+      - { amount: 1.5, unit: "tsk", name: "kardemomme", note: "kan undlades" }
   - group: "Remonce"
     items:
-      - { amount: 120, unit: "g", name: "smør", note: "blødt" }
-      - { amount: 110, unit: "g", name: "brun farin" }
-      - { amount: 12, unit: "g", name: "stødt kanel" }
-      - { amount: 3, unit: "g", name: "stødt kardemomme" }
-      - { amount: 1, unit: "knivspids", name: "salt" }
-  - group: "Til pensling"
-    items:
-      - { amount: 1, unit: "stk", name: "æg" }
-      - { amount: 1, unit: "spsk", name: "mælk" }
-      - { amount: null, unit: null, name: "perlesukker" }
+      - { amount: 120, unit: "g", name: "smør" }
+      - { amount: 40, unit: "g", name: "brun farin" }
+      - { amount: 40, unit: "g", name: "sukker" }
+      - { amount: 3, unit: "tsk", name: "kanel" }
 instructions:
-  - group: "Dagen før"
+  - group: null
     steps:
-      - text: "Rør gæren ud i den lune mælk. Tilsæt æg, sukker, salt og kardemomme, og rør rundt."
-      - text: "Tilsæt melet og ælt dejen i 8 minutter på maskine (eller 12 minutter i hånden). Den skal være smidig og slippe skålens sider."
-      - text: "Tilsæt det bløde smør lidt ad gangen, og ælt videre i 6-8 minutter, til dejen er blank og elastisk. Den skal kunne trækkes tynd uden at flå."
-      - text: "Dæk skålen til, og stil den på køl i mindst 12 og højst 24 timer. Den kolde hævning er hele hemmeligheden bag smagen."
-  - group: "På bagedagen"
-    steps:
-      - text: "Rør remoncen sammen til en ensartet, luftig masse. Den skal være til at smøre, ikke smeltet."
-      - text: "Rul den kolde dej ud til et rektangel på cirka 40 × 50 cm. Smør remoncen ud over hele fladen."
-      - text: "Fold dejen i tre som et brev. Skær den i 12 strimler på langs."
-      - text: "Snurr hver strimmel om sig selv 3-4 gange, og vikl den om to fingre. Stik enden ind under bunden, så den ikke går op."
-      - text: "Sæt snurrerne på bageplader med god afstand. Lad dem efterhæve tildækket i 60-90 minutter ved stuetemperatur, til de ser tydeligt puffede ud."
-      - text: "Forvarm ovnen til 200 °C almindelig varme. Pensl med sammenpisket æg og mælk, og drys med perlesukker."
-      - text: "Bag i 12-14 minutter, til de er dybt gyldne. Tag dem ud, mens midten stadig er en anelse blød, for de efterbager på pladen."
-tips:
-  - "Kardemommen skal helst være friskstødt. Køb hele kapsler og knus frøene i en morter, så får du dobbelt så meget duft ud af det samme gram."
-  - "Er remoncen for blød, når du ruller, løber den ud i ovnen. Stil den 10 minutter på køl, hvis dit køkken er varmt."
-  - "Snurrer bliver tørre i køleskabet. Frys dem i stedet: 4 minutter ved 180 °C, så er de som nybagte."
-related: [koldhaevede-rundstykker, fokaccia]
+      - text: "Lun mælken, hæld den i en røremaskine, og rør gæren ud. Tilsæt æg og sukker, og rør kort. Tilsæt mel og salt, og ælt dejen i 10 minutter. Tilsæt nu smørret lidt af gangen, og ælt i 7-10 minutter til dejen er smidig og glat. Lad den hæve til dobbelt størrelse. Det tog ca 1 time og 20 minutter hos mig, men det afhænger af temperaturen i det rum du hæver dejen i."
+      - text: "Imens kan du røre remoncen sammen til en ensartet masse."
+      - text: "Efter hævningen, ruller du dejen ud til en rektangel på ca 45x60 cm. og smører remoncen helt ud til kanterne."
+      - text: "Dejen foldes nu sammen, så du tager fat i den ene lange side og folder, så du har et smalt men langt stykke dej."
+      - text: "Skær nu dejen i tynde lange strimler, på ca 1,3 cm x 60 cm. Jeg fik 15 stk ud af min dej. Skær med et pizzahjul, hvis du har det. Det er nemmest."
+      - text: "Nu skal hver strimmel foldes til en snurre. Det gør du ved at sno dejen rundt om dine fingre til du kun har et lille stykke dej tilbage, som du så lægger hen over midten af dejen og gemmer i hullet på bagsiden. (Se evt. videoen på Instagram)"
+      - text: "Lad nu snurrene hæve i 1 time, hvorefter de pensles med æg og bages ved 190 grader alm. ovn i 10-12 minutter alt efter størrelse. Du kan evt. pensle dem med smeltet smør eller sukkersirup efter bagning, men det er ikke nødvendigt."
+related: [kanelcookies, chokoladeboller, brioche-med-jordbaer]
 ---
 
-Der findes to slags kanelsnurrer: dem, du spiser, fordi de står der, og dem, du tænker på
-dagen efter. Forskellen ligger sjældent i opskriften, men i tiden.
+Der er bare noget helt særligt ved duften af nybagte kanelsnurrer. Den varme kanel, det smeltede smør og den bløde gærdej skaber en kombination, som er svær at modstå. Denne opskrift giver luftige og saftige kanelsnurrer med masser af fyld i hver eneste fold.
 
-Dejen her står på køl natten over, fordi gæren laver mest smag, når den arbejder langsomt
-og køligt. Bager du den samme dag, får du en fin bolle. Venter du til dagen efter, smager
-den af bageri.
+Dejen er nem at arbejde med og bliver dejlig blød efter bagning. Det generøse lag af smør, sukker og kanel sikrer en intens smag, mens den flotte snoningsmetode giver de klassiske kanelsnurrer med mange lækre lag.
 
-Det var min svigermors kommentar, "de smager jo som fra en rigtig bager", der fik mig til
-at skrive opskriften ned præcis, som jeg laver den. Her er den, i gram og med de detaljer,
-jeg selv ledte efter, da jeg lærte det.
+Kanelsnurrerne smager fantastisk, som de er, men en simpel glasur løfter dem lige det sidste og giver den velkendte søde afslutning. Foretrækker du dem uden glasur, er de mindst lige så lækre.
+
+De er perfekte til eftermiddagskaffen, weekendhyggen eller når du vil forkæle familie og venner med hjemmebag. Og hvis du bager en stor portion, kan de sagtens fryses ned, så du altid har en lækker kanelsnurre klar.
+
+Mit bedste råd er at lade dem hæve ordentligt og tage dem ud af ovnen, så snart de har fået en flot gylden farve. På den måde forbliver de bløde og saftige i stedet for at blive tørre.
+
+Uanset om det er første gang, du laver kanelsnurrer, eller du har bagt dem mange gange før, er denne opskrift nem at følge og giver et resultat, du kan være stolt af. Jeg håber, de bliver en favorit hjemme hos dig – god fornøjelse med bagningen!

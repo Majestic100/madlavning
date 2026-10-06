@@ -162,7 +162,7 @@ const jsonld = [
                     <label>
                       <input type="checkbox" />
                       {i.amount != null && (
-                        <span><span data-amount={i.amount} data-unit={i.unit ?? undefined}>{formatAmount(i.amount, i.unit)}</span>{i.unit ? ` ${i.unit}` : ""}</span>
+                        <span><span data-amount={i.amount} data-unit={i.unit ?? undefined}>{formatAmount(i.amount, i.unit)}</span>{i.amountMax != null && <>–<span data-amount={i.amountMax} data-unit={i.unit ?? undefined}>{formatAmount(i.amountMax, i.unit)}</span></>}{i.unit ? ` ${i.unit}` : ""}</span>
                       )}
                       <span>{i.name}{i.note && <span class="i-note">, {i.note}</span>}</span>
                     </label>
