@@ -1,13 +1,11 @@
 ---
-import "@fontsource-variable/josefin-sans";
-import "@fontsource-variable/montserrat";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE } from "../data/site";
 import { sti } from "../lib/urls";
 import ogStandard from "../assets/img/og-standard.jpg";
-import { getImage } from "astro:assets";
+import { getImage, Font } from "astro:assets";
 
 interface Props {
   titel?: string;
@@ -38,6 +36,7 @@ const ogUrl = new URL(ogBillede ?? standardOg.src, Astro.site).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Font cssVariable="--font-gotham" preload={[{ weight: 400, style: "normal" }, { weight: 500, style: "normal" }]} />
     <title>{fuldTitel}</title>
     <meta name="description" content={beskrivelse} />
     <link rel="canonical" href={kanonisk} />

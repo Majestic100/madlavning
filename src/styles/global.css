@@ -19,8 +19,9 @@
   --tekst-svag:  #7D6557;      /* AA-kontrast (5,1:1) på creme — bruges til småtekst */
   --karamel-tekst: #8A614A;    /* karamel mørk nok til tekst og links (5,1:1) */
 
-  --serif: "Josefin Sans Variable", "Century Gothic", "Futura", "Trebuchet MS", sans-serif;
-  --sans:  "Montserrat Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Gotham på hele siden. Navnene --serif/--sans er bevaret, så resten af CSS'en er uændret. */
+  --serif: var(--font-gotham);
+  --sans:  var(--font-gotham);
 
   --maks: 1200px;
   --laes: 720px;   /* opskriftssidens læsebredde (spec §3) */
