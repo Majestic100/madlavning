@@ -36,7 +36,6 @@ const B = BASE.replace(/\/$/, ""); // Astro præfikser ikke selv målet med base
 const GAMLE_ADRESSER = {
   "/blog-opskrifter": `${B}/opskrifter/`,
   "/om-mig": `${B}/om/`,
-  "/l/snurrer-med-smoer": `${B}/opskrifter/bagvaerk/`,
   ...Object.fromEntries(
     readdirSync(new URL("./src/content/opskrifter", import.meta.url))
       .filter((f) => f.endsWith(".md"))
