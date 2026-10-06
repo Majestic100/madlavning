@@ -1,42 +1,51 @@
 ---
 /**
- * Kurateret Instagram-sektion: opslag som kort, der linker til Instagram.
- * Ingen embeds og ingen tredjepartsscripts, jf. spec §1 ("Link i stedet").
- * Opslagene vedligeholdes i src/data/instagram.ts.
+ * Instagram-sektion med Merves seneste opslag, hentet fra Behold ved build
+ * (se src/lib/instagram.ts). Billederne ligger på siden selv, og hvert kort
+ * linker til opslaget på Instagram. Reels og karruseller får et lille ikon.
  */
 import { Image } from "astro:assets";
 import Ikon from "./Ikon.astro";
-import { INSTAGRAM_OPSLAG } from "../data/instagram";
+import { hentInstagram } from "../lib/instagram";
 import { forfatter } from "../data/forfattere";
 
 const merve = forfatter("merve");
-const opslag = INSTAGRAM_OPSLAG.slice(0, 4);
+const feed = await hentInstagram(6);
+const foelgere = feed.foelgere ? new Intl.NumberFormat("da-DK").format(feed.foelgere) : null;
 ---
 <div class="ig-sektion">
   <div class="sektion-hoved">
     <div>
-      <p class="oejenbryn">Instagram</p>
+      <p class="oejenbryn">Instagram · @{feed.brugernavn}</p>
       <h2>Med i køkkenet, mellem opskrifterne</h2>
       <p>Derinde lægger jeg fremgangsmåder, mislykkede forsøg og færdige resultater op, tit før opskriften lander her på siden.</p>
     </div>
     <a class="knap knap-linje" href={merve.instagram} rel="me noopener" target="_blank">
-      <Ikon navn="instagram" /> Følg med
+      <Ikon navn="instagram" /> Følg med{foelgere && <span class="ig-foelgere">· {foelgere} følgere</span>}
     </a>
   </div>
 
-  <ul class="ig-net">
-    {opslag.map((o) => (
-      <li>
-        <a class="ig-kort" href={o.link} rel="noopener" target="_blank" aria-label={`Se opslaget på Instagram: ${o.tekst}`}>
-          <Image src={o.billede} alt={o.alt} widths={[320, 480, 640]}
-                 sizes="(max-width: 640px) 46vw, 280px" width={640} height={640}
-                 fit="cover" loading="lazy" decoding="async" />
-          <span class="ig-laag">
-            <Ikon navn="instagram" />
-            <span>{o.tekst}</span>
-          </span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  {feed.opslag.length > 0 && (
+    <ul class="ig-net">
+      {feed.opslag.map((o) => (
+        <li>
+          <a class="ig-kort" href={o.link} rel="noopener" target="_blank"
+             aria-label={`${o.type === "video" ? "Se reelen" : "Se opslaget"} på Instagram${o.tekst ? `: ${o.tekst}` : ""}`}>
+            <Image src={o.billede} alt={o.alt} width={o.bredde} height={o.hoejde}
+                   widths={[240, 360, 480]} sizes="(max-width: 900px) 33vw, 190px"
+                   format="webp" loading="lazy" decoding="async" />
+            {o.type !== "billede" && (
+              <span class="ig-type" aria-hidden="true">
+                <Ikon navn={o.type === "video" ? "afspil" : "karrusel"} />
+              </span>
+            )}
+            <span class="ig-laag" aria-hidden="true">
+              <Ikon navn="instagram" />
+              {o.tekst && <span>{o.tekst}</span>}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )}
 </div>

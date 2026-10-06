@@ -520,11 +520,11 @@ body[data-cooking="true"] .cooking-status { display: block; }
 /* ---------- Instagram-sektion ---------- */
 
 .ig-net {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(6, 1fr);
   gap: clamp(.6rem, 1.5vw, 1.1rem);
   list-style: none; margin: 0; padding: 0;
 }
-@media (max-width: 640px) { .ig-net { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px) { .ig-net { grid-template-columns: repeat(3, 1fr); gap: .5rem; } }
 
 .ig-kort {
   position: relative; display: block;
@@ -544,12 +544,22 @@ body[data-cooking="true"] .cooking-status { display: block; }
 }
 .ig-kort:hover .ig-laag, .ig-kort:focus-visible .ig-laag { opacity: 1; }
 .ig-laag svg { width: 24px; height: 24px; }
+.ig-laag span { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Reel/karrusel-markering i hjørnet, som på Instagram */
+.ig-type {
+  position: absolute; top: .5rem; right: .5rem; z-index: 1;
+  color: #fff; line-height: 0; pointer-events: none;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,.45));
+}
+.ig-type svg { width: 18px; height: 18px; }
+
+.ig-foelgere { font-weight: 500; opacity: .75; }
+@media (max-width: 420px) { .ig-foelgere { display: none; } }
 
 @media (hover: none) {
   /* På touch-skærme vises en diskret badge i stedet for hover-laget */
-  .ig-laag { opacity: 1; background: none; justify-content: flex-end; align-items: flex-end; }
-  .ig-laag span { display: none; }
-  .ig-laag svg { filter: drop-shadow(0 1px 4px rgba(79,45,36,.6)); }
+  .ig-laag { display: none; }
 }
 
 /* Mobil: filterrækker ruller vandret i stedet for at stable sig i højden */
