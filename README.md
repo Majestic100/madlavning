@@ -123,13 +123,23 @@ originalbilleder. Merves egne tekster er bevaret ordret, og kun åbenlyse tastef
 - **Gamle adresser:** `/l/<slug>/`, `/blog-opskrifter/` og `/om-mig/` sender videre til de nye
   sider (`redirects` i `astro.config.mjs`). Det er vigtigt, når merveholck.dk flyttes hertil,
   så Google-placeringer og delte links bliver ved med at virke.
-- **Mangler:** "Snurrer med smør" er ikke med, fordi trin 3 og 4 på den gamle side var
-  Webnodes standardtekst. Dens gamle adresse sender videre til Bagværk, indtil den er skrevet
-  færdig.
+- **Snurrer med smør** er nu med, hentet fra Instagram-opslaget med den fulde opskrift.
+
+## Opskrifter fra Instagram
+
+29 opskrifter er hentet fra captions på @merveholck, hvor hele opskriften stod i opslaget.
+Hver fil har et `instagram:`-link til det oprindelige opslag.
+
+- **Billeder:** Midlertidigt er reel-coverbilledet brugt (lav opløsning og ofte med tekst
+  ovenpå). Skift dem ud med rigtige fotos i `src/assets/opskrifter/` med samme filnavn.
+- **Udledte felter:** Tider, sværhedsgrad, sæson og anledning er skøn ud fra opskriftens
+  tekst. Portioner står kun i opslaget for nogle af dem. Ret i frontmatter.
+- **Intro-tekster** er Merves caption-tekst, kortet ned og renset for emojis og
+  "skriv i kommentarfeltet"-opfordringer.
 
 ## Ting, der venter på dig (TODO)
 
-- **Snurrer med smør:** Skriv trin 3 og 4 færdige, så kan opskriften komme med.
+- **Fotos til Instagram-opskrifterne:** Udskift coverbillederne med rigtige fotos.
 - **Udledte felter:** Tjek tider og portioner på de importerede opskrifter (se ovenfor).
 - **Fotos til bagetips:** Billederne i `src/assets/bagetips/` er stadig pladsholdere.
 - **Kontakt-e-mail:** Indsæt på `src/pages/kontakt.astro`, når den er klar.
