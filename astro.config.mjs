@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 // Deploy-mål styres af workflowet:
@@ -31,6 +31,26 @@ export default defineConfig({
   base: BASE,
   trailingSlash: "ignore",
   integrations: [sitemap()],
+  // Gotham ligger lokalt (src/assets/fonts) som woff2, beskåret til latinske tegn.
+  // Medium dækker 500–650 og Bold 651–900, så de eksisterende vægte i CSS rammer rigtigt.
+  // Astro laver selv en metrik-tilpasset reservefont, så teksten ikke hopper, når Gotham loader.
+  fonts: [
+    {
+      provider: fontProviders.local(),
+      name: "Gotham",
+      cssVariable: "--font-gotham",
+      fallbacks: ["Helvetica Neue", "Arial", "sans-serif"],
+      display: "swap",
+      options: {
+        variants: [
+          { src: ["./src/assets/fonts/gotham-book.woff2"], weight: "400", style: "normal" },
+          { src: ["./src/assets/fonts/gotham-medium.woff2"], weight: "500 650", style: "normal" },
+          { src: ["./src/assets/fonts/gotham-bold.woff2"], weight: "651 900", style: "normal" },
+          { src: ["./src/assets/fonts/gotham-bold-italic.woff2"], weight: "651 900", style: "italic" },
+        ],
+      },
+    },
+  ],
   image: {
     // Placeholder-billederne er genereret lokalt; rigtige fotos behandles på samme måde.
     responsiveStyles: true,
