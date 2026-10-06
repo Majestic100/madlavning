@@ -69,7 +69,9 @@ export async function recipeJsonLd({ data, url, siteUrl, forfatter, kategoriNavn
 
   const ingredienser = data.ingredients.flatMap((g: any) =>
     g.items.map((i: any) =>
-      [i.amount, i.unit, i.name, i.note ? `(${i.note})` : null].filter(Boolean).join(" "),
+      [i.amountMax != null ? `${i.amount}-${i.amountMax}` : i.amount, i.unit, i.name, i.note ? `(${i.note})` : null]
+        .filter(Boolean)
+        .join(" "),
     ),
   );
 

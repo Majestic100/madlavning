@@ -11,151 +11,127 @@ export interface KategoriTekst {
 export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   bagvaerk: {
     intro: [
-      "Bagværk er der, hvor det hele startede for mig, og der, hvor de fleste af mine opskrifter hører hjemme. Her finder du gærdeje i alle tempi: rundstykker, der passer sig selv i køleskabet natten over, kanelsnurrer til weekender med god tid, og fokaccia, der tilgiver dig næsten alt.",
-      "Alle opskrifter er skrevet i gram, fordi en deciliter mel kan veje alt mellem 55 og 75 gram, og den forskel kan smages. Du får altid både tider og tegn: hvor længe dejen cirka skal hæve, og hvordan du kan se, at den er klar. Din ovn og min ovn er nemlig sjældent enige.",
+      "Bagværk er gærdej i alle afskygninger: bløde kanelsnurrer, chokoladeboller til eftermiddagskaffen, gulerodsboller til madpakken og pølsehorn til børnefødselsdagen. Her finder du også mine briocheboller med fyld, fra vaniljecreme og jordbær til cheesecake med hindbær eller blåbær, og et surdejsbrød med store stykker mørk chokolade.",
+      "Opskrifterne er skrevet i gram, og trinene fortæller både, hvor længe dejen cirka skal hæve, og hvordan den skal se ud. Hævetiden afhænger nemlig af, hvor varmt der er i dit køkken, så brug tiderne som pejlemærker og dejen som facit.",
     ],
     blokke: [
       {
-        overskrift: "Koldhævning gør det tunge arbejde",
-        tekst: "De fleste af mine gærdeje hæver på køl natten over. Det giver mere smag med mindre gær, og det flytter arbejdet hen, hvor det passer dig: ti minutter om aftenen i stedet for tre timers venten på en bagedag. Er koldhævning nyt for dig, så start med de koldhævede rundstykker. Det er den mest tilgivende dej, jeg kender.",
+        overskrift: "Én dej, mange boller",
+        tekst: "Briochedejen går igen i flere af opskrifterne: 550-575 g hvedemel, sødmælk, gær, æg og blødt smør, der æltes ind lidt ad gangen. Har du bagt den én gang, kan du skifte fyldet ud efter sæson og humør. Vej gerne hele dejen, så bollerne bliver lige store og bager lige længe.",
       },
       {
-        overskrift: "Udstyret, du faktisk behøver",
-        tekst: "En vægt, en dejskraber og en bageplade kommer du langt med. En røremaskine gør æltetunge deje som kanelsnurrer nemmere, men ingen af opskrifterne her kræver den. Hånden og lidt tålmodighed kan det samme. Et ovntermometer er til gengæld den bedste halvtredser, du kan bruge på dit bagværk.",
+        overskrift: "Smørret skal ind til sidst",
+        tekst: "I de fleste af dejene ælter du først mel, væske og gær sammen, og tilsætter smørret bagefter, lidt ad gangen. Så får glutenen lov at udvikle sig, før fedtstoffet kommer til, og dejen bliver smidig og blank i stedet for fedtet. Dejen må gerne være en anelse klistret.",
       },
     ],
     faq: [
       {
         spoergsmaal: "Kan jeg bruge tørgær i stedet for frisk gær?",
-        svar: "Ja, i alle opskrifter. Brug cirka en tredjedel af mængden: 15 g frisk gær svarer til 5 g tørgær. Instant-tørgær blandes direkte i melet, almindelig tørgær vækkes først 10 minutter i lidt af den lunkne væske.",
+        svar: "Ja. Brug cirka en tredjedel af mængden: 25 g frisk gær svarer til omkring 8 g tørgær. Instant-tørgær blandes direkte i melet, almindelig tørgær vækkes først 10 minutter i lidt af den lune væske.",
       },
       {
         spoergsmaal: "Hvorfor hæver min dej ikke?",
-        svar: "Oftest er der bare for koldt i rummet, og under 20 grader kan hævetiden sagtens fordobles. Stil skålen i ovnen med kun lampen tændt, og giv den mere tid. Hæver den stadig ingenting, kan gæren være for gammel.",
+        svar: "Oftest er der bare for koldt i rummet, og under 20 grader kan hævetiden sagtens fordobles. Stil skålen et lunt sted, og giv den mere tid. Hæver den stadig ingenting, kan gæren være for gammel, eller mælken have været for varm.",
       },
       {
-        spoergsmaal: "Kan jeg fryse hjemmebagt brød og boller?",
-        svar: "Ja, og du bør. Frys samme dag som bagningen i en tæt pose, og lun ved 180 grader i 4-6 minutter direkte fra frost. Det giver et bedre resultat end tre dage i en brødkasse.",
+        spoergsmaal: "Kan jeg fryse boller og snurrer?",
+        svar: "Ja. Frys dem samme dag, som de er bagt, i en tæt pose, og lun dem let i ovnen efter optøning. Så smager de næsten som nybagte.",
       },
     ],
   },
   desserter: {
     intro: [
-      "Desserter er den del af måltidet, folk husker, og heldigvis også den del, der bedst kan laves i forvejen. Herunder finder du mine gennemtestede favoritter: tiramisu som den laves i Italien, panna cotta med den helt rigtige blævre, og flere på vej.",
-      "Jeg går efter desserter, der kan stå klar på køl, når gæsterne kommer, så du ikke står med et piskeris, mens alle andre hygger. Hver opskrift fortæller, hvor længe den skal sætte sig, hvor længe den holder, og hvor det typisk går galt.",
+      "Desserterne her er dem, der bliver lavet igen og igen: gammeldags æblekage med hjemmelavet æblekagerasp og flødeskum, og klassiske pandekager, der både kan være weekendmorgenmad, børnefødselsdag og en nem dessert efter aftensmaden.",
+      "Begge kan forberedes i god tid. Æblegrøden og raspen laves hver for sig og samles lige før servering, så raspen holder sig sprød. Pandekagerne kan bages i forvejen og lunes let i ovnen, når de skal spises.",
     ],
     blokke: [
       {
-        overskrift: "Lav desserten dagen før",
-        tekst: "Næsten alle desserter her vinder ved en nat på køl: tiramisuens lag smelter sammen, panna cottaen sætter sig, og du får en friere aften. Planlæg desserten først, når du inviterer gæster. Det er den ret, der bedst tåler at vente, og den, der er mest stressende at lave i sidste øjeblik.",
-      },
-      {
-        overskrift: "Husblas, æg og de andre nervepirrende ingredienser",
-        tekst: "De fleste dessertkatastrofer skyldes to ting: husblas, der har kogt, og kolde ingredienser, der møder varme for hurtigt. Begge dele er nemme at undgå, når man ved det, og derfor står den slags altid som sit eget trin i mine opskrifter i stedet for at gemme sig i en bisætning.",
+        overskrift: "Saml desserten i sidste øjeblik",
+        tekst: "Lagdelte desserter som æblekage er bedst, når de sprøde elementer møder de bløde lige før servering. Lav æblegrød og rasp dagen før, og saml det hele i glas eller en stor skål, når gæsterne er kommet.",
       },
     ],
     faq: [
       {
-        spoergsmaal: "Hvor lang tid før må jeg lave desserten?",
-        svar: "Tiramisu og panna cotta bliver faktisk bedre af at stå til dagen efter. Cremede desserter holder som regel 2-3 dage på køl, men vent med kakaodrys, sauce og pynt til lige før servering.",
+        spoergsmaal: "Kan jeg fryse æblegrøden?",
+        svar: "Ja, æblegrød fryser fint. Kog gerne en større portion, og frys den i passende mængder.",
       },
       {
-        spoergsmaal: "Kan jeg lave desserterne uden husblas?",
-        svar: "I panna cotta kan husblas erstattes af agar-agar (vegetabilsk), men doseringen er anderledes: cirka 1 tsk agar-pulver per 5 dl væske, og den skal koge med. Konsistensen bliver lidt fastere.",
-      },
-      {
-        spoergsmaal: "Er rå æg i tiramisu sikre?",
-        svar: "Brug pasteuriserede æg, så er der ingen risiko. De fås i alle supermarkeder og smager ens. Serverer du for gravide, små børn eller ældre, er det den rigtige løsning.",
+        spoergsmaal: "Hvordan holder jeg pandekagerne lune?",
+        svar: "Stak dem på en tallerken under et rent viskestykke, eller lun dem kort i ovnen ved lav varme lige før servering.",
       },
     ],
   },
   kager: {
     intro: [
-      "Her samler jeg de kager, jeg selv vender tilbage til: brownien med den blanke, sprækkede top, gulerodskagen, jeg altid bliver bedt om at tage med, og de fødselsdagsklassikere, der kommer til efterhånden.",
-      "Fælles for dem alle: de er skrevet i gram, de fortæller dig, hvordan du ser, at kagen er færdig, og de er testet mere end én gang i mit eget køkken. Kager er kemi mere end noget andet bagværk, så præcision betyder faktisk noget her. Til gengæld kræver ingen af dem mere end almindeligt køkkengrej og en almindelig eftermiddag.",
+      "Her finder du småkager og kager til både hverdag og fest: cookies med mørk chokolade, kanelsneglecookies med swirls af remonce, cookie cups med pistaciecreme, studenterbrød med karamel og romkugler med marcipan.",
+      "Flere af dem er gode til at bruge kagerester, for både romkugler og studenterbrød bygger på en romkuglemasse, du smager til efter dine egne præferencer. Cookiesene er skrevet i gram og vejes af i kugler, så de bliver lige store og bager ens.",
     ],
     blokke: [
       {
-        overskrift: "Rør mindre, end du tror",
-        tekst: "Ni ud af ti tørre, kompakte kager er rørt for meget. Når melet er kommet i, skal der vendes, og kun til dejen lige er samlet. Gluten er en gave i brød, men kagens fjende: Jo mere du rører, jo sejere bliver krummen.",
+        overskrift: "Cookies bager videre på pladen",
+        tekst: "Tag cookies ud, når kanterne er let gyldne og midten stadig ser blød ud. De bager færdigt på bagepladen i de første minutter, og det er det, der giver den sprøde kant og den saftige midte.",
       },
       {
-        overskrift: "Kagen er færdig, når kagen siger det",
-        tekst: "Bagetider i opskrifter er startpunkter, ikke facit. Ovne lyver, forme leder varme forskelligt, og dej har forskellig temperatur. Stol på tegnene: en tandstik med fugtige krummer til brownies, en tør tandstik til gulerodskage, en kage der slipper formens kant. Uret siger bare, hvornår du skal begynde at kigge.",
+        overskrift: "Rør dejen så lidt som muligt",
+        tekst: "Når melet er kommet i cookiedejen, skal den kun røres, til den lige er samlet. Rører du for længe, bliver småkagerne seje og kompakte i stedet for møre.",
       },
     ],
     faq: [
       {
-        spoergsmaal: "Kan jeg halvere eller fordoble kageopskrifterne?",
-        svar: "Ja. Brug portionsvælgeren på opskriften, så regner den mængderne om for dig. Husk, at bagetiden ikke skalerer med. En halveret brownie i en mindre form skal have næsten samme tid, bare med et tidligere første kig.",
+        spoergsmaal: "Hvordan opbevarer jeg cookies?",
+        svar: "I en dåse, så holder de sig sprøde. Pak dem først ned, når de er helt kolde, ellers bliver de bløde.",
       },
       {
-        spoergsmaal: "Hvorfor falder min kage sammen i midten?",
-        svar: "Oftest én af tre ting: ovnlågen blev åbnet for tidligt, kagen fik for lidt tid, eller der var for meget hævemiddel i. Vent med første kig til mindst tre fjerdedele af bagetiden er gået.",
-      },
-      {
-        spoergsmaal: "Kan jeg bytte smør ud med olie?",
-        svar: "Ikke en til en. Olie giver saftigere, tættere kager som gulerodskagen, mens smør giver smag og struktur. Følg det fedtstof, opskriften angiver, for det er valgt af en grund.",
+        spoergsmaal: "Hvilke kagerester kan jeg bruge til romkugler?",
+        svar: "Næsten alle. Brownie, chokoladekage og sukkerbrød fungerer fint. Smag massen til med marmelade, kakao og romessens, for mængden afhænger af, hvor søde og saftige dine kagerester er.",
       },
     ],
   },
   snacks: {
     intro: [
-      "Snacks er det, jeg laver mest af uden at planlægge det: noget til fredagsfilmen, til madpakkerne eller til gæster, der kommer om en time. Herunder finder du både hurtige redninger som ostestænger af købebutterdej og faste følgesvende som dadelkugler, der holder ugen ud på køl.",
-      "Kravene er de samme som til alt andet her på siden: få ingredienser, ærlige tider og opskrifter, der virker første gang. En snack må ikke være et projekt. Den skal lykkes, mens noget andet er i ovnen.",
+      "Snacks er det lille ekstra mellem måltiderne: dadelkugler med kaffe og mørk chokolade, kernecookies sødet med moden banan og chunky granola med kanel, der både kan være morgenmad og eftermiddagssnack.",
+      "Fælles for dem er, at de er nemme at lave, kræver få ingredienser og kan laves i en større portion, så der er noget at tage af resten af ugen.",
     ],
     blokke: [
       {
-        overskrift: "Snacks, der kan laves i forvejen",
-        tekst: "Dadelkugler holder en uge på køl, ostestænger kan fryses ubagte og bages direkte fra frost. Lav en dobbelt portion, når du alligevel er i gang. Du vil takke dig selv den dag, der er gæster på vej og ingenting i huset.",
-      },
-      {
-        overskrift: "Købebutterdej er ikke snyd",
-        tekst: "God butterdej tager to dage at lave og tredive sekunder at købe. Jeg bruger den købte uden dårlig samvittighed og lægger i stedet arbejdet dér, hvor det kan smages, altså i fyldet, osten og krydringen.",
+        overskrift: "Lav en portion til hele ugen",
+        tekst: "Granola holder sig i en tætsluttende beholder, og kernecookies kan ligge i en kagedåse eller på frost. Lav en dobbelt portion, når du alligevel er i gang.",
       },
     ],
     faq: [
       {
-        spoergsmaal: "Hvilke snacks egner sig til madpakken?",
-        svar: "Dadelkugler er bygget til det. De tåler en formiddag i tasken og smager stadig godt. Ostestænger holder sig sprøde til dagen efter, hvis de opbevares i en dåse og ikke en pose.",
+        spoergsmaal: "Kan jeg skifte nødder og kerner ud i granolaen?",
+        svar: "Ja. Brug de nødder og kerner, du kan lide eller har i skabet, men hold dig til den samlede mængde i opskriften, så forholdet mellem det tørre og smør og honning passer.",
       },
       {
-        spoergsmaal: "Hvad kan jeg servere for gæster med kort varsel?",
-        svar: "Ostestængerne er klar på en halv time fra køleskab til fad. Har du en rulle butterdej og noget revet ost i huset, har du en snack.",
-      },
-      {
-        spoergsmaal: "Er dadelkuglerne virkelig uden tilsat sukker?",
-        svar: "Ja, sødmen kommer udelukkende fra dadlerne. De er stadig energitætte, og det er derfor, de mætter, men det er frugt, nødder og havregryn hele vejen igennem. De er både veganske og glutenfri.",
+        spoergsmaal: "Hvordan opbevarer jeg kernecookies?",
+        svar: "I en kagedåse eller i fryseren. De kan spises kort efter, de er taget ud af fryseren, men mister lidt af sprødheden.",
       },
     ],
   },
   pizza: {
     intro: [
-      "Pizza herhjemme stod længe på valget mellem en dyr, kold leveret og en kedelig hurtigdej. Så begyndte jeg at behandle pizzadej som det, den er, nemlig et brød, der fortjener tid. Siden har vi stort set ikke bestilt.",
-      "Kernen i det hele er den koldhævede dej: fire ingredienser og et døgn eller to i køleskabet. Ovenpå den finder du både klassikeren med tomat og dem, der overrasker, som pizza bianca med kartofler og rosmarin. Alt er skrevet til en almindelig husholdningsovn. Du behøver ikke en pizzaovn i haven, bare den varmeste indstilling din ovn har, og gerne et bagestål.",
+      "Pizza begynder med dejen. Den 48-timers pizzadej er inspireret af napolitansk pizza: mel med høj W-værdi, vand, salt og kun 2 gram tørgær, og så to døgn i køleskabet. Resultatet er en luftig kant og en bund med balance mellem sprødhed og blødhed.",
+      "Ovenpå dejen finder du blandt andet Big Mac pizza med oksekød, iceberg, rå løg og hjemmelavet dressing, en af vores helt store favoritter og altid et hit, når der er gæster.",
     ],
     blokke: [
       {
-        overskrift: "Varmen er halvdelen af pizzaen",
-        tekst: "Et pizzeria bager ved 400-480 grader, og din ovn stopper ved 250-300. Du lukker hullet med masse: Et bagestål eller en bagesten, der er varmet op i mindst 45 minutter, afleverer et voldsomt varmeskud til bunden i samme sekund, dejen lander. Det er forskellen på en bleg bund og en, der er sprød og plettet som fra en rigtig ovn.",
+        overskrift: "Lidt gær og lang tid",
+        tekst: "Med så lidt gær er det tiden, der gør arbejdet. Den lange, kolde hævning giver smag og en dej, der er nem at strække. Tag dejkuglerne ud af køleskabet 45-60 minutter før bagning, alt efter hvor varmt der er.",
       },
       {
-        overskrift: "Mindre topping, bedre pizza",
-        tekst: "Den hyppigste hjemmepizza-fejl er gavmildhed. Et tykt lag sauce og en håndfuld ost for meget gør bunden våd og kanten tung. Tænk i et tyndt, skrabet lag sauce, mindre ost end du har lyst til, og højst tre slags topping. Så kan dejen hæve, bunden riste og hver smag faktisk smages.",
+        overskrift: "Mel med høj W-værdi",
+        tekst: "W-værdien fortæller, hvor stærkt melet er, og hvor godt det tåler en lang hævning. Pizzamel med høj W-værdi kan holde til to døgn i køleskabet uden at blive slapt.",
       },
     ],
     faq: [
       {
-        spoergsmaal: "Kan jeg bage pizzaen uden bagestål eller bagesten?",
-        svar: "Ja. Vend en tyk bageplade på hovedet, og varm den grundigt op på ovnens øverste rille. Resultatet er ikke helt det samme, men det er tættere på, end du tror, og langt bedre end en kold plade.",
+        spoergsmaal: "Hvorfor skal pizzadejen bestå en glutentest?",
+        svar: "Fordi en veludviklet gluten er det, der holder på luften. Kan du trække dejen langt ud som tyggegummi, er den klar. Ellers så giv den et par minutter mere på røremaskinen.",
       },
       {
-        spoergsmaal: "Hvor længe kan pizzadejen stå på køl?",
-        svar: "24-72 timer. Efter et døgn er den god, efter to er den bedst, og på tredjedagen begynder den at blive slap og syrlig. Skal den vente længere, så frys kuglerne efter første døgn.",
-      },
-      {
-        spoergsmaal: "Hvorfor trækker min dej sig sammen, når jeg strækker den?",
-        svar: "Den er for kold. Tag dejkuglerne ud af køleskabet to timer før bagning. En stuetempereret dej slapper af og lader sig strække, mens en kold slår tilbage som en elastik.",
+        spoergsmaal: "Hvor mange pizzaer giver dejen?",
+        svar: "Seks kugler af cirka 260 g, altså seks pizzaer.",
       },
     ],
   },
@@ -173,7 +149,7 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
     faq: [
       {
         spoergsmaal: "Hvor skal jeg starte, hvis jeg er ny i bagning?",
-        svar: "Læs guiden om gær, og bag så de koldhævede rundstykker. De kræver ingen æltning, næsten intet udstyr og tilgiver de fleste fejl. Undervejs lærer du de vaner, alt andet bagværk bygger på.",
+        svar: "Læs guiden om gær, og bag så gulerodsbollerne. Dejen er nem at arbejde med, og undervejs lærer du de vaner, alt andet bagværk bygger på.",
       },
       {
         spoergsmaal: "Hvorfor er alle opskrifter i gram og ikke deciliter?",

@@ -42,9 +42,8 @@ den mest pålidelige af dem.
 
 Det, ingen fortalte mig i starten, er, at tid kan gøre æltningens arbejde. Gluten
 udvikler sig af sig selv, når mel og vand står sammen. Det går langsomt, men lige så grundigt.
-Det er derfor, mine [koldhævede rundstykker](/opskrifter/koldhaevede-rundstykker/) og min
-[fokaccia](/opskrifter/fokaccia/) stort set ikke skal æltes: et par foldninger undervejs,
-og så ordner natten i køleskabet resten.
+Det er derfor, mit [surdejsbrød med chokolade](/opskrifter/surdej-chokolade/) ikke skal
+æltes: tre sæt stræk og fold undervejs, og så ordner natten i køleskabet resten.
 
 Tommelfingerreglen er enkel:
 

@@ -108,13 +108,30 @@ feed hos [Behold](https://behold.so), når siden bygges (`src/lib/instagram.ts`)
 - GitHub sætter natlige kørsler på pause, hvis der ikke har været aktivitet i repoet i 60 dage.
   Så kommer der en mail fra GitHub, og den kan slås til igen under Actions.
 
+## Opskrifter fra den gamle merveholck.dk
+
+De 21 opskrifter er hentet fra den gamle Webnode-side med tekst, ingredienser, trin og
+originalbilleder. Merves egne tekster er bevaret ordret, og kun åbenlyse tastefejl er rettet.
+
+- **Udledte felter:** Den gamle side havde ikke tider, portioner, sværhedsgrad, kategori eller
+  nøgleord. De er udledt af opskrifternes egen tekst, fx "Lad den hæve i 1 time". Hvor teksten
+  ikke siger det, er det et skøn. Det gælder portioner for kanelsneglecookies, æblekage,
+  granola, studenterbrød og cookie cups, samt tiden for surdejsbrødet. Ret dem i
+  frontmatter, hvis de ikke passer.
+- **Intervaller:** "550-575 g hvedemel" skrives som `amount: 550, amountMax: 575`. Begge tal
+  skaleres med portionsvælgeren.
+- **Gamle adresser:** `/l/<slug>/`, `/blog-opskrifter/` og `/om-mig/` sender videre til de nye
+  sider (`redirects` i `astro.config.mjs`). Det er vigtigt, når merveholck.dk flyttes hertil,
+  så Google-placeringer og delte links bliver ved med at virke.
+- **Mangler:** "Snurrer med smør" er ikke med, fordi trin 3 og 4 på den gamle side var
+  Webnodes standardtekst. Dens gamle adresse sender videre til Bagværk, indtil den er skrevet
+  færdig.
+
 ## Ting, der venter på dig (TODO)
 
-- **Sociale profiler:** Indsæt de rigtige Instagram/YouTube-links i `src/data/forfattere.ts`.
-- **Portræt:** Erstat `src/assets/img/merve-portraet.jpg` med et rigtigt foto (kvadratisk,
-  min. 1200 px) — det bruges i heroen, bylines og forfatterboksen.
-- **Fotos:** Erstat pladsholderbillederne i `src/assets/opskrifter/` med rigtige fotos
-  (samme filnavne, 4:3, min. 1600 px brede).
+- **Snurrer med smør:** Skriv trin 3 og 4 færdige, så kan opskriften komme med.
+- **Udledte felter:** Tjek tider og portioner på de importerede opskrifter (se ovenfor).
+- **Fotos til bagetips:** Billederne i `src/assets/bagetips/` er stadig pladsholdere.
 - **Kontakt-e-mail:** Indsæt på `src/pages/kontakt.astro`, når den er klar.
 
 ## Kvalitetskrav (håndhæves af CI)

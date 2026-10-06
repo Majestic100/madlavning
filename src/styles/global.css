@@ -324,6 +324,8 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 .i-liste label { display: flex; gap: .8rem; align-items: baseline; padding: .7rem 0; cursor: pointer; font-size: .98rem; }
 .i-liste input { flex-shrink: 0; accent-color: var(--karamel); width: 1.3em; height: 1.3em; margin: 0; transform: translateY(.2em); }
 .i-liste input:checked ~ span { text-decoration: line-through; color: var(--tekst-svag); }
+/* Mængde + enhed ("2 tsk", "550–575 g") må aldrig brydes over to linjer */
+.i-liste input + span:has([data-amount]) { white-space: nowrap; flex-shrink: 0; }
 .i-note { color: var(--tekst-svag); }
 
 .trin-liste { list-style: none; counter-reset: trin; margin: 0; padding: 0; }
