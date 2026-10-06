@@ -93,14 +93,20 @@ de eksisterende filer).
 
 ## Instagram-sektionen på forsiden
 
-Sektionen viser 4 kuraterede opslag som kort, der linker til Instagram. Der er ingen
-live-integration med vilje: Metas embeds sporer besøgende (og ville kræve cookie-banner)
-og gør siden langsommere. Nyt opslag på siden:
+Sektionen viser Merves 6 seneste opslag og opdaterer sig selv. Den henter dem fra et gratis
+feed hos [Behold](https://behold.so), når siden bygges (`src/lib/instagram.ts`).
 
-1. Gem opslagets billede i `src/assets/instagram/` (kvadratisk, min. 640 px)
-2. Tilføj en blok øverst i listen i `src/data/instagram.ts` med billede, alt-tekst,
-   link til opslaget og en kort tekst
-3. Push til `main`, så er siden opdateret
+- Billederne hentes og komprimeres under byggeriet og ligger på siden selv. Besøgende henter
+  intet fra Instagram eller Behold, så der sættes ingen cookies, og siden forbliver hurtig.
+- Reels og karruseller får et lille ikon i hjørnet. Alle opslag linker til Instagram.
+- Siden bygges om hver nat (`schedule` i `.github/workflows/deploy.yml`), så nye opslag kommer
+  med inden for et døgn. Vil du se et nyt opslag med det samme: Actions → "Byg og udgiv" →
+  "Run workflow".
+- Er Behold nede, bygges siden alligevel. Sektionen viser så kun "Følg med"-knappen.
+- Feedet styres på behold.so. Laves det om, skal `BEHOLD_FEED_URL` i `src/lib/instagram.ts`
+  opdateres.
+- GitHub sætter natlige kørsler på pause, hvis der ikke har været aktivitet i repoet i 60 dage.
+  Så kommer der en mail fra GitHub, og den kan slås til igen under Actions.
 
 ## Ting, der venter på dig (TODO)
 
@@ -110,8 +116,6 @@ og gør siden langsommere. Nyt opslag på siden:
 - **Fotos:** Erstat pladsholderbillederne i `src/assets/opskrifter/` med rigtige fotos
   (samme filnavne, 4:3, min. 1600 px brede).
 - **Kontakt-e-mail:** Indsæt på `src/pages/kontakt.astro`, når den er klar.
-- **Instagram-opslag:** Skift pladsholderne i `src/data/instagram.ts` ud med rigtige
-  opslag (billede + link), se afsnittet ovenfor.
 
 ## Kvalitetskrav (håndhæves af CI)
 

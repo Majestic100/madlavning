@@ -5,6 +5,9 @@ name: Byg og udgiv
 on:
   push:
     branches: [main]
+  # Bygges om hver nat kl. ca. 04 dansk tid, så nye Instagram-opslag kommer med.
+  schedule:
+    - cron: "17 2 * * *"
   workflow_dispatch:
 
 permissions:

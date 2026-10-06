@@ -54,6 +54,11 @@ export default defineConfig({
   image: {
     // Placeholder-billederne er genereret lokalt; rigtige fotos behandles på samme måde.
     responsiveStyles: true,
+    // Instagram-billeder fra Behold hentes ved build og lægges på siden selv.
+    remotePatterns: [
+      { protocol: "https", hostname: "behold.pictures" },
+      { protocol: "https", hostname: "**.behold.pictures" },
+    ],
   },
   build: {
     inlineStylesheets: "auto",
