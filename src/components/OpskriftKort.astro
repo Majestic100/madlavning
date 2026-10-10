@@ -11,10 +11,12 @@ interface Props {
   post: CollectionEntry<"opskrifter"> | CollectionEntry<"bagetips">;
   stor?: boolean;
   doven?: boolean;
+  /** fetchpriority="high" til billeder, der kan blive LCP (øverst på forsiden). */
+  prioritet?: boolean;
   visKategori?: boolean;
   visResume?: boolean;
 }
-const { post, stor = false, doven = true, visKategori = true, visResume = false } = Astro.props;
+const { post, stor = false, doven = true, prioritet = false, visKategori = true, visResume = false } = Astro.props;
 
 const erOpskrift = post.collection === "opskrifter";
 const d: any = post.data;
@@ -38,6 +40,7 @@ const filterData = erOpskrift
       fit="cover"
       loading={doven ? "lazy" : "eager"}
       decoding="async"
+      fetchpriority={prioritet ? "high" : undefined}
     />
     {visKategori && <a class="kort-kat" href={kategoriSti(kat.slug)}>{kat.navn}</a>}
   </div>

@@ -49,7 +49,7 @@ for (const o of alle) {
           </div>
         </div>
         <ul class="kort-net">
-          {saeson.map((o, i) => <OpskriftKort post={o} stor={i === 0} doven={false} />)}
+          {saeson.map((o, i) => <OpskriftKort post={o} stor={i === 0} doven={i >= 2} prioritet={i < 2} />)}
         </ul>
       </div>
     </section>
