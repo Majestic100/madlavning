@@ -18,8 +18,8 @@ diet: [vegetarisk]
 season: []
 occasion: [weekend, foedselsdag, gaester]
 keywords: ["gifler", "gifler med kanel", "kanelremonce", "hjemmelavede gifler", "gærdej"]
-storage: null
-freezable: false
+storage: "Giflerne kan fryses."
+freezable: true
 seasonal: false
 ingredients:
   - group: "Dej"
