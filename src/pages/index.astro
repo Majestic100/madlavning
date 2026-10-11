@@ -7,7 +7,7 @@ import OpskriftKort from "../components/OpskriftKort.astro";
 import InstagramSektion from "../components/InstagramSektion.astro";
 import HeroKarussel from "../components/HeroKarussel.astro";
 import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../lib/tid.mjs";
-import { sti, kategoriSti } from "../lib/urls";
+import { sti } from "../lib/urls";
 import { SITE } from "../data/site";
 
 const alle = (await getCollection("opskrifter")).sort(
@@ -40,16 +40,12 @@ for (const o of alle) {
 ---
 <Layout aktiv="forside" jsonld={[websiteJsonLd]}>
 
-  <!-- 1: Hero med opskriftskarussel -->
+  <!-- 1: Søgning og opskriftskarussel -->
   <HeroKarussel
-    titel="Opskrifter der virker."
-    titelLinje2Praefiks="Også"
-    titelFremhaevet="første gang"
-    beskrivelse="Jeg hedder Merve. Jeg bager, fejler, retter til og skriver det ned i gram og med ærlige tider. Alt her er testet i mit eget køkken."
-    socialtBevis={`${alle.length} opskrifter, alle testet i mit eget køkken`}
+    titel="Merve: opskrifter der virker. Også første gang"
+    soegSti={sti("/soeg/")}
+    antal={alle.length}
     opskrifter={karussel}
-    primaer={{ tekst: "Find en opskrift", link: sti("/opskrifter/") }}
-    sekundaer={{ tekst: "Læs bagetips", link: kategoriSti("bagetips") }}
   />
 
   <!-- 2: Nyeste opskrifter -->

@@ -1,6 +1,7 @@
 ---
 /**
- * Centreret hero med overskrift, tekst, knapper og en karussel af opskriftskort.
+ * Forsidens top: et stort søgefelt og en karussel af opskriftskort.
+ * Overskriften (h1) er kun til skærmlæsere og Google; visuelt starter siden med søgningen.
  * Karussellen er en vandret liste med scroll-snap, så den kan swipes og virker
  * uden JavaScript. Pilene på større skærme tilføjes af et lille script.
  */
@@ -8,48 +9,29 @@ import Ikon from "./Ikon.astro";
 import OpskriftKort from "./OpskriftKort.astro";
 import type { CollectionEntry } from "astro:content";
 
-interface Knap {
-  tekst: string;
-  link: string;
-}
-
 interface Props {
+  /** Sidens h1, kun synlig for skærmlæsere og søgemaskiner. */
   titel: string;
-  titelLinje2Praefiks?: string;
-  titelFremhaevet?: string;
-  beskrivelse: string;
-  socialtBevis?: string;
+  /** Adressen på søgesiden; feltet sender ?q=… dertil. */
+  soegSti: string;
+  /** Antal opskrifter, vises i søgefeltets hjælpetekst. */
+  antal: number;
   opskrifter: CollectionEntry<"opskrifter">[];
-  primaer: Knap;
-  sekundaer?: Knap;
 }
 
-const { titel, titelLinje2Praefiks, titelFremhaevet, beskrivelse, socialtBevis, opskrifter, primaer, sekundaer } =
-  Astro.props;
+const { titel, soegSti, antal, opskrifter } = Astro.props;
 ---
 <section class="hero-karussel">
   <div class="wrap hero-karussel-indhold">
-    <div class="hero-karussel-hoved">
-      <h1>
-        {titel}
-        {(titelLinje2Praefiks || titelFremhaevet) && (
-          <>
-            <br />
-            {titelLinje2Praefiks && <span>{titelLinje2Praefiks} </span>}
-            {titelFremhaevet && <span class="hero-karussel-fremhaevet">{titelFremhaevet}</span>}
-          </>
-        )}
-      </h1>
-      <p class="hero-karussel-tekst">{beskrivelse}</p>
-    </div>
+    <h1 class="sr-only">{titel}</h1>
 
-    <div class="hero-karussel-handling">
-      <div class="hero-karussel-knapper">
-        <a class="knap knap-primaer" href={primaer.link}>{primaer.tekst} <Ikon navn="pil" /></a>
-        {sekundaer && <a class="knap knap-linje" href={sekundaer.link}>{sekundaer.tekst}</a>}
-      </div>
-      {socialtBevis && <p class="hero-karussel-bevis">{socialtBevis}</p>}
-    </div>
+    <form class="hero-soeg" action={soegSti} method="get" role="search">
+      <label class="sr-only" for="hero-soeg-felt">Søg efter opskrifter</label>
+      <span class="hero-soeg-ikon" aria-hidden="true"><Ikon navn="lup" /></span>
+      <input class="hero-soeg-felt" type="search" id="hero-soeg-felt" name="q"
+             placeholder={`Søg i ${antal} opskrifter …`} autocomplete="off" />
+      <button class="knap knap-primaer" type="submit">Søg</button>
+    </form>
 
     <div class="karussel" data-karussel role="region" aria-roledescription="karussel" aria-labelledby="karussel-titel">
       <h2 id="karussel-titel" class="sr-only">Udvalgte opskrifter</h2>
