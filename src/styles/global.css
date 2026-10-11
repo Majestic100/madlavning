@@ -62,7 +62,7 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 h1 { font-size: clamp(2.1rem, 1.4rem + 3vw, 3.4rem); }
-h2, .h2 { font-size: clamp(1.55rem, 1.2rem + 1.5vw, 2.2rem); }
+h2 { font-size: clamp(1.55rem, 1.2rem + 1.5vw, 2.2rem); }
 h3 { font-size: clamp(1.18rem, 1.05rem + .5vw, 1.45rem); }
 h4 { font-size: 1.05rem; }
 
@@ -214,11 +214,45 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 .sektion { padding: clamp(2.5rem, 5vw, 4.25rem) 0; }
 .sektion-flade { background: var(--papir); border-block: 1px solid var(--linje-blod); }
 .sektion-hoved { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.9rem; flex-wrap: wrap; }
-.sektion-hoved h1, .sektion-hoved h2 { margin: 0; }
+.sektion-hoved h2 { margin: 0; }
 .sektion-hoved p { margin: .4rem 0 0; color: var(--tekst-daemp); max-width: 52ch; }
 .se-alle { font-size: .9rem; font-weight: 600; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: .35rem; }
 .se-alle:hover { gap: .6rem; }
 .se-alle svg { width: 16px; height: 16px; }
+
+/* ---------- Hero med billedvifte (forside) ---------- */
+
+.hero-vifte { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
+.hero-vifte-indhold { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(1.8rem, 4vw, 2.5rem); }
+.hero-vifte-hoved { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; max-width: 42rem; }
+.hero-vifte h1 { margin: 0; text-wrap: balance; }
+.hero-vifte-fremhaevet { color: var(--karamel-tekst); }
+.hero-vifte-tekst { margin: 0; max-width: 34rem; color: var(--tekst-daemp); font-size: clamp(1rem, .96rem + .3vw, 1.15rem); text-wrap: balance; }
+.hero-vifte-handling { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
+.hero-vifte-knapper { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
+.hero-vifte-bevis { margin: 0; font-size: .8rem; font-weight: 600; color: var(--tekst-svag); }
+
+.vifte { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 46rem; padding-bottom: 1.5rem; }
+.vifte-kort {
+  position: relative; flex-shrink: 0; aspect-ratio: 4 / 5; overflow: hidden;
+  border-radius: var(--kant); box-shadow: var(--skygge-loft); outline: 1px solid rgba(79,45,36,.08);
+  transform: translateY(var(--ty)) rotate(var(--rot));
+}
+.vifte-kort img { width: 100%; height: 100%; object-fit: cover; }
+.vifte-kort-0 { width: 38%; margin-right: -2rem; z-index: 1; --rot: -6deg; --ty: 1.5rem; --x: 3rem; }
+.vifte-kort-1 { width: 42%; z-index: 2; --rot: 0deg; --ty: -.5rem; --x: 0rem; }
+.vifte-kort-2 { width: 38%; margin-left: -2rem; z-index: 1; --rot: 6deg; --ty: 1.5rem; --x: -3rem; }
+
+/* Diskret indgang: teksten glider op, kortene folder sig ud fra midten.
+   Billederne animeres kun med transform (ikke opacity), så de tegnes med det samme og ikke forsinker LCP. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-vifte-hoved, .hero-vifte-handling { animation: hero-op .5s cubic-bezier(.22,1,.36,1) both; }
+  .hero-vifte-handling { animation-delay: .1s; }
+  .vifte-kort { animation: vifte-ud .6s cubic-bezier(.22,1,.36,1) .25s both; }
+  .vifte-kort-1 { animation-name: none; }
+}
+@keyframes hero-op { from { opacity: 0; transform: translateY(12px); } }
+@keyframes vifte-ud { from { transform: translateX(var(--x)) translateY(var(--ty)) rotate(var(--rot)); } }
 
 /* ---------- Tidsindgange ---------- */
 
