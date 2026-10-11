@@ -91,7 +91,7 @@ const opskrifter = defineCollection({
       tips: z.array(z.string()).default([]),
 
       related: z.array(z.string()).default([]),
-      seasonal: z.boolean().default(false), // vises i "lige nu"-sektionen på forsiden (styres manuelt)
+      seasonal: z.boolean().default(false), // vises først i forsidens karussel (styres manuelt)
     }),
 });
 

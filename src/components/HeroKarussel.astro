@@ -1,0 +1,96 @@
+---
+/**
+ * Centreret hero med overskrift, tekst, knapper og en karussel af opskriftskort.
+ * Karussellen er en vandret liste med scroll-snap, så den kan swipes og virker
+ * uden JavaScript. Pilene på større skærme tilføjes af et lille script.
+ */
+import Ikon from "./Ikon.astro";
+import OpskriftKort from "./OpskriftKort.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Knap {
+  tekst: string;
+  link: string;
+}
+
+interface Props {
+  titel: string;
+  titelLinje2Praefiks?: string;
+  titelFremhaevet?: string;
+  beskrivelse: string;
+  socialtBevis?: string;
+  opskrifter: CollectionEntry<"opskrifter">[];
+  primaer: Knap;
+  sekundaer?: Knap;
+}
+
+const { titel, titelLinje2Praefiks, titelFremhaevet, beskrivelse, socialtBevis, opskrifter, primaer, sekundaer } =
+  Astro.props;
+---
+<section class="hero-karussel">
+  <div class="wrap hero-karussel-indhold">
+    <div class="hero-karussel-hoved">
+      <h1>
+        {titel}
+        {(titelLinje2Praefiks || titelFremhaevet) && (
+          <>
+            <br />
+            {titelLinje2Praefiks && <span>{titelLinje2Praefiks} </span>}
+            {titelFremhaevet && <span class="hero-karussel-fremhaevet">{titelFremhaevet}</span>}
+          </>
+        )}
+      </h1>
+      <p class="hero-karussel-tekst">{beskrivelse}</p>
+    </div>
+
+    <div class="hero-karussel-handling">
+      <div class="hero-karussel-knapper">
+        <a class="knap knap-primaer" href={primaer.link}>{primaer.tekst} <Ikon navn="pil" /></a>
+        {sekundaer && <a class="knap knap-linje" href={sekundaer.link}>{sekundaer.tekst}</a>}
+      </div>
+      {socialtBevis && <p class="hero-karussel-bevis">{socialtBevis}</p>}
+    </div>
+
+    <div class="karussel" data-karussel role="region" aria-roledescription="karussel" aria-labelledby="karussel-titel">
+      <h2 id="karussel-titel" class="sr-only">Udvalgte opskrifter</h2>
+      <ul class="karussel-spor">
+        {opskrifter.map((o, i) => <OpskriftKort post={o} doven={i >= 4} />)}
+      </ul>
+      <div class="karussel-pile" hidden>
+        <button type="button" class="karussel-pil karussel-pil-forrige" data-forrige aria-label="Forrige opskrifter">
+          <Ikon navn="pil" />
+        </button>
+        <button type="button" class="karussel-pil" data-naeste aria-label="Næste opskrifter">
+          <Ikon navn="pil" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const glat = window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? "smooth" : "auto";
+
+  document.querySelectorAll<HTMLElement>("[data-karussel]").forEach((karussel) => {
+    const spor = karussel.querySelector<HTMLElement>(".karussel-spor");
+    const pile = karussel.querySelector<HTMLElement>(".karussel-pile");
+    const forrige = karussel.querySelector<HTMLButtonElement>("[data-forrige]");
+    const naeste = karussel.querySelector<HTMLButtonElement>("[data-naeste]");
+    if (!spor || !pile || !forrige || !naeste) return;
+
+    const opdater = () => {
+      const maks = spor.scrollWidth - spor.clientWidth;
+      forrige.disabled = spor.scrollLeft <= 2;
+      naeste.disabled = spor.scrollLeft >= maks - 2;
+      pile.hidden = maks <= 2;
+    };
+    // Rul én "side" ad gangen; scroll-snap lægger kortene på plads.
+    const rul = (retning: number) => spor.scrollBy({ left: retning * spor.clientWidth * 0.9, behavior: glat });
+
+    forrige.addEventListener("click", () => rul(-1));
+    naeste.addEventListener("click", () => rul(1));
+    spor.addEventListener("scroll", opdater, { passive: true });
+    window.addEventListener("resize", opdater);
+    opdater();
+  });
+</script>

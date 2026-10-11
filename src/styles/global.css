@@ -220,39 +220,47 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 .se-alle:hover { gap: .6rem; }
 .se-alle svg { width: 16px; height: 16px; }
 
-/* ---------- Hero med billedvifte (forside) ---------- */
+/* ---------- Hero med opskriftskarussel (forside) ---------- */
 
-.hero-vifte { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
-.hero-vifte-indhold { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(1.8rem, 4vw, 2.5rem); }
-.hero-vifte-hoved { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; max-width: 42rem; }
-.hero-vifte h1 { margin: 0; text-wrap: balance; }
-.hero-vifte-fremhaevet { color: var(--karamel-tekst); }
-.hero-vifte-tekst { margin: 0; max-width: 34rem; color: var(--tekst-daemp); font-size: clamp(1rem, .96rem + .3vw, 1.15rem); text-wrap: balance; }
-.hero-vifte-handling { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
-.hero-vifte-knapper { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
-.hero-vifte-bevis { margin: 0; font-size: .8rem; font-weight: 600; color: var(--tekst-svag); }
+.hero-karussel { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
+.hero-karussel-indhold { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(1.8rem, 4vw, 2.5rem); }
+.hero-karussel-hoved { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; max-width: 42rem; }
+.hero-karussel h1 { margin: 0; text-wrap: balance; }
+.hero-karussel-fremhaevet { color: var(--karamel-tekst); }
+.hero-karussel-tekst { margin: 0; max-width: 34rem; color: var(--tekst-daemp); font-size: clamp(1rem, .96rem + .3vw, 1.15rem); text-wrap: balance; }
+.hero-karussel-handling { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
+.hero-karussel-knapper { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
+.hero-karussel-bevis { margin: 0; font-size: .8rem; font-weight: 600; color: var(--tekst-svag); }
 
-.vifte { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 46rem; padding-bottom: 1.5rem; }
-.vifte-kort {
-  position: relative; flex-shrink: 0; aspect-ratio: 4 / 5; overflow: hidden;
-  border-radius: var(--kant); box-shadow: var(--skygge-loft); outline: 1px solid rgba(79,45,36,.08);
-  transform: translateY(var(--ty)) rotate(var(--rot));
+.karussel { width: 100%; text-align: left; }
+.karussel-spor {
+  display: flex; gap: clamp(1rem, 2.5vw, 1.5rem);
+  list-style: none; margin: 0; padding: .25rem 0 1rem;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
 }
-.vifte-kort img { width: 100%; height: 100%; object-fit: cover; }
-.vifte-kort-0 { width: 38%; margin-right: -2rem; z-index: 1; --rot: -6deg; --ty: 1.5rem; --x: 3rem; }
-.vifte-kort-1 { width: 42%; z-index: 2; --rot: 0deg; --ty: -.5rem; --x: 0rem; }
-.vifte-kort-2 { width: 38%; margin-left: -2rem; z-index: 1; --rot: 6deg; --ty: 1.5rem; --x: -3rem; }
+.karussel-spor::-webkit-scrollbar { display: none; }
+.karussel-spor > .kort { flex: 0 0 min(78%, 280px); scroll-snap-align: start; }
+.karussel-pile { display: flex; justify-content: center; gap: .6rem; margin-top: .4rem; }
+.karussel-pile[hidden] { display: none; }
+.karussel-pil {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid var(--linje); border-radius: 999px; background: var(--papir); color: var(--espresso);
+  cursor: pointer; transition: border-color var(--overgang), color var(--overgang), opacity var(--overgang);
+}
+.karussel-pil:hover:not(:disabled) { border-color: var(--karamel); color: var(--karamel); }
+.karussel-pil:disabled { opacity: .35; cursor: default; }
+.karussel-pil svg { width: 18px; height: 18px; }
+.karussel-pil-forrige svg { transform: scaleX(-1); }
 
-/* Diskret indgang: teksten glider op, kortene folder sig ud fra midten.
-   Billederne animeres kun med transform (ikke opacity), så de tegnes med det samme og ikke forsinker LCP. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-vifte-hoved, .hero-vifte-handling { animation: hero-op .5s cubic-bezier(.22,1,.36,1) both; }
-  .hero-vifte-handling { animation-delay: .1s; }
-  .vifte-kort { animation: vifte-ud .6s cubic-bezier(.22,1,.36,1) .25s both; }
-  .vifte-kort-1 { animation-name: none; }
+  .hero-karussel-hoved, .hero-karussel-handling, .karussel { animation: hero-op .5s cubic-bezier(.22,1,.36,1) both; }
+  .hero-karussel-handling { animation-delay: .1s; }
+  .karussel { animation-name: hero-glid; animation-delay: .2s; }
 }
 @keyframes hero-op { from { opacity: 0; transform: translateY(12px); } }
-@keyframes vifte-ud { from { transform: translateX(var(--x)) translateY(var(--ty)) rotate(var(--rot)); } }
+/* Kun transform på karussellen (ikke opacity), så billederne tegnes med det samme og ikke forsinker LCP. */
+@keyframes hero-glid { from { transform: translateX(24px); } }
 
 /* ---------- Tidsindgange ---------- */
 
