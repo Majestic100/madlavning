@@ -54,7 +54,7 @@ const { titel, titelLinje2Praefiks, titelFremhaevet, beskrivelse, socialtBevis, 
     <div class="karussel" data-karussel role="region" aria-roledescription="karussel" aria-labelledby="karussel-titel">
       <h2 id="karussel-titel" class="sr-only">Udvalgte opskrifter</h2>
       <ul class="karussel-spor">
-        {opskrifter.map((o, i) => <OpskriftKort post={o} doven={i >= 4} />)}
+        {opskrifter.map((o, i) => <OpskriftKort post={o} staaende doven={i >= 2} prioritet={i === 0} />)}
       </ul>
       <div class="karussel-pile" hidden>
         <button type="button" class="karussel-pil karussel-pil-forrige" data-forrige aria-label="Forrige opskrifter">

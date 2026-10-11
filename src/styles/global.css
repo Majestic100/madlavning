@@ -206,6 +206,7 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 
 .kort-stor { grid-column: span 2; }
 .kort-stor .kort-billede { aspect-ratio: 16 / 10; }
+.kort-staaende .kort-billede { aspect-ratio: 9 / 16; }
 .kort-stor h3 { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem); }
 @media (max-width: 640px) { .kort-stor { grid-column: span 1; } }
 
@@ -240,7 +241,8 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
   scroll-snap-type: x mandatory; scrollbar-width: none;
 }
 .karussel-spor::-webkit-scrollbar { display: none; }
-.karussel-spor > .kort { flex: 0 0 min(78%, 280px); scroll-snap-align: start; }
+.karussel-spor > .kort { flex: 0 0 min(62%, 230px); scroll-snap-align: start; }
+.karussel-spor h3 { font-size: 1.05rem; }
 .karussel-pile { display: flex; justify-content: center; gap: .6rem; margin-top: .4rem; }
 .karussel-pile[hidden] { display: none; }
 .karussel-pil {
