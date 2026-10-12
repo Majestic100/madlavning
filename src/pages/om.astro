@@ -13,13 +13,13 @@ const jsonld = [
   breadcrumbJsonLd([{ navn: "Forside", url: sti("/") }, { navn: "Om Merve", url: null }], Astro.site!.href),
 ];
 ---
-<Layout titel="Om Merve Holck, kvinden bag opskrifterne" beskrivelse="Mød Merve Holck, kvinden bag opskrifterne. Hvorfor alt er i gram, hvordan opskrifterne testes, og hvad du kan forvente af siden." aktiv="om" jsonld={jsonld}>
+<Layout titel="Om Merve Holck, kvinden bag opskrifterne" beskrivelse="Mød Merve Holck, kvinden bag opskrifterne. Om passionen for bagning, der startede i køkkenet med min mor, og en KÆMPE sød tand." aktiv="om" jsonld={jsonld}>
   <div class="side-top">
     <div class="wrap-laes">
-      <p class="oejenbryn">Om</p>
-      <h1>Hej, jeg hedder Merve</h1>
+      <p class="oejenbryn">Merve Holck</p>
+      <h1>Om mig</h1>
       <div class="intro">
-        <p>Jeg bager, fejler, retter til og skriver det ned, så du ikke behøver begå de samme fejl.</p>
+        <p>Jeg hedder Merve, og her kan du læse lidt mere om hvem jeg er.</p>
       </div>
     </div>
   </div>
@@ -32,38 +32,32 @@ const jsonld = [
     </figure>
 
     <p>
-      Det startede med en gærdej, der ikke ville hæve. Jeg blev irriteret, læste alt hvad jeg
-      kunne finde, og bagte den igen. Og igen. Et par år senere har jeg et køkken, der næsten
-      altid dufter af noget, og en stak notesbøger med opskrifter, jeg selv stoler på.
-    </p>
-    <p>Det er dem, der ligger her.</p>
-
-    <h2>Sådan skriver jeg opskrifter</h2>
-    <p>
-      <strong>Gram frem for deciliter.</strong> En deciliter mel kan veje fra 55 til 75 gram,
-      alt efter hvor hårdt du pakker den. Det er forskellen på en luftig og en tør kage.
-      Derfor vejer jeg alt, også væsker.
+      Min store passion for bagning startede da jeg som barn var med min mor i køkkenet. Jeg elskede at
+      se hvordan min mor freestylede sig til alting, og det blev jeg virkelig inspireret af. Jeg hjalp
+      med at bage, så meget som jeg kunne, og jeg elskede når vi brugte en hel dag på at bage sammen.
     </p>
     <p>
-      <strong>Tiderne er vejledende, tegnene er ikke.</strong> Der står altid, hvad du skal
-      kigge efter: gyldenbrun kant, dej der slipper skålen, tandstik med fugtige krummer.
-      Din ovn og min ovn er sjældent enige, og <a href={sti("/bagetips/din-ovn-lyver/")}>din lyver sikkert også</a>.
+      I mine teenageår var særligt fondant kager en kæmpe passion, og jeg lavede tonsvis til venner og
+      bekendte. Jeg elskede det kreative i at designe kagerne og pynte dem super flot. Dog har smagen af
+      fondant aldrig været mig.
     </p>
     <p>
-      <strong>Jeg skriver også, hvad der kan gå galt.</strong> Hver opskrift har en tips-boks,
-      og den handler som regel om den fejl, jeg selv begik første gang.
-    </p>
-
-    <h2>Hvad du finder her</h2>
-    <p>
-      Bagværk og gærdej fylder mest, men der er også kager til fødselsdage, desserter der kan
-      laves dagen før, snacks til fredagsaftener og en pizzadej, jeg har brugt urimeligt
-      lang tid på at få rigtig. Det hele er gratis, og næringsindholdet ligger ikke bag en
-      betalingsmur.
+      Og netop det kreative hænger stadig ved den dag i dag. Jeg arbejder nemlig som content creator, hvor
+      jeg netop får lov til at være kreativ hver dag.
     </p>
     <p>
-      Har du et spørgsmål til en opskrift, eller er noget gået galt undervejs? <a href={sti("/kontakt/")}>Skriv til mig</a>,
-      jeg svarer på det hele. Du finder mig også på <a href={merve.instagram} rel="me noopener">Instagram</a>.
+      Da jeg blev mor i 2021 begyndte jeg at gå rigtig meget op i at bage så meget som muligt til min søn,
+      så han ikke fik en masse e-numre i hans lille krop. Jeg testede en masse opskrifter af, og bager den
+      dag i dag også en masse til madpakkerne til hele børneflokken, som består af tre nu.
+    </p>
+    <p>
+      Jeg har en KÆMPE sød tand, og har næsten ikke en stopklods, når det kommer til søde sager. Jeg kan
+      sagtens spise kage eller slik før kl. 8 om morgenen (helt uden at skamme mig), og jeg kommer aldrig
+      til at forstå hvorfor dessert skal være sidste måltid i en tre-retters menu.
+    </p>
+    <p>
+      Jeg håber, at du kan li’ mine opskrifter. Tøv endelig ikke med at <a href={sti("/kontakt/")}>skrive</a>,
+      hvis du har spørgsmål, finder stavefejl eller noget der ikke giver mening.
     </p>
   </div>
 
