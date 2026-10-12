@@ -38,6 +38,9 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* hidden-attributten skal altid skjule, også elementer med egen display (fx .kort { display: flex }). */
+[hidden] { display: none !important; }
+
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5.5rem; }
 @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 
