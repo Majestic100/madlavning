@@ -1,0 +1,78 @@
+---
+/**
+ * Forsidens top: et stort søgefelt og en karussel af opskriftskort.
+ * Overskriften (h1) er kun til skærmlæsere og Google; visuelt starter siden med søgningen.
+ * Karussellen er en vandret liste med scroll-snap, så den kan swipes og virker
+ * uden JavaScript. Pilene på større skærme tilføjes af et lille script.
+ */
+import Ikon from "./Ikon.astro";
+import OpskriftKort from "./OpskriftKort.astro";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  /** Sidens h1, kun synlig for skærmlæsere og søgemaskiner. */
+  titel: string;
+  /** Adressen på søgesiden; feltet sender ?q=… dertil. */
+  soegSti: string;
+  /** Antal opskrifter, vises i søgefeltets hjælpetekst. */
+  antal: number;
+  opskrifter: CollectionEntry<"opskrifter">[];
+}
+
+const { titel, soegSti, antal, opskrifter } = Astro.props;
+---
+<section class="hero-karussel">
+  <div class="wrap hero-karussel-indhold">
+    <h1 class="sr-only">{titel}</h1>
+
+    <form class="hero-soeg" action={soegSti} method="get" role="search">
+      <label class="sr-only" for="hero-soeg-felt">Søg efter opskrifter</label>
+      <span class="hero-soeg-ikon" aria-hidden="true"><Ikon navn="lup" /></span>
+      <input class="hero-soeg-felt" type="search" id="hero-soeg-felt" name="q"
+             placeholder={`Søg i ${antal} opskrifter …`} autocomplete="off" />
+      <button class="knap knap-primaer" type="submit">Søg</button>
+    </form>
+
+    <div class="karussel" data-karussel role="region" aria-roledescription="karussel" aria-labelledby="karussel-titel">
+      <h2 id="karussel-titel" class="sr-only">Udvalgte opskrifter</h2>
+      <ul class="karussel-spor">
+        {opskrifter.map((o, i) => <OpskriftKort post={o} staaende doven={i >= 2} prioritet={i === 0} />)}
+      </ul>
+      <div class="karussel-pile" hidden>
+        <button type="button" class="karussel-pil karussel-pil-forrige" data-forrige aria-label="Forrige opskrifter">
+          <Ikon navn="pil" />
+        </button>
+        <button type="button" class="karussel-pil" data-naeste aria-label="Næste opskrifter">
+          <Ikon navn="pil" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const glat = window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? "smooth" : "auto";
+
+  document.querySelectorAll<HTMLElement>("[data-karussel]").forEach((karussel) => {
+    const spor = karussel.querySelector<HTMLElement>(".karussel-spor");
+    const pile = karussel.querySelector<HTMLElement>(".karussel-pile");
+    const forrige = karussel.querySelector<HTMLButtonElement>("[data-forrige]");
+    const naeste = karussel.querySelector<HTMLButtonElement>("[data-naeste]");
+    if (!spor || !pile || !forrige || !naeste) return;
+
+    const opdater = () => {
+      const maks = spor.scrollWidth - spor.clientWidth;
+      forrige.disabled = spor.scrollLeft <= 2;
+      naeste.disabled = spor.scrollLeft >= maks - 2;
+      pile.hidden = maks <= 2;
+    };
+    // Rul én "side" ad gangen; scroll-snap lægger kortene på plads.
+    const rul = (retning: number) => spor.scrollBy({ left: retning * spor.clientWidth * 0.9, behavior: glat });
+
+    forrige.addEventListener("click", () => rul(-1));
+    naeste.addEventListener("click", () => rul(1));
+    spor.addEventListener("scroll", opdater, { passive: true });
+    window.addEventListener("resize", opdater);
+    opdater();
+  });
+</script>

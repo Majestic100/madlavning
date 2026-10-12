@@ -1,23 +1,27 @@
 /* =========================================================
    Merve — designsystem
-   Brand: #AB978E (sand) · #9F7354 (karamel) · #4F2D24 (tekst)
+   Brand: hvid baggrund · sort tekst · #254F22 (grøn) til knapper, links og detaljer
+   Navnene sand/karamel/espresso er bevaret, så resten af CSS'en er uændret.
    ========================================================= */
 
 :root {
-  --sand:      #AB978E;
-  --karamel:   #9F7354;
-  --espresso:  #4F2D24;
+  --sand:      #254F22;   /* grøn: ikoner og små detaljer */
+  --karamel:   #254F22;   /* grøn: links og hover */
+  --espresso:  #111111;   /* sort: tekst */
+  --groen:       #254F22;
+  --groen-moerk: #1A3A18;
+  --groen-lys:   #EEF3ED; /* svag grøn til flader og footer */
 
-  --creme:      #FBF7F3;
-  --creme-dyb:  #F3EBE4;
+  --creme:      #FFFFFF;
+  --creme-dyb:  #F2F2F2;
   --papir:      #FFFFFF;
-  --linje:      #E7DCD3;
-  --linje-blod: #F0E7E0;
+  --linje:      #E3E3E3;
+  --linje-blod: #EEEEEE;
 
   --tekst:       var(--espresso);
-  --tekst-daemp: #7C6156;
-  --tekst-svag:  #7D6557;      /* AA-kontrast (5,1:1) på creme — bruges til småtekst */
-  --karamel-tekst: #8A614A;    /* karamel mørk nok til tekst og links (5,1:1) */
+  --tekst-daemp: #4A4A4A;
+  --tekst-svag:  #5C5C5C;      /* AA-kontrast (6:1) på hvid og lysegrøn — bruges til småtekst */
+  --karamel-tekst: #254F22;    /* grøn til tekst og links (9,5:1 på hvid) */
 
   /* Gotham på hele siden. Navnene --serif/--sans er bevaret, så resten af CSS'en er uændret. */
   --serif: var(--font-gotham);
@@ -70,7 +74,7 @@ p { margin: 0 0 1.1em; text-wrap: pretty; }
 a { color: var(--karamel-tekst); text-decoration-thickness: 1px; text-underline-offset: .18em; }
 a:hover { color: var(--espresso); }
 :focus-visible { outline: 2.5px solid var(--karamel); outline-offset: 3px; border-radius: 3px; }
-::selection { background: var(--sand); color: #fff; }
+::selection { background: var(--groen); color: #fff; }
 hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 
 /* ---------- Byggeklodser ---------- */
@@ -91,7 +95,7 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 
 .oejenbryn {
   font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
-  font-weight: 640; color: #87604B; margin: 0 0 .9rem;
+  font-weight: 640; color: var(--groen); margin: 0 0 .9rem;
 }
 
 .knap {
@@ -104,11 +108,11 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
               border-color var(--overgang), transform var(--overgang);
 }
 .knap:hover { transform: translateY(-1px); }
-.knap-primaer { background: var(--espresso); color: #fff; }
-.knap-primaer:hover { background: var(--karamel); color: #fff; }
+.knap-primaer { background: var(--groen); color: #fff; }
+.knap-primaer:hover { background: var(--groen-moerk); color: #fff; }
 .knap-linje { border-color: var(--linje); background: var(--papir); color: var(--espresso); }
 .knap-linje:hover { border-color: var(--karamel); color: var(--karamel); }
-.knap-linje[aria-pressed="true"] { background: var(--espresso); border-color: var(--espresso); color: #fff; }
+.knap-linje[aria-pressed="true"] { background: var(--groen); border-color: var(--groen); color: #fff; }
 .knap svg { width: 17px; height: 17px; flex-shrink: 0; }
 
 /* ---------- Header ---------- */
@@ -191,7 +195,7 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
   border-radius: 999px; padding: .38rem .8rem;
   font-size: .72rem; font-weight: 620; color: var(--espresso); text-decoration: none;
 }
-.kort-kat:hover { background: var(--espresso); color: #fff; }
+.kort-kat:hover { background: var(--groen); color: #fff; }
 .kort h3 { font-size: 1.2rem; margin: 0 0 .35rem; }
 .kort h3 a { color: inherit; text-decoration: none; }
 .kort h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
@@ -206,13 +210,14 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 
 .kort-stor { grid-column: span 2; }
 .kort-stor .kort-billede { aspect-ratio: 16 / 10; }
+.kort-staaende .kort-billede { aspect-ratio: 9 / 16; }
 .kort-stor h3 { font-size: clamp(1.4rem, 1.1rem + 1vw, 1.85rem); }
 @media (max-width: 640px) { .kort-stor { grid-column: span 1; } }
 
 /* ---------- Sektioner ---------- */
 
 .sektion { padding: clamp(2.5rem, 5vw, 4.25rem) 0; }
-.sektion-flade { background: var(--papir); border-block: 1px solid var(--linje-blod); }
+.sektion-flade { background: var(--groen-lys); border-block: 1px solid var(--linje-blod); }
 .sektion-hoved { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.9rem; flex-wrap: wrap; }
 .sektion-hoved h2 { margin: 0; }
 .sektion-hoved p { margin: .4rem 0 0; color: var(--tekst-daemp); max-width: 52ch; }
@@ -220,39 +225,59 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 .se-alle:hover { gap: .6rem; }
 .se-alle svg { width: 16px; height: 16px; }
 
-/* ---------- Hero med billedvifte (forside) ---------- */
+/* ---------- Hero med opskriftskarussel (forside) ---------- */
 
-.hero-vifte { padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
-.hero-vifte-indhold { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(1.8rem, 4vw, 2.5rem); }
-.hero-vifte-hoved { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; max-width: 42rem; }
-.hero-vifte h1 { margin: 0; text-wrap: balance; }
-.hero-vifte-fremhaevet { color: var(--karamel-tekst); }
-.hero-vifte-tekst { margin: 0; max-width: 34rem; color: var(--tekst-daemp); font-size: clamp(1rem, .96rem + .3vw, 1.15rem); text-wrap: balance; }
-.hero-vifte-handling { display: flex; flex-direction: column; align-items: center; gap: .9rem; }
-.hero-vifte-knapper { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; }
-.hero-vifte-bevis { margin: 0; font-size: .8rem; font-weight: 600; color: var(--tekst-svag); }
-
-.vifte { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 46rem; padding-bottom: 1.5rem; }
-.vifte-kort {
-  position: relative; flex-shrink: 0; aspect-ratio: 4 / 5; overflow: hidden;
-  border-radius: var(--kant); box-shadow: var(--skygge-loft); outline: 1px solid rgba(79,45,36,.08);
-  transform: translateY(var(--ty)) rotate(var(--rot));
+.hero-karussel { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2.5rem, 5vw, 4rem); overflow: hidden; }
+.hero-karussel-indhold { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(1.8rem, 4vw, 2.5rem); }
+.hero-soeg {
+  position: relative; display: flex; align-items: center; gap: .5rem;
+  width: 100%; max-width: 40rem; padding: .4rem; border: 1px solid var(--linje);
+  border-radius: 999px; background: var(--papir); box-shadow: var(--skygge);
+  transition: border-color var(--overgang), box-shadow var(--overgang);
 }
-.vifte-kort img { width: 100%; height: 100%; object-fit: cover; }
-.vifte-kort-0 { width: 38%; margin-right: -2rem; z-index: 1; --rot: -6deg; --ty: 1.5rem; --x: 3rem; }
-.vifte-kort-1 { width: 42%; z-index: 2; --rot: 0deg; --ty: -.5rem; --x: 0rem; }
-.vifte-kort-2 { width: 38%; margin-left: -2rem; z-index: 1; --rot: 6deg; --ty: 1.5rem; --x: -3rem; }
+.hero-soeg:focus-within { border-color: var(--karamel); box-shadow: var(--skygge-loft); }
+.hero-soeg-ikon { display: inline-grid; place-items: center; padding-left: .8rem; color: var(--tekst-svag); }
+.hero-soeg-ikon svg { width: 20px; height: 20px; }
+.hero-soeg-felt {
+  flex: 1; min-width: 0; font: inherit; font-size: 1.05rem; color: var(--tekst);
+  padding: .7rem .4rem; border: 0; background: transparent; outline: none;
+}
+.hero-soeg-felt::placeholder { color: var(--tekst-svag); }
+.hero-soeg .knap { flex-shrink: 0; }
+@media (max-width: 480px) {
+  .hero-soeg-felt { font-size: 1rem; }
+  .hero-soeg .knap { padding-inline: 1.1rem; }
+}
 
-/* Diskret indgang: teksten glider op, kortene folder sig ud fra midten.
-   Billederne animeres kun med transform (ikke opacity), så de tegnes med det samme og ikke forsinker LCP. */
+.karussel { width: 100%; text-align: left; }
+.karussel-spor {
+  display: flex; gap: clamp(1rem, 2.5vw, 1.5rem);
+  list-style: none; margin: 0; padding: .25rem 0 1rem;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.karussel-spor::-webkit-scrollbar { display: none; }
+.karussel-spor > .kort { flex: 0 0 min(62%, 230px); scroll-snap-align: start; }
+.karussel-spor h3 { font-size: 1.05rem; }
+.karussel-pile { display: flex; justify-content: center; gap: .6rem; margin-top: .4rem; }
+.karussel-pile[hidden] { display: none; }
+.karussel-pil {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid var(--linje); border-radius: 999px; background: var(--papir); color: var(--espresso);
+  cursor: pointer; transition: border-color var(--overgang), color var(--overgang), opacity var(--overgang);
+}
+.karussel-pil:hover:not(:disabled) { border-color: var(--karamel); color: var(--karamel); }
+.karussel-pil:disabled { opacity: .35; cursor: default; }
+.karussel-pil svg { width: 18px; height: 18px; }
+.karussel-pil-forrige svg { transform: scaleX(-1); }
+
 @media (prefers-reduced-motion: no-preference) {
-  .hero-vifte-hoved, .hero-vifte-handling { animation: hero-op .5s cubic-bezier(.22,1,.36,1) both; }
-  .hero-vifte-handling { animation-delay: .1s; }
-  .vifte-kort { animation: vifte-ud .6s cubic-bezier(.22,1,.36,1) .25s both; }
-  .vifte-kort-1 { animation-name: none; }
+  .hero-soeg, .karussel { animation: hero-op .5s cubic-bezier(.22,1,.36,1) both; }
+  .karussel { animation-name: hero-glid; animation-delay: .2s; }
 }
 @keyframes hero-op { from { opacity: 0; transform: translateY(12px); } }
-@keyframes vifte-ud { from { transform: translateX(var(--x)) translateY(var(--ty)) rotate(var(--rot)); } }
+/* Kun transform på karussellen (ikke opacity), så billederne tegnes med det samme og ikke forsinker LCP. */
+@keyframes hero-glid { from { transform: translateX(24px); } }
 
 /* ---------- Tidsindgange ---------- */
 
@@ -337,7 +362,7 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 .i-gruppe + .i-gruppe { margin-top: 1.4rem; }
 .i-gruppe h4 {
   font-family: var(--sans); font-size: .73rem; font-weight: 700;
-  letter-spacing: .15em; text-transform: uppercase; color: #87604B; margin: 0 0 .5rem;
+  letter-spacing: .15em; text-transform: uppercase; color: var(--groen); margin: 0 0 .5rem;
 }
 .i-liste { list-style: none; margin: 0; padding: 0; }
 .i-liste li { border-bottom: 1px dashed var(--linje); }
@@ -393,7 +418,7 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 .tips-boks { background: var(--creme-dyb); border-radius: var(--kant); padding: 1.4rem 1.6rem; margin-top: 2rem; }
 .tips-boks h3 {
   font-family: var(--sans); font-size: .74rem; font-weight: 700; letter-spacing: .15em;
-  text-transform: uppercase; color: #87604B;
+  text-transform: uppercase; color: var(--groen);
   margin: 0 0 .8rem; display: flex; align-items: center; gap: .5rem;
 }
 .tips-boks h3 svg { width: 16px; height: 16px; }
@@ -459,7 +484,7 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
   transition: all var(--overgang);
 }
 .filter-chip:hover { border-color: var(--karamel); color: var(--karamel); }
-.filter-chip[aria-pressed="true"], .filter-chip[aria-current="page"] { background: var(--espresso); border-color: var(--espresso); color: #fff; }
+.filter-chip[aria-pressed="true"], .filter-chip[aria-current="page"] { background: var(--groen); border-color: var(--groen); color: #fff; }
 .filter-label { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--tekst-svag); align-self: center; margin-right: .25rem; font-weight: 640; }
 
 .tom-besked { text-align: center; padding: 3.5rem 1rem; color: var(--tekst-daemp); background: var(--papir); border: 1px dashed var(--linje); border-radius: var(--kant); }
@@ -488,7 +513,7 @@ figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
   text-decoration: none; color: var(--espresso); font-size: .92rem; font-weight: 600;
 }
 .paginering a:hover { border-color: var(--karamel); color: var(--karamel); }
-.paginering [aria-current="page"] { background: var(--espresso); border-color: var(--espresso); color: #fff; }
+.paginering [aria-current="page"] { background: var(--groen); border-color: var(--groen); color: #fff; }
 
 /* ---------- Søgning ---------- */
 
@@ -500,7 +525,7 @@ mark { background: #F6E7D8; color: inherit; padding: 0 .12em; border-radius: 2px
 
 /* ---------- Footer ---------- */
 
-.site-footer { background: var(--papir); border-top: 1px solid var(--linje); margin-top: clamp(3rem, 6vw, 4.5rem); padding: clamp(2.25rem, 5vw, 3.5rem) 0 1.9rem; }
+.site-footer { background: var(--groen-lys); border-top: 1px solid var(--linje); margin-top: clamp(3rem, 6vw, 4.5rem); padding: clamp(2.25rem, 5vw, 3.5rem) 0 1.9rem; }
 .footer-net { display: grid; grid-template-columns: minmax(220px,1.4fr) repeat(auto-fit, minmax(140px, 1fr)); gap: 2.25rem; padding-bottom: 2.25rem; }
 @media (max-width: 720px) {
   .footer-net { grid-template-columns: 1fr 1fr; }

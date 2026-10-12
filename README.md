@@ -64,7 +64,7 @@ diet: []               # vegetarisk | vegansk | glutenfri
 keywords: [citronmåne, marcipan]
 storage: "Holder 3 dage i lufttæt dåse."
 freezable: true
-seasonal: false        # true = vises i "Sæsonens opskrifter" på forsiden
+seasonal: false        # true = vises først i karussellen øverst på forsiden
 ingredients:
   - group: "Dej"       # group kan være null, hvis der kun er én gruppe
     items:

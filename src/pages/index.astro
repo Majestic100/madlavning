@@ -5,26 +5,19 @@ import Layout from "../layouts/Layout.astro";
 import Ikon from "../components/Ikon.astro";
 import OpskriftKort from "../components/OpskriftKort.astro";
 import InstagramSektion from "../components/InstagramSektion.astro";
-import HeroVifte from "../components/HeroVifte.astro";
+import HeroKarussel from "../components/HeroKarussel.astro";
 import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../lib/tid.mjs";
-import { sti, kategoriSti } from "../lib/urls";
+import { sti } from "../lib/urls";
 import { SITE } from "../data/site";
-import { forfatter } from "../data/forfattere";
-import { getEntry } from "astro:content";
 
-const merve = forfatter("merve");
 const alle = (await getCollection("opskrifter")).sort(
   (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
 );
 
-/* Sæsonens opskrifter styres manuelt med `seasonal: true` i frontmatter (spec §6). */
-const saeson = alle.filter((o) => o.data.seasonal).slice(0, 4);
-const nyeste = alle.filter((o) => !saeson.includes(o)).slice(0, 8);
-
-/* Heroens billedvifte: en opskrift på hver side af Merve. */
-const viftePoster = await Promise.all(["gifler", "chokoladeboller"].map((id) => getEntry("opskrifter", id)));
-const [venstre, hoejre] = viftePoster.map((o) => ({ src: o!.data.image.src, alt: o!.data.image.alt }));
-const vifte = [venstre, { src: merve.portraet, alt: `${merve.navn} med et hjemmebagt surdejsbrød` }, hoejre];
+/* Heroens karussel: sæsonens opskrifter først (`seasonal: true` i frontmatter, spec §6),
+   derefter de nyeste. "Nyeste opskrifter" viser kun dem, der ikke allerede er i karussellen. */
+const karussel = [...alle.filter((o) => o.data.seasonal), ...alle.filter((o) => !o.data.seasonal)].slice(0, 10);
+const nyeste = alle.filter((o) => !karussel.includes(o)).slice(0, 8);
 
 const websiteJsonLd = {
   "@context": "https://schema.org",
@@ -47,36 +40,15 @@ for (const o of alle) {
 ---
 <Layout aktiv="forside" jsonld={[websiteJsonLd]}>
 
-  <!-- 1: Hero med billedvifte -->
-  <HeroVifte
-    titel="Opskrifter der virker."
-    titelLinje2Praefiks="Også"
-    titelFremhaevet="første gang"
-    beskrivelse="Jeg hedder Merve. Jeg bager, fejler, retter til og skriver det ned i gram og med ærlige tider. Alt her er testet i mit eget køkken."
-    socialtBevis={`${alle.length} opskrifter, alle testet i mit eget køkken`}
-    billeder={vifte}
-    primaer={{ tekst: "Find en opskrift", link: sti("/opskrifter/") }}
-    sekundaer={{ tekst: "Læs bagetips", link: kategoriSti("bagetips") }}
+  <!-- 1: Søgning og opskriftskarussel -->
+  <HeroKarussel
+    titel="Merve: opskrifter der virker. Også første gang"
+    soegSti={sti("/soeg/")}
+    antal={alle.length}
+    opskrifter={karussel}
   />
 
-  <!-- 2: Sæsonens opskrifter -->
-  {saeson.length > 0 && (
-    <section class="sektion sektion-flade">
-      <div class="wrap">
-        <div class="sektion-hoved">
-          <div>
-            <p class="oejenbryn">Lige nu</p>
-            <h2>Sæsonens opskrifter</h2>
-          </div>
-        </div>
-        <ul class="kort-net">
-          {saeson.map((o, i) => <OpskriftKort post={o} stor={i === 0} />)}
-        </ul>
-      </div>
-    </section>
-  )}
-
-  <!-- 3: Nyeste opskrifter -->
+  <!-- 2: Nyeste opskrifter -->
   <section class="sektion">
     <div class="wrap">
       <div class="sektion-hoved">
@@ -92,7 +64,7 @@ for (const o of alle) {
     </div>
   </section>
 
-  <!-- 4: Tidsbaserede indgange -->
+  <!-- 3: Tidsbaserede indgange -->
   <section class="sektion sektion-flade">
     <div class="wrap">
       <div class="sektion-hoved">
@@ -113,7 +85,7 @@ for (const o of alle) {
     </div>
   </section>
 
-  <!-- 5: Instagram -->
+  <!-- 4: Instagram -->
   <section class="sektion">
     <div class="wrap">
       <InstagramSektion />
