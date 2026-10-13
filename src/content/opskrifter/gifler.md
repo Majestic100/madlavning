@@ -53,7 +53,7 @@ instructions:
       - text: "Lad giflerne efterhæve i 15 minutter, pensl dem med æg og bag dem så i ca. 10 minutter."
       - text: "Du kan evt. pensle dem med sukkersirup eller smeltet smør, hvis du ønsker dem ekstra blanke, men jeg elsker dem bare som de er. Velbekomme!"
 tips:
-  - "Skær giflerne brede nok, ellers vælter de. Det taler jeg af erfaring om. ;)"
+  - "Skær giflerne brede nok, ellers vælter de. Jeg taler af erfaring. ;)"
   - "Rul dejen tyndt ud, omkring 0,5 cm, så giflerne får det helt rigtige udtryk."
 related: [kanelsnurrer, chokoladeboller, snurrer-med-smoer]
 ---
