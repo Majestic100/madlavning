@@ -5,9 +5,10 @@ name: Byg og udgiv
 on:
   push:
     branches: [main]
-  # Bygges om hver nat kl. ca. 04 dansk tid, så nye Instagram-opslag kommer med.
+  # Bygges om hver 3. time, så nye Instagram-opslag og antal følgere kommer med.
+  # (GitHub kan forsinke planlagte kørsler, typisk med op til en time.)
   schedule:
-    - cron: "17 2 * * *"
+    - cron: "17 */3 * * *"
   workflow_dispatch:
 
 permissions:
