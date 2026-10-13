@@ -1,7 +1,7 @@
 ---
 title: "Gifler med kanelremonce"
-metaDescription: "Min egen opskrift på bløde gifler med kanelremonce. Giver ca. 50 stk. på to bageplader, og tricket er tynd dej og brede stykker."
-excerpt: "Efter flere hundrede gifler knækkede jeg endelig koden. Bløde, søde gifler med kanelremonce, ca. 50 stk. på to plader."
+metaDescription: "Min egen opskrift på bløde gifler med kanelremonce. Giver ca. 45 stk. på to bageplader, og tricket er tynd dej og brede stykker."
+excerpt: "Efter flere hundrede gifler knækkede jeg endelig koden. Bløde, søde gifler med kanelremonce, ca. 45 stk. på to plader."
 publishedAt: 2026-10-10
 author: merve
 image:
@@ -10,7 +10,7 @@ image:
 prepTime: 45
 cookTime: 20
 waitTime: 75
-servings: 50
+servings: 45
 servingsUnit: "stk"
 difficulty: mellem
 category: bagvaerk
@@ -62,4 +62,4 @@ Jeg elsker gifler. Og jeg har spist mange igennem tiden. Og derfor var det også
 
 Det er vigtigt, at giflerne skæres brede nok, da de ellers vælter og her taler jeg af erfaring. ;) Dejen skal også rulles tyndt nok ud, så man får det helt rigtige udtryk.
 
-Opskriften giver 2 bageplader - ca. 50 stk.
+Opskriften giver 2 bageplader - ca. 45 stk.
