@@ -60,6 +60,6 @@ related: [kanelsnurrer, chokoladeboller, snurrer-med-smoer]
 
 Jeg elsker gifler. Og jeg har spist mange igennem tiden. Og derfor var det også en selvfølge, at jeg en dag måtte lave min egen opskrift på dem, og efter flere hundrede gifler, knækkede jeg endelig koden til dem. Og NØJ de smager godt!
 
-Det er vigtigt, at giflerne skæres brede nok, da de ellers vælter og her taler af erfaring. ;) Dejen skal også rulles tyndt nok ud, så man får det helt rigtige udtryk.
+Det er vigtigt, at giflerne skæres brede nok, da de ellers vælter og her taler jeg af erfaring. ;) Dejen skal også rulles tyndt nok ud, så man får det helt rigtige udtryk.
 
 Opskriften giver 2 bageplader - ca. 50 stk.
