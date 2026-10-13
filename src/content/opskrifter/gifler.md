@@ -1,7 +1,7 @@
 ---
 title: "Gifler med kanelremonce"
-metaDescription: "Min egen opskrift på bløde gifler med kanelremonce. Giver ca. 50 stk. på to bageplader, og tricket er tynd dej og brede stykker."
-excerpt: "Efter flere hundrede gifler knækkede jeg endelig koden. Bløde, søde gifler med kanelremonce, ca. 50 stk. på to plader."
+metaDescription: "Min egen opskrift på bløde gifler med kanelremonce. Giver ca. 45 stk. på to bageplader, og tricket er tynd dej og brede stykker."
+excerpt: "Efter flere hundrede gifler knækkede jeg endelig koden. Bløde, søde gifler med kanelremonce, ca. 45 stk. på to plader."
 publishedAt: 2026-10-10
 author: merve
 image:
@@ -10,7 +10,7 @@ image:
 prepTime: 45
 cookTime: 20
 waitTime: 75
-servings: 50
+servings: 45
 servingsUnit: "stk"
 difficulty: mellem
 category: bagvaerk
@@ -49,17 +49,17 @@ instructions:
       - text: "Når dejen har hævet til dobbelt størrelse, skal den rulles ud til ca 40 x 55 cm. Dejen skal være forholdsvis tynd, omkring 0,5 cm."
       - text: "Fordel nu remoncen ud på dejen i et tyndt lag med en spartel, og skær derefter dejen ud i tre lige store aflange stykker på ca. 13 x 55 cm."
       - text: "Rul nu hver bane til en snegl og tryk den let flad, så den får giffeludtrykket."
-      - text: "Skær dejen ud i 3 cm brede stykker med en kniv, og placer dem på en bageplade. Tænd ovnen på 200 grader almindelig ovn."
+      - text: "Skær dejen ud i 4 cm brede stykker med en kniv, og placer dem på en bageplade. Det er vigtigt, at de er 4 cm brede, ellers vælter de. Tænd ovnen på 200 grader almindelig ovn."
       - text: "Lad giflerne efterhæve i 15 minutter, pensl dem med æg og bag dem så i ca. 10 minutter."
       - text: "Du kan evt. pensle dem med sukkersirup eller smeltet smør, hvis du ønsker dem ekstra blanke, men jeg elsker dem bare som de er. Velbekomme!"
 tips:
-  - "Skær giflerne brede nok, ellers vælter de. Det taler jeg af erfaring om. ;)"
+  - "Skær giflerne brede nok, ellers vælter de. Jeg taler af erfaring. ;)"
   - "Rul dejen tyndt ud, omkring 0,5 cm, så giflerne får det helt rigtige udtryk."
 related: [kanelsnurrer, chokoladeboller, snurrer-med-smoer]
 ---
 
 Jeg elsker gifler. Og jeg har spist mange igennem tiden. Og derfor var det også en selvfølge, at jeg en dag måtte lave min egen opskrift på dem, og efter flere hundrede gifler, knækkede jeg endelig koden til dem. Og NØJ de smager godt!
 
-Det er vigtigt, at giflerne skæres brede nok, da de ellers vælter og her taler af erfaring. ;) Dejen skal også rulles tyndt nok ud, så man får det helt rigtige udtryk.
+Det er vigtigt, at giflerne skæres brede nok, da de ellers vælter og her taler jeg af erfaring. ;) Dejen skal også rulles tyndt nok ud, så man får det helt rigtige udtryk.
 
-Opskriften giver 2 bageplader - ca. 50 stk.
+Opskriften giver 2 bageplader - ca. 45 stk.
