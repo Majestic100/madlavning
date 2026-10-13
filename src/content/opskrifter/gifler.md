@@ -49,7 +49,7 @@ instructions:
       - text: "Når dejen har hævet til dobbelt størrelse, skal den rulles ud til ca 40 x 55 cm. Dejen skal være forholdsvis tynd, omkring 0,5 cm."
       - text: "Fordel nu remoncen ud på dejen i et tyndt lag med en spartel, og skær derefter dejen ud i tre lige store aflange stykker på ca. 13 x 55 cm."
       - text: "Rul nu hver bane til en snegl og tryk den let flad, så den får giffeludtrykket."
-      - text: "Skær dejen ud i 3 cm brede stykker med en kniv, og placer dem på en bageplade. Tænd ovnen på 200 grader almindelig ovn."
+      - text: "Skær dejen ud i 4 cm brede stykker med en kniv, og placer dem på en bageplade. Det er vigtigt, at de er 4 cm brede, ellers vælter de. Tænd ovnen på 200 grader almindelig ovn."
       - text: "Lad giflerne efterhæve i 15 minutter, pensl dem med æg og bag dem så i ca. 10 minutter."
       - text: "Du kan evt. pensle dem med sukkersirup eller smeltet smør, hvis du ønsker dem ekstra blanke, men jeg elsker dem bare som de er. Velbekomme!"
 tips:
