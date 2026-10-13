@@ -41,8 +41,8 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   },
   desserter: {
     intro: [
-      "Desserterne her er dem, der bliver lavet igen og igen: gammeldags æblekage med hjemmelavet æblekagerasp og flødeskum, og klassiske pandekager, der både kan være weekendmorgenmad, børnefødselsdag og en nem dessert efter aftensmaden.",
-      "Begge kan forberedes i god tid. Æblegrøden og raspen laves hver for sig og samles lige før servering, så raspen holder sig sprød. Pandekagerne kan bages i forvejen og lunes let i ovnen, når de skal spises.",
+      "Desserter er for mig ikke kun noget, der hører til sidst i et måltid. Her finder du alt fra gammeldags æblekage og to slags tiramisu, en klassisk uden fløde og en frisk med hindbær, til jordbærdessert i glas med råcreme og makroner, kold risdessert med fløde og bær og en sommerdessert med ananassorbet og marengs. Der er også arme riddere af hveder, nemme blommetærter med butterdej og lemoncurd med timian.",
+      "Og så er der pandekager i mange afskygninger: klassiske, med banan og ahornsirup, med citron og birkes, med kakao og med surdejsrester og havremel. Mange af desserterne kan laves i god tid, og flere af dem bliver bare bedre af at trække i køleskabet. Saml de lagdelte desserter lige før servering, så det sprøde forbliver sprødt.",
     ],
     blokke: [
       {
