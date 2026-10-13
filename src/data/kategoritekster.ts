@@ -11,8 +11,8 @@ export interface KategoriTekst {
 export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   bagvaerk: {
     intro: [
-      "Bagværk er gærdej i alle afskygninger: bløde kanelsnurrer, chokoladeboller til eftermiddagskaffen, gulerodsboller til madpakken og pølsehorn til børnefødselsdagen. Her finder du også mine briocheboller med fyld, fra vaniljecreme og jordbær til cheesecake med hindbær eller blåbær, og et surdejsbrød med store stykker mørk chokolade.",
-      "Opskrifterne er skrevet i gram, og trinene fortæller både, hvor længe dejen cirka skal hæve, og hvordan den skal se ud. Hævetiden afhænger nemlig af, hvor varmt der er i dit køkken, så brug tiderne som pejlemærker og dejen som facit.",
+      "Bagværk er dej i alle afskygninger, og her mener jeg både gærdej, surdej og dej uden hævemidler: bløde kanelsnurrer, chokoladeboller til eftermiddagskaffen, gulerodsboller til madpakken og pølsehorn til børnefødselsdagen. Her finder du også mine briocheboller med fyld, fra vaniljecreme og jordbær til cheesecake med hindbær eller blåbær, og et surdejsbrød med store stykker mørk chokolade.",
+      "Opskrifterne er skrevet i gram, og trinene fortæller hvor længe dejen cirka skal hæve. Hævetiden afhænger nemlig af, hvor varmt der er i dit køkken, så brug tiderne som pejlemærker og dejen som facit. Mærk altid på din dej, hvis du er i tvivl om den har hævet nok.",
     ],
     blokke: [
       {
