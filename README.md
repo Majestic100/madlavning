@@ -99,8 +99,8 @@ feed hos [Behold](https://behold.so), når siden bygges (`src/lib/instagram.ts`)
 - Billederne hentes og komprimeres under byggeriet og ligger på siden selv. Besøgende henter
   intet fra Instagram eller Behold, så der sættes ingen cookies, og siden forbliver hurtig.
 - Reels og karruseller får et lille ikon i hjørnet. Alle opslag linker til Instagram.
-- Siden bygges om hver nat (`schedule` i `.github/workflows/deploy.yml`), så nye opslag kommer
-  med inden for et døgn. Vil du se et nyt opslag med det samme: Actions → "Byg og udgiv" →
+- Siden bygges om hver 3. time (`schedule` i `.github/workflows/deploy.yml`), så nye opslag
+  og antal følgere kommer med inden for et par timer. Vil du se et nyt opslag med det samme: Actions → "Byg og udgiv" →
   "Run workflow".
 - Er Behold nede, bygges siden alligevel. Sektionen viser så kun "Følg med"-knappen.
 - Feedet styres på behold.so. Laves det om, skal `BEHOLD_FEED_URL` i `src/lib/instagram.ts`

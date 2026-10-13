@@ -13,12 +13,14 @@ interface Props {
   doven?: boolean;
   /** Stående 9:16-billede (bruges i forsidens karussel). */
   staaende?: boolean;
+  /** Ligger uden for den viste side og er skjult, indtil et filter vises (kategorisider). */
+  ekstra?: boolean;
   /** fetchpriority="high" til et billede, der er LCP (første kort i forsidens karussel). */
   prioritet?: boolean;
   visKategori?: boolean;
   visResume?: boolean;
 }
-const { post, stor = false, doven = true, staaende = false, prioritet = false, visKategori = true, visResume = false } = Astro.props;
+const { post, stor = false, doven = true, staaende = false, prioritet = false, ekstra = false, visKategori = true, visResume = false } = Astro.props;
 
 const erOpskrift = post.collection === "opskrifter";
 const d: any = post.data;
@@ -30,7 +32,7 @@ const filterData = erOpskrift
   ? { "data-tid": tidsInterval(aktivTid(d)).id, "data-diaet": d.diet.join(" ") }
   : {};
 ---
-<li class:list={["kort", { "kort-stor": stor, "kort-staaende": staaende }]} {...filterData}>
+<li class:list={["kort", { "kort-stor": stor, "kort-staaende": staaende }]} {...filterData} data-ekstra={ekstra ? "" : undefined} hidden={ekstra}>
   <div class="kort-billede">
     <Image
       src={d.image.src}

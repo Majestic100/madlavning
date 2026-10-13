@@ -3,7 +3,7 @@
  *
  * Billederne downloades og komprimeres af Astro under byggeriet, så de
  * besøgende aldrig henter noget fra Instagram eller Behold (ingen cookies,
- * ingen tredjepartsscripts). Siden bygges om hver nat (se deploy.yml), så
+ * ingen tredjepartsscripts). Siden bygges om hver 3. time (se deploy.yml), så
  * nye opslag dukker op af sig selv.
  *
  * Fejler hentningen, returneres en tom liste, og sektionen viser kun
