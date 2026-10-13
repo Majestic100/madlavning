@@ -11,8 +11,8 @@ export interface KategoriTekst {
 export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   bagvaerk: {
     intro: [
-      "Bagværk er gærdej i alle afskygninger: bløde kanelsnurrer, chokoladeboller til eftermiddagskaffen, gulerodsboller til madpakken og pølsehorn til børnefødselsdagen. Her finder du også mine briocheboller med fyld, fra vaniljecreme og jordbær til cheesecake med hindbær eller blåbær, og et surdejsbrød med store stykker mørk chokolade.",
-      "Opskrifterne er skrevet i gram, og trinene fortæller både, hvor længe dejen cirka skal hæve, og hvordan den skal se ud. Hævetiden afhænger nemlig af, hvor varmt der er i dit køkken, så brug tiderne som pejlemærker og dejen som facit.",
+      "Bagværk er dej i alle afskygninger, og her mener jeg både gærdej, surdej og dej uden hævemidler: bløde kanelsnurrer, chokoladeboller til eftermiddagskaffen, gulerodsboller til madpakken og pølsehorn til børnefødselsdagen. Her finder du også mine briocheboller med fyld, fra vaniljecreme og jordbær til cheesecake med hindbær eller blåbær, og et surdejsbrød med store stykker mørk chokolade.",
+      "Opskrifterne er skrevet i gram, og trinene fortæller hvor længe dejen cirka skal hæve. Hævetiden afhænger nemlig af, hvor varmt der er i dit køkken, så brug tiderne som pejlemærker og dejen som facit. Mærk altid på din dej, hvis du er i tvivl om den har hævet nok.",
     ],
     blokke: [
       {
@@ -41,8 +41,8 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   },
   desserter: {
     intro: [
-      "Desserterne her er dem, der bliver lavet igen og igen: gammeldags æblekage med hjemmelavet æblekagerasp og flødeskum, og klassiske pandekager, der både kan være weekendmorgenmad, børnefødselsdag og en nem dessert efter aftensmaden.",
-      "Begge kan forberedes i god tid. Æblegrøden og raspen laves hver for sig og samles lige før servering, så raspen holder sig sprød. Pandekagerne kan bages i forvejen og lunes let i ovnen, når de skal spises.",
+      "Desserter er for mig ikke kun noget, der hører til sidst i et måltid. Her finder du alt fra gammeldags æblekage og to slags tiramisu, en klassisk uden fløde og en frisk med hindbær, til jordbærdessert i glas med råcreme og makroner, kold risdessert med fløde og bær og en sommerdessert med ananassorbet og marengs. Der er også arme riddere af hveder, nemme blommetærter med butterdej og lemoncurd med timian.",
+      "Og så er der pandekager i mange afskygninger: klassiske, med banan og ahornsirup, med citron og birkes, med kakao og med surdejsrester og havremel. Mange af desserterne kan laves i god tid, og flere af dem bliver bare bedre af at trække i køleskabet. Saml de lagdelte desserter lige før servering, så det sprøde forbliver sprødt.",
     ],
     blokke: [
       {
@@ -89,7 +89,7 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   },
   snacks: {
     intro: [
-      "Snacks er det lille ekstra mellem måltiderne: dadelkugler med kaffe og mørk chokolade, kernecookies sødet med moden banan og chunky granola med kanel, der både kan være morgenmad og eftermiddagssnack.",
+      "Snacks er det lille ekstra mellem måltiderne: dadelkugler med kaffe og mørk chokolade, kernecookies sødet med moden banan og chunky granola med kanel, der både kan være morgenmad og eftermiddagssnack. Det er bare nogen af de snacks du finder her på siden.",
       "Fælles for dem er, at de er nemme at lave, kræver få ingredienser og kan laves i en større portion, så der er noget at tage af resten af ugen.",
     ],
     blokke: [

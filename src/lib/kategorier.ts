@@ -9,8 +9,8 @@ export interface Kategori {
 }
 
 export const KATEGORIER: Kategori[] = [
-  { slug: "bagvaerk",  navn: "Bagværk",  kortNavn: "Bagværk",  tagline: "Brød, boller og alt med gær" },
-  { slug: "desserter", navn: "Desserter", kortNavn: "Desserter", tagline: "Det søde punktum på måltidet" },
+  { slug: "bagvaerk",  navn: "Bagværk",  kortNavn: "Bagværk",  tagline: "Brød, boller og alt med dej" },
+  { slug: "desserter", navn: "Desserter", kortNavn: "Desserter", tagline: "Søde sager til enhver tid på dagen" },
   { slug: "kager",     navn: "Kager",     kortNavn: "Kager",     tagline: "Fra hverdagskage til fødselsdag" },
   { slug: "snacks",    navn: "Snacks",    kortNavn: "Snacks",    tagline: "Små sager til hyggen" },
   { slug: "pizza",     navn: "Pizza",     kortNavn: "Pizza",     tagline: "Dej, der fortjener tålmodighed" },
