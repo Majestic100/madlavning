@@ -89,7 +89,7 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   },
   snacks: {
     intro: [
-      "Snacks er det lille ekstra mellem måltiderne: dadelkugler med kaffe og mørk chokolade, kernecookies sødet med moden banan og chunky granola med kanel, der både kan være morgenmad og eftermiddagssnack.",
+      "Snacks er det lille ekstra mellem måltiderne: dadelkugler med kaffe og mørk chokolade, kernecookies sødet med moden banan og chunky granola med kanel, der både kan være morgenmad og eftermiddagssnack. Det er bare nogen af de snacks du finder her på siden.",
       "Fælles for dem er, at de er nemme at lave, kræver få ingredienser og kan laves i en større portion, så der er noget at tage af resten af ugen.",
     ],
     blokke: [
