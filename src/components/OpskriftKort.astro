@@ -11,7 +11,7 @@ interface Props {
   post: CollectionEntry<"opskrifter"> | CollectionEntry<"bagetips">;
   stor?: boolean;
   doven?: boolean;
-  /** Stående 9:16-billede (bruges i forsidens karussel). */
+  /** Stående 9:16-billede (bruges i forsidens karussel). Almindelige kort er 3:4. */
   staaende?: boolean;
   /** Ligger uden for den viste side og er skjult, indtil et filter vises (kategorisider). */
   ekstra?: boolean;
@@ -38,9 +38,9 @@ const filterData = erOpskrift
       src={d.image.src}
       alt={d.image.alt}
       widths={stor ? [420, 640, 900, 1200] : staaende ? [240, 360, 480] : [320, 480, 640]}
-      sizes={stor ? "(max-width: 640px) 92vw, 60vw" : staaende ? "(max-width: 640px) 62vw, 230px" : "(max-width: 640px) 92vw, 300px"}
+      sizes={stor ? "(max-width: 640px) 92vw, 60vw" : staaende ? "(max-width: 640px) 62vw, 230px" : "(max-width: 640px) 46vw, 300px"}
       width={stor ? 1200 : staaende ? 480 : 640}
-      height={stor ? 900 : staaende ? 853 : 480}
+      height={stor ? 900 : 853}
       fit="cover"
       loading={doven ? "lazy" : "eager"}
       decoding="async"
