@@ -6,7 +6,7 @@ publishedAt: 2026-10-17
 author: merve
 image:
   src: ../../assets/opskrifter/brioche-kanel.jpg
-  alt: "Briocheboller med cheesecakefyld, karamelliserede æbler og karamel"
+  alt: "Briocheboller med karamelliserede æbler og karamel på en bageplade, med røde æbler ved siden af"
 prepTime: 60
 cookTime: 12
 waitTime: 90
