@@ -1,8 +1,8 @@
 ---
 import Ikon from "./Ikon.astro";
 import Logo from "./Logo.astro";
-import { KATEGORIER } from "../lib/kategorier";
-import { kategoriSti, sti } from "../lib/urls";
+import { KATEGORIER, underkategorierAf } from "../lib/kategorier";
+import { kategoriSti, underkategoriSti, sti } from "../lib/urls";
 
 interface Props { aktiv?: string }
 const { aktiv } = Astro.props;
@@ -13,11 +13,27 @@ const { aktiv } = Astro.props;
 
     <nav class="hoved-nav" id="hoved-nav" aria-label="Hovedmenu">
       <ul>
-        {KATEGORIER.map((k) => (
-          <li>
-            <a href={kategoriSti(k.slug)} aria-current={aktiv === k.slug ? "page" : undefined}>{k.navn}</a>
-          </li>
-        ))}
+        {KATEGORIER.map((k) => {
+          const under = underkategorierAf(k.slug);
+          return under.length === 0 ? (
+            <li>
+              <a href={kategoriSti(k.slug)} aria-current={aktiv === k.slug ? "page" : undefined}>{k.navn}</a>
+            </li>
+          ) : (
+            <li class="har-under" data-aaben="false">
+              <div class="nav-punkt">
+                <a href={kategoriSti(k.slug)} aria-current={aktiv === k.slug ? "page" : undefined}>{k.navn}</a>
+                <button class="under-knap" type="button" aria-expanded="false" aria-controls={`under-${k.slug}`}
+                        aria-label={`Vis typer af ${k.navn.toLowerCase()}`}><Ikon navn="vinkel" /></button>
+              </div>
+              <ul class="under-menu" id={`under-${k.slug}`}>
+                {under.map((u) => (
+                  <li><a href={underkategoriSti(k.slug, u.slug)}>{u.navn}</a></li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
         <li><a href={sti("/om/")} aria-current={aktiv === "om" ? "page" : undefined}>Om Merve</a></li>
       </ul>
     </nav>

@@ -15,6 +15,7 @@ servings: 12
 servingsUnit: "stykker"
 difficulty: nem
 category: kager
+subcategory: brownies-og-kagekugler
 diet: [vegetarisk]
 season: []
 occasion: [hverdag, foedselsdag]

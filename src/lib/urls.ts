@@ -7,4 +7,5 @@ export function sti(path: string): string {
 export const opskriftSti = (id: string) => sti(`/opskrifter/${id}/`);
 export const kategoriSti = (slug: string) =>
   slug === "bagetips" ? sti("/bagetips/") : sti(`/opskrifter/${slug}/`);
+export const underkategoriSti = (kategori: string, slug: string) => sti(`/opskrifter/${kategori}/${slug}/`);
 export const bagetipSti = (id: string) => sti(`/bagetips/${id}/`);

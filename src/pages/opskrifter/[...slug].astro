@@ -5,13 +5,14 @@
  *   /opskrifter/side/2/        → alle opskrifter (side 2+)
  *   /opskrifter/kager/         → kategoriside
  *   /opskrifter/kager/side/2/  → kategoriside (side 2+)
+ *   /opskrifter/kager/cookies/ → underkategoriside
  *   /opskrifter/kanelsnurrer/  → opskriftsside
  */
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import OpskriftSide from "../../components/sider/OpskriftSide.astro";
 import KategoriListe from "../../components/sider/KategoriListe.astro";
-import { KATEGORIER, type Kategori } from "../../lib/kategorier";
+import { KATEGORIER, UNDERKATEGORIER, underkategorierAf, underkategoriAf, type Kategori, type Underkategori } from "../../lib/kategorier";
 
 export const PR_SIDE = 12;
 
@@ -25,7 +26,13 @@ export async function getStaticPaths() {
     if (reserverede.has(o.id)) {
       throw new Error(`Opskrift-slug "${o.id}" kolliderer med en kategori-URL. Omdøb filen.`);
     }
+    const sub = o.data.subcategory;
+    if (sub && !underkategoriAf(o.data.category, sub)) {
+      const muligheder = underkategorierAf(o.data.category).map((u) => u.slug).join(", ") || "ingen";
+      throw new Error(`Opskriften "${o.id}" har ukendt subcategory "${sub}". Mulige for ${o.data.category}: ${muligheder}.`);
+    }
   }
+  if (UNDERKATEGORIER.some((u) => u.slug === "side")) throw new Error('Underkategorien må ikke hedde "side".');
 
   type Sti = { params: { slug: string | undefined }; props: Record<string, unknown> };
   const stier: Sti[] = alle.map((post) => ({
@@ -33,10 +40,15 @@ export async function getStaticPaths() {
     props: { visning: "opskrift", post },
   }));
 
-  const listeStier = (posts: typeof alle, kategori: Kategori | null, base: string) => {
+  const listeStier = (
+    posts: typeof alle,
+    kategori: Kategori | null,
+    base: string,
+    underkategori: Underkategori | null = null,
+  ) => {
     const antalSider = Math.max(1, Math.ceil(posts.length / PR_SIDE));
     for (let side = 1; side <= antalSider; side++) {
-      const prefix = kategori ? kategori.slug : "";
+      const prefix = kategori ? [kategori.slug, underkategori?.slug].filter(Boolean).join("/") : "";
       const slug =
         side === 1
           ? prefix || undefined
@@ -46,6 +58,7 @@ export async function getStaticPaths() {
         props: {
           visning: "liste",
           kategori,
+          underkategori,
           posts: posts.slice((side - 1) * PR_SIDE, side * PR_SIDE),
           allePosts: posts,
           side,
@@ -58,7 +71,11 @@ export async function getStaticPaths() {
 
   listeStier(alle, null, "/opskrifter/");
   for (const kat of KATEGORIER.filter((k) => !k.erArtikler)) {
-    listeStier(alle.filter((o) => o.data.category === kat.slug), kat, `/opskrifter/${kat.slug}/`);
+    const iKategori = alle.filter((o) => o.data.category === kat.slug);
+    listeStier(iKategori, kat, `/opskrifter/${kat.slug}/`);
+    for (const u of underkategorierAf(kat.slug)) {
+      listeStier(iKategori.filter((o) => o.data.subcategory === u.slug), kat, `/opskrifter/${kat.slug}/${u.slug}/`, u);
+    }
   }
 
   return stier;
@@ -69,6 +86,7 @@ type Props =
   | {
       visning: "liste";
       kategori: Kategori | null;
+      underkategori: Underkategori | null;
       posts: CollectionEntry<"opskrifter">[];
       allePosts: CollectionEntry<"opskrifter">[];
       side: number;
@@ -83,8 +101,10 @@ import { sti } from "../../lib/urls";
 const listeMeta =
   props.visning === "liste"
     ? {
-        titel: props.kategori ? props.kategori.navn : "Alle opskrifter",
-        beskrivelse: props.kategori
+        titel: props.underkategori?.navn ?? (props.kategori ? props.kategori.navn : "Alle opskrifter"),
+        beskrivelse: props.underkategori
+          ? `${props.underkategori.navn} fra ${props.kategori!.navn.toLowerCase()}: ${props.underkategori.beskrivelse}`.slice(0, 155)
+          : props.kategori
           ? `${props.kategori.tagline}. ${KATEGORITEKSTER[props.kategori.slug].intro[0]}`.slice(0, 155)
           : "Alle Merves opskrifter samlet ét sted: bagværk, kager, desserter, snacks og pizza. Gennemtestede og skrevet i gram.",
       }
@@ -95,6 +115,7 @@ const listeMeta =
 ) : (
   <KategoriListe
     kategori={props.kategori}
+    underkategori={props.underkategori}
     titel={listeMeta!.titel}
     beskrivelse={listeMeta!.beskrivelse}
     posts={props.posts}

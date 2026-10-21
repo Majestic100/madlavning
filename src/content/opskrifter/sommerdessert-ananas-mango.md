@@ -15,6 +15,7 @@ servings: 6
 servingsUnit: "portioner"
 difficulty: mellem
 category: desserter
+subcategory: frugtdesserter
 diet: [vegetarisk]
 season: [sommer]
 occasion: [gaester, weekend]

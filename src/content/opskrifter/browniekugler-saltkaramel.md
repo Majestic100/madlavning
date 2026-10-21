@@ -15,6 +15,7 @@ servings: 20
 servingsUnit: "stk"
 difficulty: mellem
 category: kager
+subcategory: brownies-og-kagekugler
 diet: [vegetarisk]
 season: []
 occasion: [gaester, foedselsdag]

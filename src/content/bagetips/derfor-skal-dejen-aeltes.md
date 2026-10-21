@@ -12,9 +12,8 @@ keywords: [ælting, gluten, glutenudvikling, gærdej, vinduestest, koldhævning]
 readingTime: 4
 ---
 
-Da jeg lærte at bage, æltede jeg fordi der stod, jeg skulle. Ti minutter, stod der, så jeg
-æltede i ti minutter og håbede det bedste. Det ændrede sig, da jeg forstod, hvad der
-faktisk foregår inde i dejen, for så kunne jeg pludselig se, hvornår den var færdig.
+Mange opskrifter siger "ælt i ti minutter", men det er dejen og ikke uret, der afgør,
+hvornår den er færdig. Når du ved, hvad der foregår inde i dejen, kan du se det selv.
 
 ## Hvad ælting gør
 
@@ -40,7 +39,7 @@ den mest pålidelige af dem.
 
 ## Hvornår du kan lade være
 
-Det, ingen fortalte mig i starten, er, at tid kan gøre æltningens arbejde. Gluten
+Tid kan også gøre æltningens arbejde. Gluten
 udvikler sig af sig selv, når mel og vand står sammen. Det går langsomt, men lige så grundigt.
 Det er derfor, mit [surdejsbrød med chokolade](/opskrifter/surdej-chokolade/) ikke skal
 æltes: tre sæt stræk og fold undervejs, og så ordner natten i køleskabet resten.

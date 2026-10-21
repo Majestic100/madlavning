@@ -6,12 +6,12 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Ikon from "../Ikon.astro";
 import OpskriftKort from "../OpskriftKort.astro";
-import { kategoriAfSlug, DIAET_LABELS } from "../../lib/kategorier";
+import { kategoriAfSlug, underkategoriAf, DIAET_LABELS } from "../../lib/kategorier";
 import { formatMinutter, totalTid } from "../../lib/tid.mjs";
 import { formatAmount } from "../../lib/maengder.mjs";
 import { recipeJsonLd, breadcrumbJsonLd } from "../../lib/jsonld";
 import { forfatter } from "../../data/forfattere";
-import { sti, opskriftSti, kategoriSti } from "../../lib/urls";
+import { sti, opskriftSti, kategoriSti, underkategoriSti } from "../../lib/urls";
 import { getImage } from "astro:assets";
 
 interface Props { post: CollectionEntry<"opskrifter"> }
@@ -20,6 +20,7 @@ const d = post.data;
 const { Content } = await render(post);
 
 const kat = kategoriAfSlug(d.category);
+const underkat = underkategoriAf(d.category, d.subcategory);
 const skribent = forfatter(d.author);
 const SVAERHED = { nem: "Nem", mellem: "Mellem", avanceret: "Avanceret" } as const;
 
@@ -57,6 +58,7 @@ const jsonld = [
       { navn: "Forside", url: sti("/") },
       { navn: "Opskrifter", url: sti("/opskrifter/") },
       { navn: kat.navn, url: kategoriSti(kat.slug) },
+      ...(underkat ? [{ navn: underkat.navn, url: underkategoriSti(kat.slug, underkat.slug) }] : []),
       { navn: d.title, url: null },
     ],
     Astro.site!.href,
@@ -78,6 +80,7 @@ const jsonld = [
         <ol>
           <li><a href={sti("/")}>Forside</a></li>
           <li><a href={kategoriSti(kat.slug)}>{kat.navn}</a></li>
+          {underkat && <li><a href={underkategoriSti(kat.slug, underkat.slug)}>{underkat.navn}</a></li>}
           <li aria-current="page">{d.title}</li>
         </ol>
       </nav>

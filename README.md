@@ -63,6 +63,7 @@ servings: 12
 servingsUnit: "stykker"
 difficulty: nem        # nem | mellem | avanceret
 category: kager        # bagvaerk | desserter | kager | snacks | pizza
+subcategory: cookies   # valgfri, se UNDERKATEGORIER i src/lib/kategorier.ts (fx brioche, surdej, pandekager)
 diet: []               # vegetarisk | vegansk | glutenfri
 keywords: [citronmåne, marcipan]
 storage: "Holder 3 dage i lufttæt dåse."

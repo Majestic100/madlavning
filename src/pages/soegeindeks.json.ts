@@ -2,7 +2,7 @@
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets";
-import { kategoriAfSlug } from "../lib/kategorier";
+import { kategoriAfSlug, underkategoriAf } from "../lib/kategorier";
 import { formatMinutter, totalTid } from "../lib/tid.mjs";
 
 export const GET: APIRoute = async () => {
@@ -25,7 +25,7 @@ export const GET: APIRoute = async () => {
         alt: d.image.alt,
         tid: formatMinutter(totalTid(d)),
         ingredienser: d.ingredients.flatMap((g) => g.items.map((i) => i.name)).join(" "),
-        noegleord: [...d.keywords, ...d.diet, ...d.occasion].join(" "),
+        noegleord: [...d.keywords, ...d.diet, ...d.occasion, underkategoriAf(d.category, d.subcategory)?.navn ?? ""].join(" "),
       };
     }),
     ...bagetips.map(async (t) => {

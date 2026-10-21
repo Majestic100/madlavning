@@ -14,6 +14,7 @@ servings: 10
 servingsUnit: "stk"
 difficulty: nem
 category: kager
+subcategory: cookies
 diet: [vegetarisk]
 season: [efteraar, vinter]
 occasion: [weekend, hverdag]

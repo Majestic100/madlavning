@@ -96,6 +96,7 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 }
 .spring-til:focus { top: 1rem; color: #fff; }
 
+.oejenbryn a { color: inherit; text-underline-offset: .2em; }
 .oejenbryn {
   font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
   font-weight: 640; color: var(--groen); margin: 0 0 .9rem;
@@ -143,6 +144,35 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 }
 .hoved-nav a:hover, .hoved-nav a[aria-current="page"] { color: var(--karamel); border-bottom-color: var(--karamel); }
 
+/* Dropdown med underkategorier. Desktop: åbner ved hover/fokus eller knappen. Mobil: knappen folder ud. */
+.har-under { position: relative; }
+.nav-punkt { display: flex; align-items: center; gap: .1rem; }
+.under-knap {
+  display: grid; place-items: center; width: 24px; height: 24px; padding: 0;
+  border: 0; border-radius: 999px; background: none; color: var(--tekst); cursor: pointer;
+}
+.under-knap:hover { color: var(--karamel); }
+.under-knap svg { width: 14px; height: 14px; transition: transform var(--overgang); }
+.har-under[data-aaben="true"] .under-knap svg { transform: rotate(180deg); }
+.hoved-nav .under-menu {
+  display: none; flex-direction: column; align-items: stretch; gap: 0;
+  position: absolute; top: 100%; left: -.85rem; z-index: 10; min-width: 13.5rem;
+  padding: .45rem; background: var(--papir);
+  border: 1px solid var(--linje); border-radius: var(--kant); box-shadow: var(--skygge-loft);
+}
+.hoved-nav .under-menu a {
+  padding: .6rem .75rem; border-bottom: 0; border-radius: 8px;
+  font-size: .92rem; text-transform: none; letter-spacing: 0;
+}
+.hoved-nav .under-menu a:hover { background: var(--groen-lys); }
+.har-under[data-aaben="true"] > .under-menu { display: flex; }
+@media (min-width: 921px) {
+  .har-under:not([data-lukket]):focus-within > .under-menu { display: flex; }
+}
+@media (min-width: 921px) and (hover: hover) {
+  .har-under:not([data-lukket]):hover > .under-menu { display: flex; }
+}
+
 .header-vaerktoej { display: flex; align-items: center; gap: .5rem; }
 .ikon-knap {
   display: grid; place-items: center; width: 44px; height: 44px;
@@ -165,6 +195,16 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
   .hoved-nav ul { flex-direction: column; align-items: stretch; gap: 0; width: min(100% - 2.5rem, var(--maks)); margin-inline: auto; }
   .hoved-nav a { padding: .9rem .25rem; font-size: .95rem; border-bottom: 1px solid var(--linje-blod); }
   .hoved-nav a:hover, .hoved-nav a[aria-current="page"] { border-bottom-color: var(--linje-blod); }
+  .nav-punkt { border-bottom: 1px solid var(--linje-blod); }
+  .nav-punkt a { flex: 1; border-bottom: 0; }
+  .under-knap { width: 44px; height: 44px; }
+  .under-knap svg { width: 18px; height: 18px; }
+  .hoved-nav .under-menu {
+    position: static; min-width: 0; padding: 0 0 .35rem 1rem;
+    background: none; border: 0; border-radius: 0; box-shadow: none;
+  }
+  .hoved-nav .under-menu a { padding: .75rem .25rem; border-bottom: 1px solid var(--linje-blod); border-radius: 0; }
+  .hoved-nav .under-menu a:hover { background: none; }
 }
 
 .soege-panel { border-top: 1px solid var(--linje-blod); background: var(--papir); display: none; }
