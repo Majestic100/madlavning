@@ -6,7 +6,7 @@ publishedAt: 2026-04-05
 author: merve
 image:
   src: ../../assets/opskrifter/citronpandekager-med-birkes.jpg
-  alt: "Stak af pandekager med blå birkes, citronsirup og flormelis"
+  alt: "Stak af tynde pandekager med blå birkes på en hvid tallerken på et træbord"
 instagram: "https://www.instagram.com/reel/DWvvh7ViCyU/"
 prepTime: 15
 cookTime: 25
