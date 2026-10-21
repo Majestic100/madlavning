@@ -12,7 +12,6 @@ cookTime: 35
 waitTime: 30
 servings: 12
 servingsUnit: "portioner"
-difficulty: nem
 category: snacks
 diet: [vegetarisk]
 season: [efteraar]

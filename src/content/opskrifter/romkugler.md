@@ -12,7 +12,6 @@ cookTime: 0
 waitTime: 0
 servings: 8
 servingsUnit: "stk"
-difficulty: nem
 category: kager
 subcategory: brownies-og-kagekugler
 diet: [vegetarisk]

@@ -79,7 +79,6 @@ const opskrifter = defineCollection({
       servingsUnit: z.string().default("stk"),
       scalable: z.boolean().default(true),
 
-      difficulty: z.enum(["nem", "mellem", "avanceret"]),
       cuisine: z.string().default("Dansk"),
       category: z.enum(KATEGORIER),
       /** Valgfri underkategori, fx "surdej". Skal findes i UNDERKATEGORIER i src/lib/kategorier.ts. */

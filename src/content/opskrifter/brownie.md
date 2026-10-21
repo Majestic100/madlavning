@@ -13,7 +13,6 @@ cookTime: 22
 waitTime: 30
 servings: 12
 servingsUnit: "stykker"
-difficulty: nem
 category: kager
 subcategory: brownies-og-kagekugler
 diet: [vegetarisk]

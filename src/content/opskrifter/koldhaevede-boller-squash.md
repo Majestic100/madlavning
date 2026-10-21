@@ -13,7 +13,6 @@ cookTime: 20
 waitTime: 660
 servings: 14
 servingsUnit: "stk"
-difficulty: nem
 category: bagvaerk
 subcategory: gaerdej
 diet: [vegetarisk]

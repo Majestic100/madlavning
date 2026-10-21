@@ -22,7 +22,6 @@ const { Content } = await render(post);
 const kat = kategoriAfSlug(d.category);
 const underkat = underkategoriAf(d.category, d.subcategory);
 const skribent = forfatter(d.author);
-const SVAERHED = { nem: "Nem", mellem: "Mellem", avanceret: "Avanceret" } as const;
 
 const datoFormat = new Intl.DateTimeFormat("da-DK", { day: "numeric", month: "long", year: "numeric" });
 
@@ -185,7 +184,6 @@ const jsonld = [
           {d.waitTime > 0 && <div class="fakta"><Ikon navn="ur" /><span><span class="fakta-navn">Hviler/hæver</span><span class="fakta-vaerdi">{formatMinutter(d.waitTime)}</span></span></div>}
           <div class="fakta"><Ikon navn="ur" /><span><span class="fakta-navn">Samlet</span><span class="fakta-vaerdi">{formatMinutter(totalTid(d))}</span></span></div>
           <div class="fakta"><Ikon navn="portion" /><span><span class="fakta-navn">Giver</span><span class="fakta-vaerdi">{d.servings} {d.servingsUnit}</span></span></div>
-          <div class="fakta"><Ikon navn="niveau" /><span><span class="fakta-navn">Sværhedsgrad</span><span class="fakta-vaerdi">{SVAERHED[d.difficulty]}</span></span></div>
         </div>
 
         <div class="o-sektion">

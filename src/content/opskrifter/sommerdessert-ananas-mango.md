@@ -13,7 +13,6 @@ cookTime: 10
 waitTime: 180
 servings: 6
 servingsUnit: "portioner"
-difficulty: mellem
 category: desserter
 subcategory: frugtdesserter
 diet: [vegetarisk]

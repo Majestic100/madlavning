@@ -52,10 +52,7 @@ const filterData = erOpskrift
   {visResume && <p class="kort-resume">{d.excerpt}</p>}
   <p class="kort-meta">
     {erOpskrift ? (
-      <>
-        <span><Ikon navn="ur" />{formatMinutter(totalTid(d))}</span>
-        <span><Ikon navn="niveau" />{{ nem: "Nem", mellem: "Mellem", avanceret: "Avanceret" }[d.difficulty as string]}</span>
-      </>
+      <span><Ikon navn="ur" />{formatMinutter(totalTid(d))}</span>
     ) : (
       <span><Ikon navn="ur" />{d.readingTime} min læsning</span>
     )}

@@ -13,7 +13,6 @@ cookTime: 0
 waitTime: 60
 servings: 12
 servingsUnit: "stykker"
-difficulty: nem
 category: snacks
 diet: [vegetarisk, glutenfri]
 season: []

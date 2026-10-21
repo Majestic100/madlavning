@@ -12,7 +12,6 @@ cookTime: 40
 waitTime: 810
 servings: 1
 servingsUnit: "brød"
-difficulty: avanceret
 category: bagvaerk
 subcategory: surdej
 diet: [vegetarisk]
