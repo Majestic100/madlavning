@@ -14,6 +14,7 @@ servings: 6
 servingsUnit: "personer"
 difficulty: nem
 category: desserter
+subcategory: frugtdesserter
 diet: [vegetarisk]
 season: [efteraar]
 occasion: [gaester, weekend]

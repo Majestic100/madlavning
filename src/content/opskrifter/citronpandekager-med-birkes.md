@@ -15,6 +15,7 @@ servings: 10
 servingsUnit: "stk"
 difficulty: nem
 category: desserter
+subcategory: pandekager
 diet: [vegetarisk]
 season: [foraar]
 occasion: [weekend, gaester]

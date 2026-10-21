@@ -14,6 +14,7 @@ servings: 18
 servingsUnit: "stk"
 difficulty: mellem
 category: kager
+subcategory: cookies
 diet: [vegetarisk]
 season: []
 occasion: [foedselsdag, gaester]

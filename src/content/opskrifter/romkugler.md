@@ -14,6 +14,7 @@ servings: 8
 servingsUnit: "stk"
 difficulty: nem
 category: kager
+subcategory: brownies-og-kagekugler
 diet: [vegetarisk]
 season: []
 occasion: [foedselsdag, hverdag]

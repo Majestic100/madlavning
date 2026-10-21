@@ -15,6 +15,7 @@ servings: 6
 servingsUnit: "stk"
 difficulty: nem
 category: desserter
+subcategory: frugtdesserter
 diet: [vegetarisk]
 season: [sommer, efteraar]
 occasion: [hverdag, gaester]

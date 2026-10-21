@@ -3,17 +3,19 @@
 import Layout from "../../layouts/Layout.astro";
 import OpskriftKort from "../OpskriftKort.astro";
 import type { CollectionEntry } from "astro:content";
-import { KATEGORIER, naboKategorier, DIAET_LABELS, type Kategori } from "../../lib/kategorier";
+import { KATEGORIER, naboKategorier, underkategorierAf, DIAET_LABELS, type Kategori, type Underkategori } from "../../lib/kategorier";
 import { KATEGORITEKSTER } from "../../data/kategoritekster";
 import { TIDS_INTERVALLER, aktivTid, tidsInterval } from "../../lib/tid.mjs";
 import { breadcrumbJsonLd, faqJsonLd } from "../../lib/jsonld";
-import { sti, kategoriSti } from "../../lib/urls";
+import { sti, kategoriSti, underkategoriSti } from "../../lib/urls";
 
 type Post = CollectionEntry<"opskrifter"> | CollectionEntry<"bagetips">;
 
 interface Props {
   /** null = "Alle opskrifter" */
   kategori: Kategori | null;
+  /** Sat på underkategorisider, fx Surdej under Bagværk */
+  underkategori?: Underkategori | null;
   titel: string;
   beskrivelse: string;
   posts: Post[];
@@ -26,10 +28,16 @@ interface Props {
   /** Valgfri længere titel til <title>; H1 bruger stadig `titel` */
   seoTitel?: string;
 }
-const { kategori, titel, beskrivelse, posts, allePosts = posts, side, antalSider, basePath, seoTitel } = Astro.props;
-const browserTitel = seoTitel ?? (kategori ? `${kategori.navn}: ${kategori.tagline.toLowerCase()}` : titel);
+const { kategori, underkategori = null, titel, beskrivelse, posts, allePosts = posts, side, antalSider, basePath, seoTitel } = Astro.props;
+const browserTitel =
+  seoTitel ??
+  (underkategori && kategori
+    ? `${underkategori.navn} · ${kategori.navn}`
+    : kategori ? `${kategori.navn}: ${kategori.tagline.toLowerCase()}` : titel);
 
-const tekst = kategori ? KATEGORITEKSTER[kategori.slug] : null;
+/* De lange kategoritekster (intro, blokke, FAQ) hører kun til selve kategorisiden. */
+const tekst = kategori && !underkategori ? KATEGORITEKSTER[kategori.slug] : null;
+const underkategorier = kategori ? underkategorierAf(kategori.slug) : [];
 const erOpskrifter = !kategori?.erArtikler;
 
 /* Filtertællere (kun opskrifter) tæller hele kategorien, ikke kun den viste side. */
@@ -52,7 +60,13 @@ const jsonld: object[] = [
   breadcrumbJsonLd(
     [
       { navn: "Forside", url: sti("/") },
-      ...(kategori
+      ...(kategori && underkategori
+        ? [
+            { navn: "Opskrifter", url: sti("/opskrifter/") },
+            { navn: kategori.navn, url: kategoriSti(kategori.slug) },
+            { navn: underkategori.navn, url: null },
+          ]
+        : kategori
         ? [{ navn: "Opskrifter", url: sti("/opskrifter/") }, { navn: kategori.navn, url: null }]
         : [{ navn: "Opskrifter", url: null }]),
     ],
@@ -69,10 +83,16 @@ if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
 >
   <div class="side-top">
     <div class="wrap">
-      <p class="oejenbryn">{kategori ? (kategori.erArtikler ? "Guides" : "Kategori") : `${posts.length} opskrifter`}</p>
+      <p class="oejenbryn">
+        {underkategori && kategori
+          ? <a href={kategoriSti(kategori.slug)}>{kategori.navn}</a>
+          : kategori ? (kategori.erArtikler ? "Guides" : "Kategori") : `${posts.length} opskrifter`}
+      </p>
       <h1>{titel}</h1>
       <div class="intro">
-        {tekst
+        {underkategori
+          ? <p>{underkategori.beskrivelse}</p>
+          : tekst
           ? tekst.intro.map((afsnit) => <p>{afsnit}</p>)
           : <p>Hele samlingen på ét sted med nyeste først. Brug filtrene, eller <a href={sti("/soeg/")}>søg</a>, hvis du leder efter en bestemt ingrediens.</p>}
       </div>
@@ -84,6 +104,17 @@ if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
           <a class="filter-chip" href={kategoriSti(k.slug)} aria-current={kategori?.slug === k.slug ? "page" : undefined}>{k.navn}</a>
         ))}
       </nav>
+
+      {kategori && underkategorier.length > 0 && (
+        <nav class="filter-raekke" aria-label={`Typer af ${kategori.navn.toLowerCase()}`}>
+          <span class="filter-label">{kategori.navn}</span>
+          <a class="filter-chip" href={kategoriSti(kategori.slug)} aria-current={!underkategori ? "page" : undefined}>Alle</a>
+          {underkategorier.map((u) => (
+            <a class="filter-chip" href={underkategoriSti(kategori.slug, u.slug)}
+               aria-current={underkategori?.slug === u.slug ? "page" : undefined}>{u.navn}</a>
+          ))}
+        </nav>
+      )}
 
       {erOpskrifter && opskrifter.length > 1 && (
         <div class="filter-raekke" data-filtre data-side={side} data-basis={basePath}>
@@ -105,7 +136,7 @@ if (tekst?.faq.length) jsonld.push(faqJsonLd(tekst.faq));
   </div>
 
   <div class="wrap">
-    <h2 class="sr-only">{kategori ? `Alle ${kategori.navn.toLowerCase()}` : "Opskrifterne"}</h2>
+    <h2 class="sr-only">{underkategori ? `Alle opskrifter på ${underkategori.navn.toLowerCase()}` : kategori ? `Alle ${kategori.navn.toLowerCase()}` : "Opskrifterne"}</h2>
     {posts.length > 0 ? (
       <ul class="kort-net" data-kort-net>
         {kortPaaSiden.map((p, i) => <OpskriftKort post={p} doven={i > 2} ekstra={i >= posts.length} visKategori={!kategori} visResume={!!kategori?.erArtikler} />)}

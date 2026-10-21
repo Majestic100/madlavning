@@ -14,6 +14,7 @@ servings: 1
 servingsUnit: "brød"
 difficulty: avanceret
 category: bagvaerk
+subcategory: surdej
 diet: [vegetarisk]
 season: []
 occasion: [weekend]

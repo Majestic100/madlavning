@@ -14,6 +14,7 @@ servings: 18
 servingsUnit: "stk"
 difficulty: nem
 category: desserter
+subcategory: pandekager
 diet: [vegetarisk]
 season: []
 occasion: [weekend, foedselsdag, hverdag]

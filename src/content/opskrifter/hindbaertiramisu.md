@@ -18,6 +18,7 @@ servings: 9
 servingsUnit: "portioner"
 difficulty: mellem
 category: desserter
+subcategory: tiramisu
 diet: [vegetarisk]
 season: [sommer]
 occasion: [gaester, foedselsdag]

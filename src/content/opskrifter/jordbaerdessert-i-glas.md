@@ -15,6 +15,7 @@ servings: 4
 servingsUnit: "glas"
 difficulty: nem
 category: desserter
+subcategory: frugtdesserter
 diet: [vegetarisk]
 season: [sommer]
 occasion: [hverdag, gaester]

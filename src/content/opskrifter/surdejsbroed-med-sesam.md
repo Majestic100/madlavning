@@ -15,6 +15,7 @@ servings: 1
 servingsUnit: "stort brød"
 difficulty: mellem
 category: bagvaerk
+subcategory: surdej
 diet: [vegansk]
 season: []
 occasion: [weekend]

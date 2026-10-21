@@ -82,6 +82,8 @@ const opskrifter = defineCollection({
       difficulty: z.enum(["nem", "mellem", "avanceret"]),
       cuisine: z.string().default("Dansk"),
       category: z.enum(KATEGORIER),
+      /** Valgfri underkategori, fx "surdej". Skal findes i UNDERKATEGORIER i src/lib/kategorier.ts. */
+      subcategory: z.string().nullable().default(null),
       diet: z.array(z.enum(DIAETER)).default([]),
       season: z.array(z.enum(SAESONER)).default([]),
       occasion: z.array(z.enum(ANLEDNINGER)).default([]),

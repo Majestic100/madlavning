@@ -15,6 +15,7 @@ servings: 12
 servingsUnit: "stk"
 difficulty: nem
 category: bagvaerk
+subcategory: gaerdej
 diet: [vegetarisk]
 season: [foraar]
 occasion: [paaske, gaester, weekend]

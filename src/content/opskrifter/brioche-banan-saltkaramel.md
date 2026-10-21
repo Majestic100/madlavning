@@ -14,6 +14,7 @@ servings: 16
 servingsUnit: "stk"
 difficulty: mellem
 category: bagvaerk
+subcategory: brioche
 diet: [vegetarisk]
 season: []
 occasion: [gaester, weekend]
