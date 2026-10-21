@@ -6,7 +6,7 @@ publishedAt: 2026-04-11
 author: merve
 image:
   src: ../../assets/opskrifter/surdejsbroed-med-sesam.jpg
-  alt: "Rundt surdejsbrød med sprød skorpe og snit i toppen"
+  alt: "Rundt surdejsbrød med gyldenbrun skorpe og et aks skåret i toppen på et træbræt"
 instagram: "https://www.instagram.com/reel/DXBYnm7iJuw/"
 prepTime: 45
 cookTime: 40

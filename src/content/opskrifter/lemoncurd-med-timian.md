@@ -6,7 +6,7 @@ publishedAt: 2026-04-08
 author: merve
 image:
   src: ../../assets/opskrifter/lemoncurd-med-timian.jpg
-  alt: "Glas med solgul lemoncurd og kviste af frisk timian"
+  alt: "Ske med silkeblød, solgul lemoncurd der drypper ned i et glas"
 instagram: "https://www.instagram.com/reel/DW4QoPniPj9/"
 prepTime: 10
 cookTime: 15

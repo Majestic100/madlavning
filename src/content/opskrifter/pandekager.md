@@ -6,7 +6,7 @@ publishedAt: 2026-08-18
 author: merve
 image:
   src: ../../assets/opskrifter/pandekager.jpg
-  alt: "Stak af gyldne pandekager på en hvid tallerken"
+  alt: "Tynd, gyldenbrun pandekage på en hvid tallerken holdt i hånden"
 prepTime: 10
 cookTime: 30
 waitTime: 0
