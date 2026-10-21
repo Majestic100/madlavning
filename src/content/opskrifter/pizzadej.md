@@ -33,7 +33,7 @@ instructions:
       - text: "Stram dejen op og lad den hæve i 1 time tildækket."
       - text: "Form 6 kugler af ca 260 g og kom dem i hævekasse drysset med lidt durummel i bunden og på derefter på køl i ca. 48 timer."
       - text: "Tag dejen ud 45-60 minutter før bagning, alt efter hvor varmt der er."
-related: [bigmac]
+related: [bigmac, hvidlogspizza]
 ---
 
 Der er en helt særlig magi ved napolitansk inspirerede pizzaer, hvor den luftige, let sprøde bund og de enkle, gode råvarer får lov til at være i centrum. Smagen af den velhævede dej, de små luftbobler i kanten og den let seje krumme giver en oplevelse, der minder om en ægte pizza fra Napoli.
