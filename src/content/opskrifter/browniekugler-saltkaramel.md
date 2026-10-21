@@ -6,7 +6,7 @@ publishedAt: 2026-05-18
 author: merve
 image:
   src: ../../assets/opskrifter/browniekugler-saltkaramel.jpg
-  alt: "Browniekugler dyppet i chokolade med en midte af saltkaramel"
+  alt: "Hånd der holder en halv browniekugle med flydende saltkaramel i midten"
 instagram: "https://www.instagram.com/reel/DYfNKrNoRJT/"
 prepTime: 60
 cookTime: 20

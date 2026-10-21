@@ -6,7 +6,7 @@ publishedAt: 2026-06-10
 author: merve
 image:
   src: ../../assets/opskrifter/tykke-cookies.jpg
-  alt: "Tykke chokoladecookies med blød midte og sprøde kanter"
+  alt: "Tyk chewy cookie med en kugle vaniljeis, der smelter ned over"
 instagram: "https://www.instagram.com/reel/DZahEzII94c/"
 prepTime: 20
 cookTime: 12

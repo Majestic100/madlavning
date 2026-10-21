@@ -6,7 +6,7 @@ publishedAt: 2026-04-28
 author: merve
 image:
   src: ../../assets/opskrifter/hveder.jpg
-  alt: "Tolv gyldne hveder bagt tæt sammen i en bradepande"
+  alt: "Hånd der tager en hvede fra en plade med nybagte hveder"
 instagram: "https://www.instagram.com/reel/DXru-EdCK0W/"
 prepTime: 25
 cookTime: 15

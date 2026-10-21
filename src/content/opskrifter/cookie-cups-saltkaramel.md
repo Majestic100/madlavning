@@ -6,7 +6,7 @@ publishedAt: 2026-06-15
 author: merve
 image:
   src: ../../assets/opskrifter/cookie-cups-saltkaramel.jpg
-  alt: "Cookie cups fyldt med saltkaramel og toppet med chokolade og flagesalt"
+  alt: "Cookie cups fyldt med chokolade og flagesalt på et fad"
 instagram: "https://www.instagram.com/reel/DZnbpcLIhVU/"
 prepTime: 40
 cookTime: 14

@@ -6,8 +6,11 @@ publishedAt: 2026-07-08
 author: merve
 image:
   src: ../../assets/opskrifter/mozzarellasticks-filodej.jpg
-  alt: "Sprøde mozzarellasticks i filodej med ranch-dressing ved siden af"
+  alt: "Sprøde mozzarellasticks i filodej med persille på et fad"
 instagram: "https://www.instagram.com/reel/DaipVvZokr7/"
+ekstraBilleder:
+  - src: ../../assets/opskrifter/mozzarellasticks-filodej-2.jpg
+    alt: "Mozzarellasticks i filodej på et fad med en skål ranch-dressing"
 prepTime: 30
 cookTime: 15
 waitTime: 0

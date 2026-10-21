@@ -6,7 +6,7 @@ publishedAt: 2026-06-27
 author: merve
 image:
   src: ../../assets/opskrifter/jordbaerdessert-i-glas.jpg
-  alt: "Dessert i glas med makroner, jordbær, råcreme og hakket chokolade"
+  alt: "Jordbærdessert i glas med råcreme, makroner og friske jordbær"
 instagram: "https://www.instagram.com/reel/DaF58bdomTU/"
 prepTime: 15
 cookTime: 0

@@ -6,7 +6,7 @@ publishedAt: 2026-07-21
 author: merve
 image:
   src: ../../assets/opskrifter/koldhaevede-boller-squash.jpg
-  alt: "Gyldne koldhævede boller med kerner på bagepapir"
+  alt: "Koldhævede boller med kerner på en bagerist"
 instagram: "https://www.instagram.com/reel/DbD9SaIolwK/"
 prepTime: 15
 cookTime: 20

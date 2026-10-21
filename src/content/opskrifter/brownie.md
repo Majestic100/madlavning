@@ -6,7 +6,7 @@ publishedAt: 2026-05-15
 author: merve
 image:
   src: ../../assets/opskrifter/brownie.jpg
-  alt: "Firkantede stykker chewy brownie med blank top"
+  alt: "Hånd der holder et stykke fudgy brownie over en tallerken med en ske"
 instagram: "https://www.instagram.com/reel/DYXbdlqtcrl/"
 prepTime: 15
 cookTime: 22

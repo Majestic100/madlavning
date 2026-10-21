@@ -6,7 +6,7 @@ publishedAt: 2026-04-19
 author: merve
 image:
   src: ../../assets/opskrifter/smores-taerte.jpg
-  alt: "Aflang tærte med chokoladefyld og brændt marengs på toppen"
+  alt: "S'mores-tærte med flamberede marengstoppe på et skærebræt"
 instagram: "https://www.instagram.com/reel/DXUkqt-CAur/"
 prepTime: 50
 cookTime: 28

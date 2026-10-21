@@ -6,7 +6,7 @@ publishedAt: 2026-09-02
 author: merve
 image:
   src: ../../assets/opskrifter/cookies.jpg
-  alt: "Hånd der holder en stor cookie med stykker af mørk chokolade og flagesalt"
+  alt: "Hånd der holder en høj stak cookies med mørk chokolade"
 prepTime: 15
 cookTime: 11
 waitTime: 60

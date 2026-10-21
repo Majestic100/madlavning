@@ -6,7 +6,7 @@ publishedAt: 2026-07-17
 author: merve
 image:
   src: ../../assets/opskrifter/snurrer-med-smoer.jpg
-  alt: "Gyldne snurrer med synlige lag af smørdej"
+  alt: "Hånd der holder en gylden snurre med smør over en bageplade"
 instagram: "https://www.instagram.com/reel/Da56KWjoFVx/"
 prepTime: 40
 cookTime: 15

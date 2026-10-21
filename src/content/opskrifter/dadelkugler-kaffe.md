@@ -6,7 +6,7 @@ publishedAt: 2026-08-15
 author: merve
 image:
   src: ../../assets/opskrifter/dadelkugler-kaffe.jpg
-  alt: "Dadelkugle overtrukket med mørk chokolade og drysset med flagesalt"
+  alt: "Dadelkugler overtrukket med chokolade og flagesalt på bagepapir"
 prepTime: 25
 cookTime: 0
 waitTime: 15

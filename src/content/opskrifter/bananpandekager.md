@@ -6,7 +6,7 @@ publishedAt: 2026-06-03
 author: merve
 image:
   src: ../../assets/opskrifter/bananpandekager.jpg
-  alt: "Stak af tykke bananpandekager med ahornsirup"
+  alt: "Stak af bananpandekager med bananskiver og ahornsirup, der løber ned over"
 instagram: "https://www.instagram.com/reel/DZIfo__o3pB/"
 prepTime: 10
 cookTime: 20

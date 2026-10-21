@@ -6,7 +6,7 @@ publishedAt: 2026-05-05
 author: merve
 image:
   src: ../../assets/opskrifter/kakaopandekager.jpg
-  alt: "Mørke kakaopandekager fyldt med banan, flødeskum og chokoladesauce"
+  alt: "Foldet kakaopandekage med fløde og smeltet chokolade på en tallerken"
 instagram: "https://www.instagram.com/reel/DX9yQuvI6RD/"
 prepTime: 10
 cookTime: 20
