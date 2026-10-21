@@ -138,7 +138,7 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   bagetips: {
     intro: [
       "Bagetips er sidens værktøjskasse med korte forklaringer på, hvorfor dej opfører sig, som den gør, og hvad du gør, når den ikke gør det. Det er teknikken bag opskrifterne samlet ét sted, skrevet så du kan bruge det med melede fingre.",
-      "Hver guide udspringer af en fejl, jeg selv har begået, fx brødet der ikke hævede, eller ovnen der viste sig at lyve med fyrre grader. Læs dem, når noget er gået galt, eller helst lidt før.",
+      "Læs dem, når noget er gået galt, eller helst lidt før.",
     ],
     blokke: [
       {
@@ -157,7 +157,7 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
       },
       {
         spoergsmaal: "Kan jeg foreslå et emne til et bagetip?",
-        svar: "Meget gerne. Skriv til mig via kontaktsiden eller Instagram. De bedste guider her er startet som spørgsmål fra læsere, hvis dej opførte sig mærkeligt.",
+        svar: "Meget gerne. Skriv til mig via kontaktsiden eller Instagram.",
       },
     ],
   },

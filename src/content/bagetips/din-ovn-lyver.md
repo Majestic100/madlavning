@@ -12,9 +12,8 @@ keywords: [ovntemperatur, ovntermometer, varmluft, over- og undervarme, bagetid]
 readingTime: 3
 ---
 
-Min gamle ovn viste 200 grader, når den mente 165. Det opdagede jeg først efter et år
-med blege boller og kager, der skulle have "ti minutter ekstra" hver eneste gang.
-Problemet var ikke opskrifterne, men displayet.
+Bliver dine boller blege, eller skal kagen altid have "ti minutter ekstra"? Så er det
+måske ikke opskriften, der er noget galt med, men ovnens display.
 
 ## Ovne rammer skævt, og det er normalt
 
