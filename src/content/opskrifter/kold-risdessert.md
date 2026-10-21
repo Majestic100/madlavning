@@ -6,7 +6,7 @@ publishedAt: 2026-07-26
 author: merve
 image:
   src: ../../assets/opskrifter/kold-risdessert.jpg
-  alt: "Små glas med kold risdessert toppet med friske bær"
+  alt: "Hånd der holder et glas kold risdessert med friske hindbær udenfor"
 instagram: "https://www.instagram.com/reel/DbRC8DAoYQC/"
 prepTime: 10
 cookTime: 35

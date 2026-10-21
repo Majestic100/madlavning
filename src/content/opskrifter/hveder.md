@@ -6,7 +6,7 @@ publishedAt: 2026-04-28
 author: merve
 image:
   src: ../../assets/opskrifter/hveder.jpg
-  alt: "Tolv gyldne hveder bagt tæt sammen i en bradepande"
+  alt: "Hånd der tager en hvede fra en plade med nybagte hveder"
 instagram: "https://www.instagram.com/reel/DXru-EdCK0W/"
 prepTime: 25
 cookTime: 15
@@ -42,7 +42,7 @@ instructions:
       - text: "Hæld dejen på et meldrysset bord, og form 12 boller på ca. 85 g. Placér dem i en bradepande."
       - text: "Lad dem hæve igen i ca. 45-60 minutter."
       - text: "Bag ved 190 grader i ca. 15 minutter."
-related: [arme-riddere-af-hveder, chokoladeboller]
+related: [chokoladeboller]
 ---
 
 Friskbagte hveder er bare lækre. Jeg bagte dem første gang til nogle søde kolleger, der kom på besøg.

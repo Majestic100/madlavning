@@ -26,6 +26,8 @@ const SVAERHED = { nem: "Nem", mellem: "Mellem", avanceret: "Avanceret" } as con
 const datoFormat = new Intl.DateTimeFormat("da-DK", { day: "numeric", month: "long", year: "numeric" });
 
 /* Hero + OG-billede */
+/* Hovedbilledet først, derefter eventuelle ekstra billeder til galleriet. */
+const billeder = [d.image, ...d.ekstraBilleder];
 const ogBillede = await getImage({ src: d.image.src, width: 1200, height: 630, fit: "cover", format: "jpg" });
 
 /* Relaterede: manuel liste, fallback på delt kategori, fyldt op med nyeste (spec §3 pkt. 13) */
@@ -96,19 +98,51 @@ const jsonld = [
         </div>
       </header>
 
-      <figure class="o-hero">
-        <Image
-          src={d.image.src}
-          alt={d.image.alt}
-          widths={[480, 720, 1000, 1440]}
-          sizes="(max-width: 760px) 94vw, 720px"
-          width={1440}
-          height={1080}
-          fit="cover"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+      <figure class="o-hero" data-galleri={billeder.length > 1 ? "" : undefined}>
+        {billeder.length === 1 ? (
+          <Image
+            src={d.image.src}
+            alt={d.image.alt}
+            widths={[480, 720, 1000, 1440]}
+            sizes="(max-width: 760px) 94vw, 720px"
+            width={1440}
+            height={1080}
+            fit="cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        ) : (
+          <>
+            <div class="galleri-spor" role="region" aria-roledescription="galleri" aria-label={`Billeder af ${d.title}`} tabindex="0">
+              {billeder.map((b, i) => (
+                <Image
+                  src={b.src}
+                  alt={b.alt}
+                  widths={[480, 720, 1000, 1440]}
+                  sizes="(max-width: 760px) 94vw, 720px"
+                  width={1440}
+                  height={1080}
+                  fit="cover"
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchpriority={i === 0 ? "high" : undefined}
+                  decoding="async"
+                />
+              ))}
+            </div>
+            <button type="button" class="galleri-pil galleri-pil-forrige" data-galleri-forrige aria-label="Forrige billede" hidden>
+              <Ikon navn="pil" />
+            </button>
+            <button type="button" class="galleri-pil galleri-pil-naeste" data-galleri-naeste aria-label="Næste billede" hidden>
+              <Ikon navn="pil" />
+            </button>
+            <div class="galleri-prikker" data-galleri-prikker hidden>
+              {billeder.map((_, i) => (
+                <button type="button" aria-label={`Vis billede ${i + 1} af ${billeder.length}`} aria-current={i === 0 ? "true" : undefined}></button>
+              ))}
+            </div>
+          </>
+        )}
         {d.image.credit && <figcaption>Foto: {d.image.credit}</figcaption>}
       </figure>
 

@@ -6,7 +6,7 @@ publishedAt: 2026-09-02
 author: merve
 image:
   src: ../../assets/opskrifter/blommetaerter-med-butterdej.jpg
-  alt: "Små firkantede butterdejstærter med mazarin og skiver af blommer"
+  alt: "Blommetærte af butterdej med en kugle is på en tallerken"
 instagram: "https://www.instagram.com/reel/DcyuXzgoQ7r/"
 prepTime: 15
 cookTime: 17

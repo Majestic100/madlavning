@@ -6,7 +6,7 @@ publishedAt: 2026-06-06
 author: merve
 image:
   src: ../../assets/opskrifter/burgerboller-og-hotdogbroed.jpg
-  alt: "Hjemmebagte burgerboller med sesam og aflange hotdogbrød"
+  alt: "Seks gyldne burgerboller med sesam på bagepapir"
 instagram: "https://www.instagram.com/reel/DZQKD4EIea-/"
 prepTime: 40
 cookTime: 12

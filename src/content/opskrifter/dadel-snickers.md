@@ -6,7 +6,7 @@ publishedAt: 2026-06-04
 author: merve
 image:
   src: ../../assets/opskrifter/dadel-snickers.jpg
-  alt: "Firkantede stykker sund snickers med dadelkaramel, peanuts og chokolade"
+  alt: "Stykker af sund snickers med dadelkaramel, peanuts og chokolade"
 instagram: "https://www.instagram.com/reel/DZLO7QkokOn/"
 prepTime: 25
 cookTime: 0

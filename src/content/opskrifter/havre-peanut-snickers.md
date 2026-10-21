@@ -6,7 +6,10 @@ publishedAt: 2026-07-04
 author: merve
 image:
   src: ../../assets/opskrifter/havre-peanut-snickers.jpg
-  alt: "Små runde snickers-bites med chokoladetop og hakkede peanuts"
+  alt: "Snickers-bites med chokolade og hakkede peanuts i en silikoneform"
+ekstraBilleder:
+  - src: ../../assets/opskrifter/havre-peanut-snickers-2.jpg
+    alt: "Hånd der holder en snickers-bite med havregryn, peanutbutter og chokolade"
 instagram: "https://www.instagram.com/reel/DaX_fuhovOL/"
 prepTime: 20
 cookTime: 0

@@ -6,7 +6,7 @@ publishedAt: 2026-07-27
 author: merve
 image:
   src: ../../assets/opskrifter/sommerdessert-ananas-mango.jpg
-  alt: "Dessert med kiksebund, gul ananas- og mangosorbet og brændt marengs"
+  alt: "Dessertglas med ananassorbet og flamberet marengs holdt op foran grønne buske"
 instagram: "https://www.instagram.com/reel/DbS0TkmIkeW/"
 prepTime: 30
 cookTime: 10

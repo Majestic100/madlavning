@@ -41,7 +41,7 @@ export const KATEGORITEKSTER: Record<string, KategoriTekst> = {
   },
   desserter: {
     intro: [
-      "Desserter er for mig ikke kun noget, der hører til sidst i et måltid. Her finder du alt fra gammeldags æblekage og to slags tiramisu, en klassisk uden fløde og en frisk med hindbær, til jordbærdessert i glas med råcreme og makroner, kold risdessert med fløde og bær og en sommerdessert med ananassorbet og marengs. Der er også arme riddere af hveder, nemme blommetærter med butterdej og lemoncurd med timian.",
+      "Desserter er for mig ikke kun noget, der hører til sidst i et måltid. Her finder du alt fra gammeldags æblekage og to slags tiramisu, en klassisk uden fløde og en frisk med hindbær, til jordbærdessert i glas med råcreme og makroner, kold risdessert med fløde og bær og en sommerdessert med ananassorbet og marengs. Der er også nemme blommetærter med butterdej og lemoncurd med timian.",
       "Og så er der pandekager i mange afskygninger: klassiske, med banan og ahornsirup, med citron og birkes, med kakao og med surdejsrester og havremel. Mange af desserterne kan laves i god tid, og flere af dem bliver bare bedre af at trække i køleskabet. Saml de lagdelte desserter lige før servering, så det sprøde forbliver sprødt.",
     ],
     blokke: [

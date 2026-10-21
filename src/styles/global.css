@@ -317,6 +317,44 @@ hr { border: 0; border-top: 1px solid var(--linje); margin: 2.5rem 0; }
 
 .o-hero { border-radius: var(--kant); overflow: hidden; box-shadow: var(--skygge); margin: 0 0 1.4rem; }
 .o-hero img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* Galleri øverst på opskriften (kun når der er flere billeder). Swipes på mobil, pile og prikker på computer. */
+.o-hero[data-galleri] { position: relative; }
+.galleri-spor {
+  display: flex; overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.galleri-spor::-webkit-scrollbar { display: none; }
+.galleri-spor:focus-visible { outline: 3px solid var(--karamel); outline-offset: -3px; }
+.galleri-spor > img { flex: 0 0 100%; scroll-snap-align: start; }
+.galleri-pil {
+  position: absolute; top: 50%; translate: 0 -50%;
+  display: inline-grid; place-items: center; width: 42px; height: 42px; padding: 0;
+  border: 0; border-radius: 999px; background: color-mix(in srgb, #fff 88%, transparent);
+  color: var(--espresso); box-shadow: var(--skygge); cursor: pointer;
+  transition: opacity var(--overgang), background var(--overgang);
+}
+.galleri-pil:hover:not(:disabled) { background: #fff; }
+.galleri-pil:disabled { opacity: 0; pointer-events: none; }
+.galleri-pil svg { width: 18px; height: 18px; }
+.galleri-pil-forrige { left: .7rem; }
+.galleri-pil-forrige svg { transform: scaleX(-1); }
+.galleri-pil-naeste { right: .7rem; }
+.galleri-prikker {
+  position: absolute; left: 50%; bottom: .8rem; translate: -50% 0;
+  display: flex; gap: .45rem; padding: .35rem .55rem; border-radius: 999px;
+  background: color-mix(in srgb, #000 30%, transparent);
+}
+.galleri-prikker { gap: 0; padding: 0 .2rem; }
+.galleri-prikker button {
+  display: grid; place-items: center; width: 24px; height: 24px; padding: 0;
+  border: 0; background: none; cursor: pointer;
+}
+.galleri-prikker button::before {
+  content: ""; width: 9px; height: 9px; border-radius: 999px; background: rgba(255,255,255,.55);
+}
+.galleri-prikker button[aria-current="true"]::before { background: #fff; }
+@media (hover: none) { .galleri-pil { display: none; } }
 figcaption { font-size: .82rem; color: var(--tekst-svag); padding-top: .55rem; }
 
 .handlinger { display: flex; flex-wrap: wrap; gap: .55rem; margin-bottom: 2rem; }

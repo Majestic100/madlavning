@@ -6,7 +6,7 @@ publishedAt: 2026-06-21
 author: merve
 image:
   src: ../../assets/opskrifter/dadelkugler-hasselnoed.jpg
-  alt: "Dadelkugler rullet i grønne hakkede græskarkerner"
+  alt: "Hånd der holder en halv dadelkugle rullet i græskarkerner"
 instagram: "https://www.instagram.com/reel/DZ2LA6dIoU_/"
 prepTime: 25
 cookTime: 10

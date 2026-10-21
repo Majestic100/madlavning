@@ -6,7 +6,7 @@ publishedAt: 2026-04-07
 author: merve
 image:
   src: ../../assets/opskrifter/citronmarengs-smaakager.jpg
-  alt: "Runde mørdejssmåkager fyldt med lemoncurd og toppet med gyldne marengstoppe"
+  alt: "Småkage med lemoncurd og en top af marengs på en tallerken"
 instagram: "https://www.instagram.com/reel/DZc7-Xvoghf/"
 prepTime: 45
 cookTime: 25

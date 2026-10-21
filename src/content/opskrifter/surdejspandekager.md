@@ -6,7 +6,7 @@ publishedAt: 2026-05-27
 author: merve
 image:
   src: ../../assets/opskrifter/surdejspandekager.jpg
-  alt: "Stak af tynde pandekager lavet med surdej og havremel"
+  alt: "Gyldne pandekager med surdejsrester stablet på en tallerken"
 instagram: "https://www.instagram.com/reel/DY2SqJJNIzg/"
 prepTime: 10
 cookTime: 20

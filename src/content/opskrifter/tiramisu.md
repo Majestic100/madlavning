@@ -6,7 +6,7 @@ publishedAt: 2026-04-15
 author: merve
 image:
   src: ../../assets/opskrifter/tiramisu.jpg
-  alt: "Tiramisu i fad drysset med kakao"
+  alt: "Et stykke klassisk tiramisu med kakao på en tallerken og en gaffel"
 instagram: "https://www.instagram.com/reel/DXKU4yAiP1X/"
 prepTime: 30
 cookTime: 0

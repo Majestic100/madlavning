@@ -6,7 +6,10 @@ publishedAt: 2026-05-10
 author: merve
 image:
   src: ../../assets/opskrifter/hindbaertiramisu.jpg
-  alt: "Tiramisu med lyserød hindbærcreme og hindbærcoulis på toppen"
+  alt: "Et stykke hindbærtiramisu med lag af kiks, creme og hindbær på en tallerken"
+ekstraBilleder:
+  - src: ../../assets/opskrifter/hindbaertiramisu-2.jpg
+    alt: "Hindbærtiramisu i et glasfad med striber af hindbærcoulis på toppen"
 instagram: "https://www.instagram.com/reel/DYKs71oIKgL/"
 prepTime: 40
 cookTime: 15

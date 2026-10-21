@@ -6,7 +6,7 @@ publishedAt: 2026-04-06
 author: merve
 image:
   src: ../../assets/opskrifter/kanelsnegl-surdejsbroed.jpg
-  alt: "Skåret surdejsbrød med en spiral af kanel i krummen"
+  alt: "Surdejsbrød skåret over, så kanelsneglen ses i snitfladen"
 instagram: "https://www.instagram.com/reel/DWzMPcYCCN4/"
 prepTime: 45
 cookTime: 40

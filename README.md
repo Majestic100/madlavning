@@ -51,6 +51,9 @@ publishedAt: 2026-09-01
 image:
   src: ../../assets/opskrifter/citronmaane.jpg
   alt: "Beskriv billedet til skærmlæsere og Google"
+ekstraBilleder:        # valgfrit: flere billeder i et galleri øverst på opskriften
+  - src: ../../assets/opskrifter/citronmaane-2.jpg
+    alt: "Beskriv billede nr. 2"
 video: null            # evt. YouTube-ID (de 11 tegn efter watch?v=)
 instagram: null        # evt. link til Instagram-opslag med fremgangsmåden
 prepTime: 30           # minutter, aktivt arbejde
