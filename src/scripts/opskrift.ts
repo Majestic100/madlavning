@@ -124,3 +124,36 @@ document.querySelectorAll<HTMLButtonElement>("[data-youtube]").forEach((plakat) 
     plakat.replaceWith(iframe);
   });
 });
+
+/* ---------- Billedgalleri øverst (kun opskrifter med flere billeder) ---------- */
+const galleri = document.querySelector<HTMLElement>("[data-galleri]");
+if (galleri) {
+  const spor = galleri.querySelector<HTMLElement>(".galleri-spor")!;
+  const forrige = galleri.querySelector<HTMLButtonElement>("[data-galleri-forrige]")!;
+  const naeste = galleri.querySelector<HTMLButtonElement>("[data-galleri-naeste]")!;
+  const prikkerBoks = galleri.querySelector<HTMLElement>("[data-galleri-prikker]")!;
+  const prikker = Array.from(prikkerBoks.querySelectorAll<HTMLButtonElement>("button"));
+  const glat = window.matchMedia("(prefers-reduced-motion: no-preference)").matches ? "smooth" : "auto";
+
+  const aktivt = () => Math.round(spor.scrollLeft / Math.max(spor.clientWidth, 1));
+  const gaaTil = (i: number) => spor.scrollTo({ left: i * spor.clientWidth, behavior: glat });
+  const opdater = () => {
+    const i = aktivt();
+    prikker.forEach((p, n) => (n === i ? p.setAttribute("aria-current", "true") : p.removeAttribute("aria-current")));
+    forrige.disabled = i <= 0;
+    naeste.disabled = i >= prikker.length - 1;
+  };
+
+  forrige.addEventListener("click", () => gaaTil(aktivt() - 1));
+  naeste.addEventListener("click", () => gaaTil(aktivt() + 1));
+  prikker.forEach((p, n) => p.addEventListener("click", () => gaaTil(n)));
+  spor.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { e.preventDefault(); gaaTil(aktivt() + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); gaaTil(aktivt() - 1); }
+  });
+  spor.addEventListener("scroll", opdater, { passive: true });
+  window.addEventListener("resize", opdater);
+
+  forrige.hidden = naeste.hidden = prikkerBoks.hidden = false;
+  opdater();
+}

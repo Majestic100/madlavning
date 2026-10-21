@@ -63,6 +63,10 @@ const opskrifter = defineCollection({
         alt: z.string().min(5), // build fejler uden alt-tekst (spec §10)
         credit: z.string().nullable().default(null),
       }),
+      /** Ekstra billeder, der vises i et galleri øverst på opskriften. Hovedbilledet (image) står altid først. */
+      ekstraBilleder: z
+        .array(z.object({ src: image(), alt: z.string().min(5) }))
+        .default([]),
       video: z.string().regex(/^[A-Za-z0-9_-]{11}$/, "video skal være et YouTube-ID på 11 tegn").nullable().default(null),
       instagram: z.string().url().nullable().default(null),
 
