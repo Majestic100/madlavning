@@ -6,7 +6,7 @@ publishedAt: 2026-10-19
 author: merve
 image:
   src: ../../assets/opskrifter/hvidlogspizza.jpg
-  alt: "Hvidløgspizza med confiteret hvidløg, parmesan og mozzarella"
+  alt: "Hvidløgspizza med confiteret hvidløg og frisk timian på et rundt træbræt"
 prepTime: 30
 cookTime: 70
 waitTime: 3005
