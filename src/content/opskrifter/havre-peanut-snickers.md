@@ -16,7 +16,6 @@ cookTime: 0
 waitTime: 60
 servings: 20
 servingsUnit: "stk"
-difficulty: nem
 category: snacks
 diet: [vegetarisk]
 season: []

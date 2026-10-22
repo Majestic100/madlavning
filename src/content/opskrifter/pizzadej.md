@@ -12,7 +12,6 @@ cookTime: 0
 waitTime: 3005
 servings: 6
 servingsUnit: "pizzaer"
-difficulty: mellem
 category: pizza
 diet: [vegetarisk]
 season: []

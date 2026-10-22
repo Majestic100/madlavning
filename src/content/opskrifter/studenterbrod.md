@@ -12,7 +12,6 @@ cookTime: 11
 waitTime: 90
 servings: 16
 servingsUnit: "stykker"
-difficulty: mellem
 category: kager
 diet: [vegetarisk]
 season: []

@@ -13,7 +13,6 @@ cookTime: 25
 waitTime: 60
 servings: 12
 servingsUnit: "stk"
-difficulty: mellem
 category: kager
 subcategory: cookies
 diet: [vegetarisk]

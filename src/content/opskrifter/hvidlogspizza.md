@@ -13,7 +13,6 @@ waitTime: 3005
 servings: 6
 servingsUnit: "pizzaer"
 scalable: false
-difficulty: mellem
 category: pizza
 diet: [vegetarisk]
 season: []

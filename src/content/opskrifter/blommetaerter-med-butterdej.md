@@ -13,7 +13,6 @@ cookTime: 17
 waitTime: 0
 servings: 6
 servingsUnit: "stk"
-difficulty: nem
 category: desserter
 subcategory: frugtdesserter
 diet: [vegetarisk]

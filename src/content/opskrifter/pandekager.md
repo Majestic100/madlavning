@@ -12,7 +12,6 @@ cookTime: 30
 waitTime: 0
 servings: 18
 servingsUnit: "stk"
-difficulty: nem
 category: desserter
 subcategory: pandekager
 diet: [vegetarisk]

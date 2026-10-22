@@ -12,7 +12,6 @@ cookTime: 12
 waitTime: 90
 servings: 16
 servingsUnit: "stk"
-difficulty: mellem
 category: bagvaerk
 subcategory: brioche
 diet: [vegetarisk]

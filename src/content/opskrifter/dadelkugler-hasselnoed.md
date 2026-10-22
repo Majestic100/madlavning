@@ -13,7 +13,6 @@ cookTime: 10
 waitTime: 0
 servings: 15
 servingsUnit: "stk"
-difficulty: nem
 category: snacks
 diet: [vegansk, glutenfri]
 season: []

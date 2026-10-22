@@ -13,7 +13,6 @@ cookTime: 15
 waitTime: 120
 servings: 1
 servingsUnit: "glas à ca. 250 ml"
-difficulty: nem
 category: desserter
 diet: [vegetarisk, glutenfri]
 season: [foraar]

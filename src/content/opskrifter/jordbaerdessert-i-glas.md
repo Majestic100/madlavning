@@ -13,7 +13,6 @@ cookTime: 0
 waitTime: 0
 servings: 4
 servingsUnit: "glas"
-difficulty: nem
 category: desserter
 subcategory: frugtdesserter
 diet: [vegetarisk]

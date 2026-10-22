@@ -16,7 +16,6 @@ cookTime: 15
 waitTime: 240
 servings: 9
 servingsUnit: "portioner"
-difficulty: mellem
 category: desserter
 subcategory: tiramisu
 diet: [vegetarisk]

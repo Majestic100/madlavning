@@ -12,7 +12,6 @@ cookTime: 30
 waitTime: 60
 servings: 6
 servingsUnit: "personer"
-difficulty: nem
 category: desserter
 subcategory: frugtdesserter
 diet: [vegetarisk]

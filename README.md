@@ -61,7 +61,6 @@ cookTime: 35           # minutter i ovn/på blus
 waitTime: 0            # hæve-/hvile-/køletid i minutter
 servings: 12
 servingsUnit: "stykker"
-difficulty: nem        # nem | mellem | avanceret
 category: kager        # bagvaerk | desserter | kager | snacks | pizza
 subcategory: cookies   # valgfri, se UNDERKATEGORIER i src/lib/kategorier.ts (fx brioche, surdej, pandekager)
 diet: []               # vegetarisk | vegansk | glutenfri
@@ -117,7 +116,7 @@ feed hos [Behold](https://behold.so), når siden bygges (`src/lib/instagram.ts`)
 De 21 opskrifter er hentet fra den gamle Webnode-side med tekst, ingredienser, trin og
 originalbilleder. Merves egne tekster er bevaret ordret, og kun åbenlyse tastefejl er rettet.
 
-- **Udledte felter:** Den gamle side havde ikke tider, portioner, sværhedsgrad, kategori eller
+- **Udledte felter:** Den gamle side havde ikke tider, portioner, kategori eller
   nøgleord. De er udledt af opskrifternes egen tekst, fx "Lad den hæve i 1 time". Hvor teksten
   ikke siger det, er det et skøn. Det gælder portioner for kanelsneglecookies, æblekage,
   granola, studenterbrød og cookie cups, samt tiden for surdejsbrødet. Ret dem i
@@ -136,7 +135,7 @@ Hver fil har et `instagram:`-link til det oprindelige opslag.
 
 - **Billeder:** Midlertidigt er reel-coverbilledet brugt (lav opløsning og ofte med tekst
   ovenpå). Skift dem ud med rigtige fotos i `src/assets/opskrifter/` med samme filnavn.
-- **Udledte felter:** Tider, sværhedsgrad, sæson og anledning er skøn ud fra opskriftens
+- **Udledte felter:** Tider, sæson og anledning er skøn ud fra opskriftens
   tekst. Portioner står kun i opslaget for nogle af dem. Ret i frontmatter.
 - **Intro-tekster** er Merves caption-tekst, kortet ned og renset for emojis og
   "skriv i kommentarfeltet"-opfordringer.

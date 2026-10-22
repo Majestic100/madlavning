@@ -13,7 +13,6 @@ cookTime: 40
 waitTime: 720
 servings: 1
 servingsUnit: "mellemstort brød"
-difficulty: mellem
 category: bagvaerk
 subcategory: surdej
 diet: [vegansk]
