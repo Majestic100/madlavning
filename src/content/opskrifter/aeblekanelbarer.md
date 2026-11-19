@@ -10,8 +10,8 @@ image:
 prepTime: 25
 cookTime: 50
 waitTime: 30
-servings: 16
-servingsUnit: "stk"
+servings: 9
+servingsUnit: "store barer"
 category: kager
 diet: [vegetarisk]
 season: [efteraar]
@@ -52,6 +52,8 @@ instructions:
       - text: "Når bunden er bagt og afkølet let, toppes den med æblefyld og crumble. Drys til sidst med mandelflager."
       - text: "Bag igen ved 175 grader varmluft i ca. 30 minutter eller til crumblen har fået let farve."
       - text: "Afkøl kagen let og server med is, eller afkøl den helt og skær den i barer, som kan nydes kolde."
+tips:
+  - "Kagen giver 9 store eller 12 små barer."
 related: [aeblekage, studenterbrod, smores-taerte]
 ---
 
