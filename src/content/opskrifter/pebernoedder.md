@@ -7,11 +7,11 @@ author: merve
 image:
   src: ../../assets/opskrifter/pebernoedder.jpg
   alt: "En håndfuld hjemmebagte pebernødder over en juleserviet"
-prepTime: 30
-cookTime: 10
-waitTime: 0
-servings: 1
-servingsUnit: "portion"
+prepTime: 40
+cookTime: 30
+waitTime: 30
+servings: 3
+servingsUnit: "bageplader"
 category: kager
 subcategory: cookies
 diet: [vegetarisk]
@@ -35,10 +35,9 @@ ingredients:
 instructions:
   - group: null
     steps:
-      - text: "Bland mel, sukker, bagepulver og krydderier."
-      - text: "Tilsæt smør og æg, og saml det hurtigt til en dej."
-      - text: "Rul dejen til lange pølser, ca. 1 cm tykke, og skær dem i små stykker på ca. 1 cm."
-      - text: "Læg dem på en bageplade med bagepapir, og bag dem ved 200 grader almindelig ovn i ca. 8-10 minutter, til de er gyldne."
-      - text: "Lad dem køle helt af på pladen, så de bliver sprøde."
+      - text: "Bland alle ingredienser sammen til en homogen masse, og sæt den evt. på køl i en halv times tid."
+      - text: "Del dejen i 6 stykker, og rul hver portion til en lang pølse på 1 cm tykkelse."
+      - text: "Hak den ud i små stykker på 1 cm bredde. Tril til kugler og placer på en bageplade med bagepapir. Der skal være lidt afstand imellem kuglerne."
+      - text: "Bag ved 180 grader alm. ovn i ca. 10 minutter eller til de er let gyldne. Afkøl helt."
 related: [kanelcookies, havregrynskugler, cookies]
 ---
